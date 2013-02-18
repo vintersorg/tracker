@@ -19,9 +19,19 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.yii-mail.YiiMailMessage',
+		//'application.modules.rights.*',
+		//'application.modules.rights.components.*',		
 	),
 
 	'modules'=>array(
+	/*
+		'rights'=>array(
+	        'userIdColumn'=>'id',
+			'enableBizRule'=>true,
+	        'install' => true,//add this
+	        
+	    ),
+	 */
 		// uncomment the following to enable the Gii tool
 		
 		'gii'=>array(
@@ -36,11 +46,17 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
+			//'class'=> 'RWebUser',
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin'=>true,		
+			//'loginUrl' => array('/user/login'),
+			
 		),
-		// uncomment the following to enable URLs in path-format
-		
+		/*
+		'authManager'=>array(
+			'class'=>'RDbAuthManager', // Provides support authorization item sorting. ......
+		),
+		 */
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,

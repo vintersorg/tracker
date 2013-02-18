@@ -10025,3 +10025,1025 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/02/18 06:01:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:02:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(35): PassportController->loadModel(NULL)
+#1 /var/www/tracker/framework/web/actions/CInlineAction.php(49): PassportController->actionIndex()
+#2 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('index')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/index')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/passport/index
+HTTP_REFERER=http://localhost/
+---
+2013/02/18 06:02:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:02:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:02:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(35): PassportController->loadModel(NULL)
+#1 /var/www/tracker/framework/web/actions/CInlineAction.php(49): PassportController->actionIndex()
+#2 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('index')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/index')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/passport/index
+HTTP_REFERER=http://localhost/site/index
+---
+2013/02/18 06:02:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:02:39 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /var/www/tracker/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/passport/view
+---
+2013/02/18 06:02:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:02:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:03:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "view36".' in /var/www/tracker/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(270): CController->missingAction('view36')
+#1 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view36')
+#2 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view36')
+#3 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/tracker/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/passport/view36
+---
+2013/02/18 06:03:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:04:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(90): PassportController->loadModel('36')
+#1 [internal function]: PassportController->actionView('36')
+#2 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PassportController), Array)
+#3 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PassportController), Object(ReflectionMethod), Array)
+#4 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view')
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/passport/view/36
+---
+2013/02/18 06:04:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:07:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(90): PassportController->loadModel('36')
+#1 [internal function]: PassportController->actionView('36')
+#2 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PassportController), Array)
+#3 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PassportController), Object(ReflectionMethod), Array)
+#4 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view')
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/passport/view/36
+---
+2013/02/18 06:15:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(90): PassportController->loadModel('36')
+#1 [internal function]: PassportController->actionView('36')
+#2 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PassportController), Array)
+#3 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PassportController), Object(ReflectionMethod), Array)
+#4 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view')
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/passport/view/36
+---
+2013/02/18 06:15:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/tracker/protected/controllers/PassportController.php:166
+Stack trace:
+#0 /var/www/tracker/protected/controllers/PassportController.php(90): PassportController->loadModel('36')
+#1 [internal function]: PassportController->actionView('36')
+#2 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PassportController), Array)
+#3 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PassportController), Object(ReflectionMethod), Array)
+#4 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/tracker/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('view')
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('passport/view')
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/passport/view/36
+---
+2013/02/18 06:15:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:15:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:15:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:15:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:15:49 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:15:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:01 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:01 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:02 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:02 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:02 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:18:52 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:18:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:21:23 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userNameColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userNameColumn', 'name')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:21:23 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userNameColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userNameColumn', 'name')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:21:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:22:15 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userNameColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userNameColumn', 'name')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:15 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userNameColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userNameColumn', 'name')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:22:17 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userNameColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userNameColumn', 'name')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:22:35 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.flashSuccessKey".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('flashSuccessKey', 'success')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:22:39 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.flashErrorKey".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('flashErrorKey', 'error')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:22:43 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "GiiModule.userIdColumn".' in /var/www/tracker/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(513): CComponent->__set('userIdColumn', 'user_id')
+#1 /var/www/tracker/framework/base/CModule.php(86): CModule->configure(Array)
+#2 /var/www/tracker/framework/YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#3 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('system.gii.GiiM...', 'rights', NULL, Array)
+#4 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#5 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#6 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#7 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/tracker/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:22:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:23:00 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:23:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:24:24 [error] [exception.CException] exception 'CException' with message 'Application authorization manager must extend the RDbAuthManager class.' in /var/www/tracker/protected/modules/rights/components/RInstaller.php:57
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(387): RInstaller->init()
+#1 /var/www/tracker/protected/modules/rights/RightsModule.php(200): CModule->getComponent('installer')
+#2 /var/www/tracker/protected/modules/rights/controllers/InstallController.php(29): RightsModule->getInstaller()
+#3 /var/www/tracker/framework/web/CWebApplication.php(281): InstallController->init()
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:24:24 [error] [exception.CException] exception 'CException' with message 'Application authorization manager must extend the RDbAuthManager class.' in /var/www/tracker/protected/modules/rights/components/RInstaller.php:57
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(387): RInstaller->init()
+#1 /var/www/tracker/protected/modules/rights/RightsModule.php(200): CModule->getComponent('installer')
+#2 /var/www/tracker/protected/modules/rights/controllers/InstallController.php(29): RightsModule->getInstaller()
+#3 /var/www/tracker/framework/web/CWebApplication.php(281): InstallController->init()
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:24:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:24:51 [error] [exception.CException] exception 'CException' with message 'Application authorization manager must extend the RDbAuthManager class.' in /var/www/tracker/protected/modules/rights/components/RInstaller.php:57
+Stack trace:
+#0 /var/www/tracker/framework/base/CModule.php(387): RInstaller->init()
+#1 /var/www/tracker/protected/modules/rights/RightsModule.php(200): CModule->getComponent('installer')
+#2 /var/www/tracker/protected/modules/rights/controllers/InstallController.php(29): RightsModule->getInstaller()
+#3 /var/www/tracker/framework/web/CWebApplication.php(281): InstallController->init()
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:24:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:29:57 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchColumn(): SQLSTATE[42P01]: Undefined table: 7 ОШИБКА:  отношение "authitem" не существует
+LINE 1: SELECT COUNT(*) FROM AuthItem
+                             ^. Выполнявшийся SQL-запрос: SELECT COUNT(*) FROM AuthItem.
+in /var/www/tracker/protected/modules/rights/components/RInstaller.php (180)
+in /var/www/tracker/protected/modules/rights/controllers/InstallController.php (43)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:29:57 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:29:57 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:29:57 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:29:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:36:48 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:36:48 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:36:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:36:52 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:36:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:39:27 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:39:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:40:22 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/layouts/main.php(34): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#8 /var/www/tracker/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 /var/www/tracker/framework/web/CBaseController.php(206): CContentDecorator->run()
+#10 /var/www/tracker/framework/web/CBaseController.php(300): SiteController->endWidget()
+#11 /var/www/tracker/protected/views/layouts/column1.php(6): SiteController->endContent()
+#12 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#13 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#14 /var/www/tracker/framework/web/CController.php(784): SiteController->renderFile()
+#15 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#16 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#18 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#19 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#20 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#21 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#22 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#23 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/layouts/main.php (34)
+in /var/www/tracker/protected/views/layouts/column1.php (6)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+2013/02/18 06:40:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:40:59 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:40:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:42:49 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:42:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:42:49 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): import()
+#1 /var/www/tracker/framework/base/CModule.php(386): createComponent()
+#2 /var/www/tracker/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/tracker/protected/views/site/index.php(11): CWebApplication->__get()
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#5 /var/www/tracker/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#6 /var/www/tracker/framework/web/CController.php(869): SiteController->renderFile()
+#7 /var/www/tracker/framework/web/CController.php(782): SiteController->renderPartial()
+#8 /var/www/tracker/protected/controllers/SiteController.php(32): SiteController->render()
+#9 /var/www/tracker/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/tracker/framework/web/CController.php(286): SiteController->runAction()
+#12 /var/www/tracker/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/index
+in /var/www/tracker/protected/views/site/index.php (11)
+in /var/www/tracker/protected/controllers/SiteController.php (32)
+in /var/www/tracker/index.php (13)
+2013/02/18 06:42:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:43:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:43:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:43:31 [error] [exception.CException] exception 'CException' with message 'Псевдоним "rights.RightsModule" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/YiiBase.php(196): YiiBase::import('rights.RightsMo...', true)
+#1 /var/www/tracker/framework/base/CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#2 /var/www/tracker/framework/web/CWebApplication.php(337): CModule->getModule('rights')
+#3 /var/www/tracker/framework/web/CWebApplication.php(276): CWebApplication->createController('Rights')
+#4 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#5 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/tracker/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:43:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:44:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "Rights".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('Rights')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Rights
+---
+2013/02/18 06:44:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:45:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:47:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:47:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:47:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/18 06:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
