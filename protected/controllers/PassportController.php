@@ -166,5 +166,10 @@ class PassportController extends Controller {
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-	
+	public function filters()
+	{
+		return array(
+			'accessControl',
+		);
+	}	
 }
