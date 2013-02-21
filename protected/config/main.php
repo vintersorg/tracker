@@ -52,11 +52,11 @@ return array(
 			//'loginUrl' => array('/user/login'),
 			
 		),
-		/*
 		'authManager'=>array(
-			'class'=>'RDbAuthManager', // Provides support authorization item sorting. ......
-		),
-		 */
+            'class'=>'CDbAuthManager',
+            'connectionID'=>'db',
+            'assignmentTable'=>'{{users}}',
+        ),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
