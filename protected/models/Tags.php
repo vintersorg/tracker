@@ -4,7 +4,7 @@
  * This is the model class for table "{{tags}}".
  *
  * The followings are the available columns in table '{{tags}}':
- * @property integer $tag_id
+ * @property integer $id
  * @property string $created_dt
  * @property integer $created_by
  * @property integer $approve_id
@@ -43,12 +43,12 @@ class Tags extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('approve_id, created_by, caption', 'required'),
+			array('approve_id, created_by, caption, category_id', 'required'),
 			//array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			array('caption', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('tag_id, created_dt, created_by, approve_id, caption', 'safe', 'on'=>'search'),
+			array('id, created_dt, created_by, approve_id, caption', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,9 +60,10 @@ class Tags extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'Users', 'created_by'),
+			'author' => array(self::BELONGS_TO, 'Users', 'created_by'),
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
-			'tTorrents' => array(self::MANY_MANY, 'Torrents', '{{torrent_tags}}(tag_id, torrent_id)'),
+			'category' => array(self::BELONGS_TO, 'Tagcategories', 'category_id'),
+			'tTorrents' => array(self::MANY_MANY, 'Torrents', '{{torrent_tags}}(id, torrent_id)'),
 		);
 	}
 
@@ -72,11 +73,14 @@ class Tags extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'tag_id' => 'Тэг',
+			'id' => 'Тэг',
 			'created_dt' => 'Дата создания',
 			'created_by' => 'Автор',
 			'approve_id' => 'Approve',
 			'caption' => 'Название',
+			'category_id' => 'Карегория',
+			'category' => 'Карегория',
+			'author' => 'Автор',
 		);
 	}
 
@@ -91,7 +95,7 @@ class Tags extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('tag_id',$this->tag_id);
+		$criteria->compare('id',$this->id);
 		$criteria->compare('created_dt',$this->created_dt,true);
 		$criteria->compare('created_by',$this->created_by);
 		$criteria->compare('approve_id',$this->approve_id);
@@ -100,5 +104,41 @@ class Tags extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	public function getTagByCategory($cat)
+	{
+		$tags = $this->findAllByAttributes(array(), 'category_id = :category_id', array(':category_id' => $cat));
+		return $tags;
+	}
+	public function getCat($catName='')
+	{
+		switch ($catName)
+		{
+			case 'year': 		$result = $this->getTagByCategory(5);	break;
+			case 'nameOrigin':	$result = $this->getTagByCategory(3);	break;
+			case 'nameLocal':	$result = $this->getTagByCategory(4);	break;
+			default:			$result = array();						break;
+		}
+		return $result;
+	}
+	public function makeTag($value='', $category_id = 1)
+	{
+		$tag = $this->findByAttributes(array(), 
+			'caption = :caption', 
+			array(':caption' => $value
+		));
+		
+		if(!isset($tag->id)){
+			
+			$this->caption		= $value;
+			$this->created_by	= Yii::app()->user->id;
+			$this->category_id = $category_id;
+			$this->approve_id  = 1;
+			 
+			if($this->save())
+				return $this->id;
+		}else{
+			return $tag->id;
+		}
 	}
 }

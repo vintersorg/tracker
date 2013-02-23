@@ -32,5 +32,23 @@ class RestoreForm extends CFormModel
 			'email'=>'Email',
 		);
 	}
-
+	public function checkEmail(){
+		
+		$model = new Users;
+		$user = $model->findByAttributes(array(), 'email = :email', array(':email' => $this->email));
+		
+		if(empty($user->email))				
+			return false;
+		else
+			return true;
+	}
+	public function sendEmail()
+	{
+		$this->message = new YiiMailMessage;
+		$this->message->setBody('Message content here with HTML', 'text/html');
+		$this->message->subject = 'My Subject';
+		$this->message->addTo('vintersorg61@gmail.com');
+		$this->message->from = Yii::app()->params['adminEmail'];
+		Yii::app()->mail->send($this->message);
+	}
 }

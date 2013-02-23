@@ -1,6 +1,6 @@
 <?php
 
-class TorrentFirstForm extends CFormModel
+class TorrentEditForm extends CFormModel
 {
 	public $nameLocal;
 	public $nameOrigin;

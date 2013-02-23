@@ -11,8 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>	
-	<p class="note">Введите название и год выпуска чтобы проверить наличие такой раздачи.</p>
+	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -65,7 +64,6 @@
 		<?php echo CHtml::submitButton('Проверить'); ?>
 	</div>
 
-	<?php if(!empty($torrents)) echo DrowList::torrents($torrents); ?>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

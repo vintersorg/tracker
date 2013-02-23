@@ -56,6 +56,7 @@ return array(
             'class'=>'CDbAuthManager',
             'connectionID'=>'db',
             'assignmentTable'=>'{{users}}',
+            //'authItems'=>'id',
         ),
 		'urlManager'=>array(
 			'urlFormat'=>'path',

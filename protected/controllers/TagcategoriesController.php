@@ -1,6 +1,6 @@
 <?php
 
-class TagsController extends Controller
+class TagcategoriesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,12 +32,12 @@ class TagsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','admin','update','delete'),
+				'actions'=>array('create','update','admin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin')
+				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -62,14 +62,14 @@ class TagsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Tags;
+		$model=new Tagcategories;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Tags']))
+		if(isset($_POST['Tagcategories']))
 		{
-			$model->attributes=$_POST['Tags'];
+			$model->attributes=$_POST['Tagcategories'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,9 +91,9 @@ class TagsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Tags']))
+		if(isset($_POST['Tagcategories']))
 		{
-			$model->attributes=$_POST['Tags'];
+			$model->attributes=$_POST['Tagcategories'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -122,7 +122,7 @@ class TagsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Tags');
+		$dataProvider=new CActiveDataProvider('Tagcategories');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class TagsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Tags('search');
+		$model=new Tagcategories('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Tags']))
-			$model->attributes=$_GET['Tags'];
+		if(isset($_GET['Tagcategories']))
+			$model->attributes=$_GET['Tagcategories'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class TagsController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Tags the loaded model
+	 * @return Tagcategories the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Tags::model()->findByPk($id);
+		$model=Tagcategories::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class TagsController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Tags $model the model to be validated
+	 * @param Tagcategories $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='tags-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tagcategories-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

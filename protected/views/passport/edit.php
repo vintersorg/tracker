@@ -24,7 +24,7 @@ $this->menu=array(
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	<?php echo Yii::app()->flashDesigner->flashSummary();?>
+	<?php //echo Yii::app()->flashDesigner->flashSummary();?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>

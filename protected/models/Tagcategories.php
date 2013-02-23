@@ -1,26 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "{{torrents}}".
+ * This is the model class for table "{{tag_categories}}".
  *
- * The followings are the available columns in table '{{torrents}}':
+ * The followings are the available columns in table '{{tag_categories}}':
  * @property integer $id
- * @property string $created_dt
- * @property integer $created_by
+ * @property string $caption
+ * @property string $description
  * @property integer $approve_id
  *
  * The followings are the available model relations:
- * @property Users $createdBy
+ * @property Tags[] $tags
  * @property Approves $approve
- * @property TorrentGroups[] $torrentGroups
- * @property Tags[] $tTags
  */
-class Torrents extends CActiveRecord
+class Tagcategories extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Torrents the static model class
+	 * @return Tagcategories the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +30,7 @@ class Torrents extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{torrents}}';
+		return '{{tag_categories}}';
 	}
 
 	/**
@@ -43,11 +41,13 @@ class Torrents extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by, approve_id', 'required'),
-			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
+			array('caption, approve_id', 'required'),
+			array('approve_id', 'numerical', 'integerOnly'=>true),
+			array('caption', 'length', 'max'=>100),
+			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_dt, created_by, approve_id', 'safe', 'on'=>'search'),
+			array('id, caption, description, approve_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,10 +59,8 @@ class Torrents extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'createdBy' => array(self::BELONGS_TO, 'Users', 'created_by'),
+			'tags' => array(self::HAS_MANY, 'Tags', 'category_id'),
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
-			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'torrent_id'),
-			'tTags' => array(self::MANY_MANY, 'Tags', '{{torrent_tags}}(torrent_id, tag_id)'),
 		);
 	}
 
@@ -73,8 +71,8 @@ class Torrents extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'created_dt' => 'Created Dt',
-			'created_by' => 'Created By',
+			'caption' => 'Caption',
+			'description' => 'Description',
 			'approve_id' => 'Approve',
 		);
 	}
@@ -91,18 +89,12 @@ class Torrents extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('created_dt',$this->created_dt,true);
-		$criteria->compare('created_by',$this->created_by);
+		$criteria->compare('caption',$this->caption,true);
+		$criteria->compare('description',$this->description,true);
 		$criteria->compare('approve_id',$this->approve_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-	public function getTorrentByTags($tags = array())
-	{
-		$link = new Torrenttags;
-		$tors = $link->findAllByAttributes(array('tag_id' => $tags));
-		return $tors;
 	}
 }

@@ -41,21 +41,13 @@ class PassportController extends Controller {
 		
 		if(isset($_POST['RestoreForm']))
 		{
-			$record = new Users;
-			
-			$data = $record->findByAttributes(array('email' => $_POST['RestoreForm']['email']));
-	
-			if(empty($data->email)){				
-				$model->addError('email', 'Введен не корректный Email');
+			$model->attributes=$_POST['RestoreForm'];
+			if($model->validate() && $model->checkEmail())
+			{				
+				Yii::app()->user->setFlash('success', "Сообщение отправлено!");
 			}else{
-				$this->message = new YiiMailMessage;
-				$this->message->setBody('Message content here with HTML', 'text/html');
-				$this->message->subject = 'My Subject';
-				$this->message->addTo('vintersorg61@gmail.com');
-				$this->message->from = Yii::app()->params['adminEmail'];
-				Yii::app()->mail->send($this->message);
+				$model->addError('email', 'Введен не корректный Email');			
 				
-				Yii::app()->user->setFlash('success', "Сообщение отправлено!"); 
 			}	
 		}
 		$this->render('restore', array(
