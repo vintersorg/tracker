@@ -31,6 +31,11 @@
 		<?php echo $form->textField($model,'approve_id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'description'); ?>
+		<?php echo $form->textArea($model,'description'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

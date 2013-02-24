@@ -2,23 +2,18 @@
 
 class TorrentEditForm extends CFormModel
 {
-	public $nameLocal;
-	public $nameOrigin;
-	public $year;
-	public $isNew;
-	/*
-	public $genre;
+	
 	public $country;
 	public $producer;
-	*/
+	public $actors;
+	public $description;
+	public $torrent_id;
 
 	public function rules()
 	{
 		return array(
 			// username and password are required
-			array('nameLocal, nameOrigin, year', 'required'),
-			array('year', 'numerical', 'integerOnly'=>true, 'min'=>1800),
-			array('isNew', 'boolean'),
+			array('country, producer, actors, description', 'required'),
 		);
 	}
 
@@ -28,36 +23,62 @@ class TorrentEditForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'nameLocal' => 'Название',
-			'nameOrigin' => 'Оригинальное название',
-			'year' => 'Год выпуска',
-			'isNew'=>'Создать новую раздачу',
+			'country'		=> 'Страна',
+			'producer'		=> 'Режисер',
+			'actors'		=> 'Актеры',
+			'description'	=> 'Описание',
 		);
-	}
-	
-	public function searchTorrentGroup()
-	{
-		$tag_id = 1;
-		$torrent = Torrenttags::model()->findAllByAttributes(array(), 
-			'tag_id = :tag_id', 
-			array(':tag_id' => $tag_id
-		));
 	}
 	
 	public function searchTags()
 	{
 		$tag_ids = array();
-		$model = new Tags;
 		$array = array(
-			$this->nameLocal => 4,
-			$this->nameOrigin => 3,
-			$this->year => 5,
+			$this->country => Tagcategories::getIDByAlias('country'),
+			$this->producer => Tagcategories::getIDByAlias('producer'),
+			$this->actors => Tagcategories::getIDByAlias('actor'),
 		);
 		foreach($array as $value => $category_id)
 		{
-			$tag_ids[] = $model->makeTag($value, $category_id);			
+			//через $model->isNewRecord=true и $model->id=false пытается создать запись c id=0. почему?
+			$model = new Tags;
+			$tag_ids[] = $model->makeTag($value, $category_id);
 		}
 		return $tag_ids;
 	}
-	
+	public function saveTorrent()
+	{
+		
+		$tag_ids = $this->searchTags();
+		if(!empty($tag_ids))
+			foreach($tag_ids as $tag_id)
+			{
+				$link = new Torrenttags;
+				$link->torrent_id = $this->torrent_id;
+				$link->tag_id = $tag_id;
+				$link->created_by = Yii::app()->user->id;
+				
+				if(!$link->save() && !($link->getError('exists')))
+					throw new CHttpException(500, "Unable to save torrent tags.");				
+			}
+		if(!empty($this->description)){				
+			$record = Torrents::model()->findByPk($this->torrent_id);
+			$record->description = $this->description;
+			if(!$record->save())
+				throw new CHttpException(500, "Unable to save torrent description");
+		}
+	}
+	public function createTorrent()
+	{
+		$torsModel		= new Torrents;
+		$tag_ids = $this->searchTags();				
+		$torrents = $torsModel->getTorrentByTags($tag_ids);
+		if(empty($torrents))
+		{
+			$torsModel->created_by = Yii::app()->user->id;
+			$torsModel->approve_id = 1;
+			if($torsModel->save())
+				$this->redirect(array('edit','id'=>$torsModel->id));
+		}
+	}
 }

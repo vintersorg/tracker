@@ -25,5 +25,6 @@ $this->menu=array(
 		'created_dt',
 		'created_by',
 		'approve_id',
+		'description',
 	),
 )); ?>

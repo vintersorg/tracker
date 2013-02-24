@@ -30,6 +30,11 @@
 		<?php echo $form->label($model,'approve_id'); ?>
 		<?php echo $form->textField($model,'approve_id'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'alias'); ?>
+		<?php echo $form->textField($model,'alias'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

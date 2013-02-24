@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 
 <h1>Название</h1>
 
-<?php $nameLocal	= CHtml::listData($nameLocal, 'id', 'caption');?>
-<?php $nameOrigin	= CHtml::listData($nameOrigin, 'id', 'caption');?>
-<?php $year			= CHtml::listData($year, 'id', 'caption');?>
+<?php $country		= CHtml::listData($country, 'id', 'caption');?>
+<?php $actors		= CHtml::listData($actors, 'id', 'caption');?>
+<?php $producer		= CHtml::listData($producer, 'id', 'caption');?>
 
 <?php echo $this->renderPartial('_edit', array(
 	'model'=>$model,
-	'nameLocal' => $nameLocal,
-	'nameOrigin' => $nameOrigin,
-	'year' => $year,
+	'country'=> $country,
+	'actors'=> $actors,
+	'producer'=>$producer,
 )); ?>

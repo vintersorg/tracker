@@ -20,6 +20,9 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('approve_id')); ?>:</b>
 	<?php echo CHtml::encode($data->approve_id); ?>
 	<br />
-
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('alias')); ?>:</b>
+	<?php echo CHtml::encode($data->alias); ?>
+	<br />
 
 </div>

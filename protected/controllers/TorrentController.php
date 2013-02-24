@@ -32,7 +32,7 @@ class TorrentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'edit'),
+				'actions'=>array('create','update', 'edit', 'admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -57,22 +57,14 @@ class TorrentController extends Controller
 		$formModel		= new TorrentFirstForm;
 		$tagsModel		= new Tags;
 		$torsModel		= new Torrents;
-		$torrents		= new stdClass;
+		$torrents		= ''; //в представлении будет проверка на пустоту
 		
 		if(isset($_POST['TorrentFirstForm']))
 		{
 			$formModel->attributes=$_POST['TorrentFirstForm'];
 			if($formModel->validate())
 			{
-				$tag_ids = $formModel->searchTags();
-				$torrents = $torsModel->getTorrentByTags($tag_ids);
-				if(empty($torrents))
-				{
-					$torsModel->created_by = Yii::app()->user->id;
-					$torsModel->approve_id = 1;
-					if($torsModel->save())
-						$this->redirect(array('edit','id'=>$torsModel->id));
-				}	 
+				$formModel->createTorrent();
 			}			
 		}
 	
@@ -87,29 +79,27 @@ class TorrentController extends Controller
 	public function actionEdit($id)
 	{
 		$formModel		= new TorrentEditForm;
+		$formModel->torrent_id	= $id;
 		$tagsModel		= new Tags;
-		$torsModel		= new Torrents;
+		
+		if(isset($_POST['TorrentEditForm']))
+		{
+			$formModel->attributes=$_POST['TorrentEditForm'];
+			if($formModel->validate())
+			{
+
+				$formModel->saveTorrent();
+				$this->redirect(array('special','id'=>$id));
+			}
+		}
+		
 		$this->render('edit',array(
 			'model'			=> $formModel,
-			'nameLocal'		=> $tagsModel->getCat('nameLocal'),
-			'nameOrigin'	=> $tagsModel->getCat('nameOrigin'),
-			'year'			=> $tagsModel->getCat('year'),
-			'torrents'		=> $torsModel,
+			'country'		=> $tagsModel->getCat('country'),
+			'producer'		=> $tagsModel->getCat('producer'),
+			'actors'		=> $tagsModel->getCat('actor'),
 		));
 	}
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return Torrents the loaded model
-	 * @throws CHttpException
-	 */
-	public function loadModel($id)
-	{
-		$model=Torrents::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
+
 
 }

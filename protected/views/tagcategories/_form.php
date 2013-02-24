@@ -32,7 +32,13 @@
 		<?php echo $form->textField($model,'approve_id'); ?>
 		<?php echo $form->error($model,'approve_id'); ?>
 	</div>
-
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'alias'); ?>
+		<?php echo $form->textField($model,'alias'); ?>
+		<?php echo $form->error($model,'alias'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

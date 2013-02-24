@@ -37,7 +37,7 @@ class Torrenttags extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('torrent_id, tag_id, created_dt, created_by', 'required'),
+			array('torrent_id, tag_id, created_by', 'required'),
 			array('torrent_id, tag_id, created_by', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -88,5 +88,20 @@ class Torrenttags extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$record = $this->findByAttributes(array(),
+				'tag_id = :tag_id and torrent_id = :torrent_id'
+				, array(':tag_id' => $this->tag_id, ':torrent_id' => $this->torrent_id));
+			if(isset($record->tag_id)){
+				$this->addError('exists', 'Tag is attached to the torrent');
+				return false;
+			}
+		}
+		return parent::beforeSave();
+		
 	}
 }

@@ -33,6 +33,12 @@
 		<?php echo $form->error($model,'approve_id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'description'); ?>
+		<?php echo $form->textArea($model,'description'); ?>
+		<?php echo $form->error($model,'description'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

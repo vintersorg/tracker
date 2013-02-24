@@ -25,5 +25,6 @@ $this->menu=array(
 		'caption',
 		'description',
 		'approve_id',
+		'alias',
 	),
 )); ?>

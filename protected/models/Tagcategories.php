@@ -41,13 +41,13 @@ class Tagcategories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('caption, approve_id', 'required'),
+			array('caption, approve_id, alias', 'required'),
 			array('approve_id', 'numerical', 'integerOnly'=>true),
 			array('caption', 'length', 'max'=>100),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, caption, description, approve_id', 'safe', 'on'=>'search'),
+			array('id, caption, description, approve_id, alias', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +74,7 @@ class Tagcategories extends CActiveRecord
 			'caption' => 'Caption',
 			'description' => 'Description',
 			'approve_id' => 'Approve',
+			'alias' => 'Alias'
 		);
 	}
 
@@ -92,9 +93,15 @@ class Tagcategories extends CActiveRecord
 		$criteria->compare('caption',$this->caption,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('approve_id',$this->approve_id);
+		$criteria->compare('alias',$this->alias,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	public static function getIDByAlias($value='')
+	{
+		$record = self::model()->findByAttributes(array(), 'alias = :alias', array(':alias' => $value));
+		return (isset($record->id))?$record->id:0;
 	}
 }

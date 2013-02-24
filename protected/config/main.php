@@ -75,6 +75,10 @@ return array(
 		        'username'=>'postgres',
 		        'password'=>'',
 		        'charset'=>'UTF8',
+		        // включаем профайлер
+		        'enableProfiling'=>true,
+		        // показываем значения параметров
+		        'enableParamLogging' => true,
 		),
 		/*
 		'db'=>array(
@@ -98,8 +102,13 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
+					/*
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
+					 */
+					 'class'=>'CProfileLogRoute',
+		            'levels'=>'profile',
+		            'enabled'=>true,
 				),
 				// uncomment the following to show log messages on web pages
 				/*

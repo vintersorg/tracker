@@ -47,7 +47,7 @@ class Torrents extends CActiveRecord
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_dt, created_by, approve_id', 'safe', 'on'=>'search'),
+			array('id, created_dt, created_by, approve_id, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,6 +76,7 @@ class Torrents extends CActiveRecord
 			'created_dt' => 'Created Dt',
 			'created_by' => 'Created By',
 			'approve_id' => 'Approve',
+			'description'=> 'Описание',
 		);
 	}
 
@@ -94,6 +95,7 @@ class Torrents extends CActiveRecord
 		$criteria->compare('created_dt',$this->created_dt,true);
 		$criteria->compare('created_by',$this->created_by);
 		$criteria->compare('approve_id',$this->approve_id);
+		$criteria->compare('description',$this->description);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -104,5 +106,12 @@ class Torrents extends CActiveRecord
 		$link = new Torrenttags;
 		$tors = $link->findAllByAttributes(array('tag_id' => $tags));
 		return $tors;
+	}
+	public function loadModel($id)
+	{
+		$model=self::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
 	}
 }

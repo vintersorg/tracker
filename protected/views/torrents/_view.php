@@ -21,5 +21,8 @@
 	<?php echo CHtml::encode($data->approve_id); ?>
 	<br />
 
-
+	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+	<?php echo CHtml::encode($data->description); ?>
+	<br />
+	
 </div>

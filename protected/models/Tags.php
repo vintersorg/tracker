@@ -112,19 +112,12 @@ class Tags extends CActiveRecord
 	}
 	public function getCat($catName='')
 	{
-		switch ($catName)
-		{
-			case 'year': 		$result = $this->getTagByCategory(5);	break;
-			case 'nameOrigin':	$result = $this->getTagByCategory(3);	break;
-			case 'nameLocal':	$result = $this->getTagByCategory(4);	break;
-			default:			$result = array();						break;
-		}
-		return $result;
+		return $this->getTagByCategory(Tagcategories::getIDByAlias($catName));
 	}
 	public function makeTag($value='', $category_id = 1)
 	{
 		$tag = $this->findByAttributes(array(), 
-			'caption = :caption', 
+			'lower(caption) = lower(:caption)', 
 			array(':caption' => $value
 		));
 		
@@ -132,13 +125,17 @@ class Tags extends CActiveRecord
 			
 			$this->caption		= $value;
 			$this->created_by	= Yii::app()->user->id;
-			$this->category_id = $category_id;
-			$this->approve_id  = 1;
-			 
-			if($this->save())
-				return $this->id;
+			$this->category_id	= $category_id;
+			$this->approve_id 	= 1;
+			
+			if($this->validate() && $this->save())			
+				return $this->id;			
+			else
+				throw new CHttpException(500, "Unable to save tags data");
+			
 		}else{
 			return $tag->id;
 		}
 	}
+	
 }
