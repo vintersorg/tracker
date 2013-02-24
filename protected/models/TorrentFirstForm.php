@@ -6,7 +6,7 @@ class TorrentFirstForm extends CFormModel
 	public $nameOrigin;
 	public $year;
 	public $isNew;
-
+	
 	public function rules()
 	{
 		return array(
@@ -38,6 +38,7 @@ class TorrentFirstForm extends CFormModel
 			$this->nameOrigin => Tagcategories::getIDByAlias('nameOrigin'),
 			$this->year => Tagcategories::getIDByAlias('year'),
 		);
+		
 		foreach($array as $value => $category_id)
 		{
 			//через $model->isNewRecord=true и $model->id=false пытается создать запись c id=0. почему?
@@ -45,6 +46,37 @@ class TorrentFirstForm extends CFormModel
 			$tag_ids[] = $model->makeTag($value, $category_id);
 		}
 		return $tag_ids;
+	}
+	public function createTorrent()
+	{
+		$torsModel		= new Torrents;
+
+		$tag_ids = $this->searchTags();
+
+		$torrents = $torsModel->getTorrentByTags($tag_ids);
+		if(empty($torrents))
+		{
+			$torsModel->created_by = Yii::app()->user->id;
+			$torsModel->approve_id = 1;
+			if($torsModel->save())
+			{
+				foreach($tag_ids as $tag_id)
+				{
+					$link = new Torrenttags;
+					$link->torrent_id = $torsModel->id;
+					$link->tag_id = $tag_id;
+					$link->created_by = Yii::app()->user->id;
+					
+					if(!$link->save() && !($link->getError('exists')))
+						throw new CHttpException(500, "Unable to save torrent tags.");				
+				}
+				return $torsModel->id;
+			}
+			else
+			{
+				throw new CHttpException(500, "Unable to save torrent.");
+			}
+		}
 	}
 	
 }

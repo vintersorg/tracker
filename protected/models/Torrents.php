@@ -17,6 +17,11 @@
  */
 class Torrents extends CActiveRecord
 {
+	
+	public $country;
+	public $actor;
+	public $producer;
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -62,7 +67,7 @@ class Torrents extends CActiveRecord
 			'createdBy' => array(self::BELONGS_TO, 'Users', 'created_by'),
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
 			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'torrent_id'),
-			'tTags' => array(self::MANY_MANY, 'Tags', '{{torrent_tags}}(torrent_id, tag_id)'),
+			'tags' => array(self::MANY_MANY, 'Tags', '{{torrent_tags}}(torrent_id, tag_id)'),
 		);
 	}
 
@@ -113,5 +118,33 @@ class Torrents extends CActiveRecord
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
+	}
+	/*
+	 *	Кривореализованный поиск имени тега
+	 * (кто сделае лучше - дам пряник) 
+	 * 
+	 */
+	public function getTagNameByAlias($alias = '')
+	{
+		
+		$category_id = Tagcategories::getIDByAlias($alias);
+		
+		$tagsModel = Torrenttags::model()->findAllByAttributes(array('torrent_id' => $this->id));		
+		$list = CHtml::listData($tagsModel, 'tag_id', 'torrent_id');
+		if(empty($list)) return '';
+		
+		$tag_ids = array_keys($list);
+		$record = Tags::model()->findByAttributes(array('category_id' => $category_id, 'id'=> $tag_ids));
+		
+		if(empty($record->caption)) return '';
+		
+		return $record->caption;
+		
+	}
+	public function getAdditionalFields()
+	{		
+		$this->setAttribute('country', $this->getTagNameByAlias('country'));
+		$this->setAttribute('producer', $this->getTagNameByAlias('producer'));
+		$this->setAttribute('actor', $this->getTagNameByAlias('actor'));
 	}
 }

@@ -7,7 +7,7 @@
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'torrentFirst-form',
+	'id'=>'torrentEdit-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
@@ -17,11 +17,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'country'); ?>
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'country',
-		    'source'=>array_values($country),
+		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'attribute'=>'country',
+		    'source'=> Tags::model()->getTagsByAlias('country'),
 		    'model' => $model,
-		    'attribute' => 'country',
+		    'value' => $model->country,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',
@@ -31,27 +31,27 @@
 	</div>
 	
 	<div class="row">
-        <?php echo $form->labelEx($model,'actors'); ?>
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'actors',
-		    'source'=>array_values($actors),
+        <?php echo $form->labelEx($model,'actor'); ?>
+		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'attribute'=>'actor',
+		    'source'=> Tags::model()->getTagsByAlias('actor'),
 		    'model' => $model,
-		    'attribute' => 'actors',
+		    'value' => $model->actor,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',
 		    ),
 		));?>
-		<?php echo $form->error($model,'actors'); ?>
+		<?php echo $form->error($model,'actor'); ?>
 	</div>
 	
 	<div>
 		<?php echo $form->labelEx($model,'producer'); ?>	
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'producer',
-		    'source'=>array_values($producer),
+		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'attribute'=>'producer',
+		    'source'=> Tags::model()->getTagsByAlias('producer'),
 		    'model' => $model,
-		    'attribute' => 'producer',
+		    'value' => $model->producer,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',

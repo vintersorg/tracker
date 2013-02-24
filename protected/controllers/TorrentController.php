@@ -32,7 +32,7 @@ class TorrentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'edit', 'admin','delete'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -46,7 +46,7 @@ class TorrentController extends Controller
 	}
 	public function actionIndex()
 	{
-		return $this->actionCreate();
+		$this->redirect(array('create'));
 	}
 	/**
 	 * Creates a new model.
@@ -56,27 +56,51 @@ class TorrentController extends Controller
 	{
 		$formModel		= new TorrentFirstForm;
 		$tagsModel		= new Tags;
-		$torsModel		= new Torrents;
-		$torrents		= ''; //в представлении будет проверка на пустоту
+		$torrentsSearch	= ''; //в представлении будет проверка на пустоту
 		
 		if(isset($_POST['TorrentFirstForm']))
 		{
 			$formModel->attributes=$_POST['TorrentFirstForm'];
 			if($formModel->validate())
 			{
-				$formModel->createTorrent();
+				$torrent_id = $formModel->createTorrent();
+				$this->redirect(array('edit','id'=>$torrent_id));
 			}			
 		}
 	
 		$this->render('create',array(
 			'model'			=> $formModel,
-			'nameLocal'		=> $tagsModel->getCat('nameLocal'),
-			'nameOrigin'	=> $tagsModel->getCat('nameOrigin'),
-			'year'			=> $tagsModel->getCat('year'),
-			'torrents'		=> $torrents,
+			'torrentsSearch'=> $torrentsSearch,
 		));
 	}
 	public function actionEdit($id)
+	{
+		$formModel		= new TorrentEditForm;
+		$formModel->torrent_id	= $id;
+		$tagsModel		= new Tags;
+		
+		if(isset($_POST['TorrentEditForm']))
+		{
+			VarDumper::dump($_POST);
+			$formModel->attributes=$_POST['TorrentEditForm'];
+			if($formModel->validate())
+			{
+				$formModel->saveTorrent();
+				$this->redirect(array('special','id'=>$id));
+			}
+		}
+		$torrentModel = Torrents::model()->findByPK($formModel->torrent_id);
+		if(empty($torrentModel->id)){ $torrentModel = new Torrents;}
+		$formModel->getAdditionalFields();
+		$formModel->attributes=$torrentModel->attributes;
+				
+		$this->render('edit',array(
+			'model'			=> $formModel,
+			'torrentModel'	=> $torrentModel,
+			
+		));
+	}
+	public function actionSpecial($id)
 	{
 		$formModel		= new TorrentEditForm;
 		$formModel->torrent_id	= $id;
@@ -93,7 +117,7 @@ class TorrentController extends Controller
 			}
 		}
 		
-		$this->render('edit',array(
+		$this->render('special',array(
 			'model'			=> $formModel,
 			'country'		=> $tagsModel->getCat('country'),
 			'producer'		=> $tagsModel->getCat('producer'),

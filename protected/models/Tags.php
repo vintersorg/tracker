@@ -100,6 +100,7 @@ class Tags extends CActiveRecord
 		$criteria->compare('created_by',$this->created_by);
 		$criteria->compare('approve_id',$this->approve_id);
 		$criteria->compare('caption',$this->caption,true);
+		$criteria->compare('category_id',$this->category_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -137,5 +138,8 @@ class Tags extends CActiveRecord
 			return $tag->id;
 		}
 	}
-	
+	public function getTagsByAlias($alias='')
+	{
+		return array_values(CHtml::listData($this->getTagByCategory(Tagcategories::getIDByAlias($alias)), 'id', 'caption'));
+	}
 }

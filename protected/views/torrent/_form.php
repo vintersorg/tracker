@@ -15,14 +15,14 @@
 	<p class="note">Введите название и год выпуска чтобы проверить наличие такой раздачи.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'nameLocal'); ?>
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'nameLocal',
-		    'source'=>array_values($nameLocal),
+		    'attribute'=>'nameLocal',
+		    'source'=> Tags::model()->getTagsByAlias('nameLocal'),
 		    'model' => $model,
-		    'attribute' => 'nameLocal',
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',
@@ -35,9 +35,9 @@
         <?php echo $form->labelEx($model,'nameOrigin'); ?>
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'nameOrigin',
-		    'source'=>array_values($nameOrigin),
+		    'attribute'=>'nameOrigin',
+		    'source'=> Tags::model()->getTagsByAlias('nameOrigin'),
 		    'model' => $model,
-		    'attribute' => 'nameOrigin',
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',
@@ -50,9 +50,9 @@
 		<?php echo $form->labelEx($model,'year'); ?>	
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'year',
-		    'source'=>array_values($year),
+		    'attribute'=>'year',
+		    'source'=> Tags::model()->getTagsByAlias('year'),
 		    'model' => $model,
-		    'attribute' => 'year',
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
 		        //'minLength'=>'2',
@@ -65,7 +65,7 @@
 		<?php echo CHtml::submitButton('Проверить'); ?>
 	</div>
 
-	<?php if(!empty($torrents)) echo DrowList::torrents($torrents); ?>
+	<?php if(!empty($torrentsSearch)) echo DrowList::torrents($torrentsSearch); ?>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

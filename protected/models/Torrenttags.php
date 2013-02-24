@@ -39,6 +39,7 @@ class Torrenttags extends CActiveRecord
 		return array(
 			array('torrent_id, tag_id, created_by', 'required'),
 			array('torrent_id, tag_id, created_by', 'numerical', 'integerOnly'=>true),
+			array('tag_id', 'uniqueTorrentAndTag'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('torrent_id, tag_id, created_dt, created_by', 'safe', 'on'=>'search'),
@@ -53,6 +54,7 @@ class Torrenttags extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		
 		);
 	}
 
@@ -89,19 +91,17 @@ class Torrenttags extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-	public function beforeSave()
+
+	public function uniqueTorrentAndTag($attribute,$params=array())
 	{
-		if($this->isNewRecord)
-		{
-			$record = $this->findByAttributes(array(),
-				'tag_id = :tag_id and torrent_id = :torrent_id'
-				, array(':tag_id' => $this->tag_id, ':torrent_id' => $this->torrent_id));
-			if(isset($record->tag_id)){
-				$this->addError('exists', 'Tag is attached to the torrent');
-				return false;
-			}
-		}
-		return parent::beforeSave();
-		
+	    if(!$this->hasErrors())
+	    {
+	        $params['criteria']=array(
+	            'condition'=>'torrent_id=:torrent_id',
+	            'params'=>array(':torrent_id'=>$this->torrent_id),
+	        );
+	        $validator=CValidator::createValidator('unique',$this,$attribute,$params);
+	        $validator->validate($this,array($attribute));
+	    }
 	}
 }

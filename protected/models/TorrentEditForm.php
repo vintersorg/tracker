@@ -5,15 +5,16 @@ class TorrentEditForm extends CFormModel
 	
 	public $country;
 	public $producer;
-	public $actors;
+	public $actor;
 	public $description;
 	public $torrent_id;
+	
 
 	public function rules()
 	{
 		return array(
 			// username and password are required
-			array('country, producer, actors, description', 'required'),
+			array('country, producer, actor, description', 'required'),
 		);
 	}
 
@@ -25,7 +26,7 @@ class TorrentEditForm extends CFormModel
 		return array(
 			'country'		=> 'Страна',
 			'producer'		=> 'Режисер',
-			'actors'		=> 'Актеры',
+			'actor'			=> 'Актеры',
 			'description'	=> 'Описание',
 		);
 	}
@@ -36,7 +37,7 @@ class TorrentEditForm extends CFormModel
 		$array = array(
 			$this->country => Tagcategories::getIDByAlias('country'),
 			$this->producer => Tagcategories::getIDByAlias('producer'),
-			$this->actors => Tagcategories::getIDByAlias('actor'),
+			$this->actor => Tagcategories::getIDByAlias('actor'),
 		);
 		foreach($array as $value => $category_id)
 		{
@@ -58,7 +59,7 @@ class TorrentEditForm extends CFormModel
 				$link->tag_id = $tag_id;
 				$link->created_by = Yii::app()->user->id;
 				
-				if(!$link->save() && !($link->getError('exists')))
+				if(!$link->save() && !($link->getError('tag_id')))
 					throw new CHttpException(500, "Unable to save torrent tags.");				
 			}
 		if(!empty($this->description)){				
@@ -68,17 +69,22 @@ class TorrentEditForm extends CFormModel
 				throw new CHttpException(500, "Unable to save torrent description");
 		}
 	}
-	public function createTorrent()
+	public function getAdditionalFields()
 	{
-		$torsModel		= new Torrents;
-		$tag_ids = $this->searchTags();				
-		$torrents = $torsModel->getTorrentByTags($tag_ids);
-		if(empty($torrents))
-		{
-			$torsModel->created_by = Yii::app()->user->id;
-			$torsModel->approve_id = 1;
-			if($torsModel->save())
-				$this->redirect(array('edit','id'=>$torsModel->id));
-		}
+		$torrents = Torrents::model()->findByPk($this->torrent_id);
+		if(!isset($torrents)) return;
+		$this->setAttribute('country', $torrents->getTagNameByAlias('country'));
+		$this->setAttribute('producer', $torrents->getTagNameByAlias('producer'));
+		$this->setAttribute('actor', $torrents->getTagNameByAlias('actor'));
+	}
+	public function setAttribute($name,$value)
+	{
+	    if(property_exists($this,$name))
+	        $this->$name=$value;
+	    elseif(isset($this->getMetaData()->columns[$name]))
+	        $this->_attributes[$name]=$value;
+	    else
+	        return false;
+	    return true;
 	}
 }
