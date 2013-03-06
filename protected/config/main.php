@@ -22,16 +22,14 @@ return array(
 		//'application.modules.rights.*',
 		//'application.modules.rights.components.*',		
 	),
-
+	'aliases' => array(
+	    //If you used composer your path should be
+	    //'xupload' => 'ext.vendor.Asgaroth.xupload',
+	    //If you manually installed it
+	    'xupload' => 'ext.xupload',
+	),
 	'modules'=>array(
-	/*
-		'rights'=>array(
-	        'userIdColumn'=>'id',
-			'enableBizRule'=>true,
-	        'install' => true,//add this
-	        
-	    ),
-	 */
+
 		// uncomment the following to enable the Gii tool
 		
 		'gii'=>array(
@@ -106,18 +104,18 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 					 
-					 /*
+					 
 					 'class'=>'CProfileLogRoute',
 		            'levels'=>'profile',
 		            'enabled'=>true,
-		            */
+		            
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+				
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+				
 			),
 		),
 		'mail'=>array(

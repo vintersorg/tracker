@@ -48,7 +48,7 @@ class Torrents extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by, approve_id', 'required'),
+			array('created_by', 'required'),
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -108,8 +108,17 @@ class Torrents extends CActiveRecord
 	}
 	public function getTorrentByTags($tags = array())
 	{
+		/*
 		$link = new Torrenttags;
 		$tors = $link->findAllByAttributes(array('tag_id' => $tags));
+		*/
+		//пока так реализовал and...
+		$criteria = new CDbCriteria;
+		$criteria->select='torrent_id, count(tag_id) as tag_id';
+		$criteria->condition='tag_id in ('.implode(',',$tags).')';		
+		$criteria->group='torrent_id';
+		$criteria->having='count(tag_id)='.count($tags);
+		$tors = Torrenttags::model()->findAll($criteria);
 		return $tors;
 	}
 	public function loadModel($id)
@@ -146,5 +155,13 @@ class Torrents extends CActiveRecord
 		$this->setAttribute('country', $this->getTagNameByAlias('country'));
 		$this->setAttribute('producer', $this->getTagNameByAlias('producer'));
 		$this->setAttribute('actor', $this->getTagNameByAlias('actor'));
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord){
+			$approve = Approves::model()->getApprove();
+			$this->approve_id = $approve->id;
+		}			
+		return parent::beforeSave();
 	}
 }

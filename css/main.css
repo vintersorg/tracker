@@ -227,3 +227,12 @@ div.search-form
 {
 	background: #80CFFF;
 }
+DIV#content DIV.radioCategory {
+    padding-left: 1em;
+}
+ 
+DIV#content .radioCategory LABEL,
+DIV#content .radioCategory INPUT{
+    display: inline !important;
+    width: auto !important;
+}

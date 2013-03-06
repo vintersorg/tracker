@@ -10855,3 +10855,1775 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/02/25 02:58:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 02:58:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 02:58:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:04:30 [error] [exception.CException] exception 'CException' with message 'Псевдоним "xupload.XUpload" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/web/CWidgetFactory.php(146): YiiBase::import('xupload.XUpload', true)
+#1 /var/www/tracker/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(TorrentController), 'xupload.XUpload', Array)
+#2 /var/www/tracker/framework/web/CBaseController.php(172): CBaseController->createWidget('xupload.XUpload', Array)
+#3 /var/www/tracker/protected/views/torrent/special.php(18): CBaseController->widget('xupload.XUpload', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('special', Array, true)
+#8 /var/www/tracker/protected/controllers/TorrentController.php(125): CController->render('special', Array)
+#9 [internal function]: TorrentController->actionSpecial('5')
+#10 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TorrentController), Array)
+#11 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TorrentController), Object(ReflectionMethod), Array)
+#12 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#15 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#19 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('special')
+#21 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/special')
+#22 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#23 /var/www/tracker/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/torrent/special/5
+---
+2013/02/25 03:04:30 [error] [exception.CException] exception 'CException' with message 'Псевдоним "xupload.XUpload" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/web/CWidgetFactory.php(146): YiiBase::import('xupload.XUpload', true)
+#1 /var/www/tracker/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(TorrentController), 'xupload.XUpload', Array)
+#2 /var/www/tracker/framework/web/CBaseController.php(172): CBaseController->createWidget('xupload.XUpload', Array)
+#3 /var/www/tracker/protected/views/torrent/special.php(18): CBaseController->widget('xupload.XUpload', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('special', Array, true)
+#8 /var/www/tracker/protected/controllers/TorrentController.php(125): CController->render('special', Array)
+#9 [internal function]: TorrentController->actionSpecial('5')
+#10 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TorrentController), Array)
+#11 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TorrentController), Object(ReflectionMethod), Array)
+#12 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#15 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#19 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('special')
+#21 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/special')
+#22 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#23 /var/www/tracker/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/torrent/special/5
+---
+2013/02/25 03:04:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:08:25 [error] [exception.CException] exception 'CException' with message 'Псевдоним "xupload.XUpload" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/tracker/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/tracker/framework/web/CWidgetFactory.php(146): YiiBase::import('xupload.XUpload', true)
+#1 /var/www/tracker/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(TorrentController), 'xupload.XUpload', Array)
+#2 /var/www/tracker/framework/web/CBaseController.php(172): CBaseController->createWidget('xupload.XUpload', Array)
+#3 /var/www/tracker/protected/views/torrent/special.php(18): CBaseController->widget('xupload.XUpload', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('special', Array, true)
+#8 /var/www/tracker/protected/controllers/TorrentController.php(125): CController->render('special', Array)
+#9 [internal function]: TorrentController->actionSpecial('5')
+#10 /var/www/tracker/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TorrentController), Array)
+#11 /var/www/tracker/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TorrentController), Object(ReflectionMethod), Array)
+#12 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#15 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#19 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('special')
+#21 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/special')
+#22 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#23 /var/www/tracker/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/torrent/special/5
+---
+2013/02/25 03:08:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:13:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:14:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:26:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:27:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:28:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "appvoves".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('appvoves')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/appvoves
+---
+2013/02/25 03:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "appvove".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('appvove')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/appvove
+---
+2013/02/25 03:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "approve".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('approve')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/approve
+---
+2013/02/25 03:29:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:22 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /var/www/tracker/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /var/www/tracker/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), '?? ?????? ?????...')
+#1 /var/www/tracker/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('approves/admin')
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/approves/admin
+HTTP_REFERER=http://localhost/approves
+---
+2013/02/25 03:29:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:29:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:45:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:45:18 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23503]: Foreign key violation: 7 ОШИБКА:  INSERT или UPDATE в таблице "t_torrents" нарушает ограничение внешнего ключа "t_torrents_approve_id_fkey" 
+DETAIL:  Ключ (approve_id)=(0) отсутствует в таблице "t_approves".. Выполнявшийся SQL-запрос: INSERT INTO "t_torrents" ("created_by", "approve_id") VALUES (:yp0, :yp1). Bound with :yp0=2, :yp1=0.
+in /var/www/tracker/protected/models/TorrentFirstForm.php (61)
+in /var/www/tracker/protected/controllers/TorrentController.php (66)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:45:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23503]: Foreign key violation: 7 ОШИБКА:  INSERT или UPDATE в таблице "t_torrents" нарушает ограничение внешнего ключа "t_torrents_approve_id_fkey" 
+DETAIL:  Ключ (approve_id)=(0) отсутствует в таблице "t_approves".. The SQL statement executed was: INSERT INTO "t_torrents" ("created_by", "approve_id") VALUES (:yp0, :yp1). Bound with :yp0=2, :yp1=0' in /var/www/tracker/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/tracker/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /var/www/tracker/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /var/www/tracker/protected/models/TorrentFirstForm.php(61): CActiveRecord->save()
+#3 /var/www/tracker/protected/controllers/TorrentController.php(66): TorrentFirstForm->createTorrent()
+#4 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#5 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/torrent/create
+HTTP_REFERER=http://localhost/torrent/create
+---
+2013/02/25 03:45:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:46:27 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23502]: Not null violation: 7 ОШИБКА:  нулевое значение в колонке "approve_id" нарушает ограничение NOT NULL. Выполнявшийся SQL-запрос: INSERT INTO "t_torrents" ("created_by") VALUES (:yp0). Bound with :yp0=2.
+in /var/www/tracker/protected/models/TorrentFirstForm.php (61)
+in /var/www/tracker/protected/controllers/TorrentController.php (66)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:46:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23502]: Not null violation: 7 ОШИБКА:  нулевое значение в колонке "approve_id" нарушает ограничение NOT NULL. The SQL statement executed was: INSERT INTO "t_torrents" ("created_by") VALUES (:yp0). Bound with :yp0=2' in /var/www/tracker/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/tracker/framework/db/ar/CActiveRecord.php(1023): CDbCommand->execute()
+#1 /var/www/tracker/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 /var/www/tracker/protected/models/TorrentFirstForm.php(61): CActiveRecord->save()
+#3 /var/www/tracker/protected/controllers/TorrentController.php(66): TorrentFirstForm->createTorrent()
+#4 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#5 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#14 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#15 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /var/www/tracker/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/torrent/create
+HTTP_REFERER=http://localhost/torrent/create
+---
+2013/02/25 03:46:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:47:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:48:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:48:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:48:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:49:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:50:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:51:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:51:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:51:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:51:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:52:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:53:17 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Approves._attributes".' in /var/www/tracker/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/tracker/framework/db/ar/CActiveRecord.php(143): CComponent->__get('_attributes')
+#1 /var/www/tracker/protected/models/Approves.php(127): CActiveRecord->__get('_attributes')
+#2 /var/www/tracker/protected/models/Approves.php(113): Approves->setApprove('', '', '')
+#3 /var/www/tracker/protected/models/Torrents.php(153): Approves->getApprove()
+#4 /var/www/tracker/framework/db/ar/CActiveRecord.php(1017): Torrents->beforeSave()
+#5 /var/www/tracker/framework/db/ar/CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#6 /var/www/tracker/protected/models/TorrentFirstForm.php(61): CActiveRecord->save()
+#7 /var/www/tracker/protected/controllers/TorrentController.php(66): TorrentFirstForm->createTorrent()
+#8 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#9 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#18 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#19 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /var/www/tracker/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/torrent/create
+HTTP_REFERER=http://localhost/torrent/create
+---
+2013/02/25 03:53:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:53:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:54:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:54:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 03:55:13 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:55:13 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:55:13 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:55:13 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 03:55:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 04:01:44 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:44 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:44 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:44 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 04:01:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 04:01:51 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:51 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:51 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:51 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/02/25 04:01:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 20:58:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/02/25 20:58:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "reapir/index.php".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('reapir/index.ph...')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/reapir/index.php
+---
+2013/02/25 20:58:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/03 12:54:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "steamcommunity/public/images/apps/41070/ca3c99f37a21515aac4c9c0af640e963d8e81886.jpg".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('steamcommunity/...')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/steamcommunity/public/images/apps/41070/ca3c99f37a21515aac4c9c0af640e963d8e81886.jpg
+---
+2013/03/06 21:41:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:41:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:41:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:41:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:42:54 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /var/www/tracker/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('edit')
+#9 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/edit')
+#10 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/tracker/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/torrent/edit/
+HTTP_REFERER=http://localhost/torrent/create
+---
+2013/03/06 21:42:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:42:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:43:06 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:43:06 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:43:06 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:43:06 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:43:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:45:02 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:45:02 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:45:02 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:45:02 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 21:45:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:45:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:48:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:49:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:49:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:49:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:49:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:49:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:54:35 [error] [php] Undefined variable: post (/var/www/tracker/protected/views/torrent/_form.php:18)
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#1 /var/www/tracker/protected/views/torrent/create.php(15): TorrentController->renderPartial()
+#2 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#3 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#4 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#5 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#6 /var/www/tracker/protected/controllers/TorrentController.php(74): TorrentController->render()
+#7 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#8 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#10 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#13 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#16 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#17 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#19 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (18)
+in /var/www/tracker/protected/views/torrent/create.php (15)
+in /var/www/tracker/protected/controllers/TorrentController.php (74)
+2013/03/06 21:54:35 [error] [php] Undefined variable: post (/var/www/tracker/protected/views/torrent/_form.php:18)
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#1 /var/www/tracker/protected/views/torrent/create.php(15): TorrentController->renderPartial()
+#2 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#3 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#4 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#5 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#6 /var/www/tracker/protected/controllers/TorrentController.php(74): TorrentController->render()
+#7 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#8 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#10 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#13 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#16 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#17 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#19 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (18)
+in /var/www/tracker/protected/views/torrent/create.php (15)
+in /var/www/tracker/protected/controllers/TorrentController.php (74)
+2013/03/06 21:54:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 21:54:52 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "TorrentFirstForm.postmode".' in /var/www/tracker/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/tracker/framework/web/helpers/CHtml.php(2255): CComponent->__get('postmode')
+#1 /var/www/tracker/framework/web/helpers/CHtml.php(1716): CHtml::resolveValue(Object(TorrentFirstForm), 'postmode')
+#2 /var/www/tracker/framework/web/widgets/CActiveForm.php(811): CHtml::activeRadioButtonList(Object(TorrentFirstForm), 'postmode', Array, Array)
+#3 /var/www/tracker/protected/views/torrent/_form.php(25): CActiveForm->radioButtonList(Object(TorrentFirstForm), 'postmode', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/protected/views/torrent/create.php(15): CController->renderPartial('_form', Array)
+#8 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#9 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#10 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#11 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /var/www/tracker/protected/controllers/TorrentController.php(74): CController->render('create', Array)
+#13 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#14 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#24 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /var/www/tracker/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/torrent/create
+HTTP_REFERER=http://localhost/torrent/special/10
+---
+2013/03/06 21:54:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:00:39 [error] [php] include(year.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/validators/CValidator.php(186): import()
+#1 /var/www/tracker/framework/base/CModel.php(286): createValidator()
+#2 /var/www/tracker/framework/base/CModel.php(260): TorrentFirstForm->createValidators()
+#3 /var/www/tracker/framework/base/CModel.php(303): TorrentFirstForm->getValidators()
+#4 /var/www/tracker/framework/web/helpers/CHtml.php(1237): TorrentFirstForm->isAttributeRequired()
+#5 /var/www/tracker/framework/web/widgets/CActiveForm.php(562): activeLabelEx()
+#6 /var/www/tracker/protected/views/torrent/_form.php(18): CActiveForm->labelEx()
+#7 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#8 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#9 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#10 /var/www/tracker/protected/views/torrent/create.php(15): TorrentController->renderPartial()
+#11 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#12 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#13 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#14 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#15 /var/www/tracker/protected/controllers/TorrentController.php(74): TorrentController->render()
+#16 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#17 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#18 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#19 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#21 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#22 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#23 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#24 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#25 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#26 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#27 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#28 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (18)
+in /var/www/tracker/protected/views/torrent/create.php (15)
+in /var/www/tracker/protected/controllers/TorrentController.php (74)
+2013/03/06 22:00:39 [error] [php] include(year.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/framework/validators/CValidator.php(186): import()
+#1 /var/www/tracker/framework/base/CModel.php(286): createValidator()
+#2 /var/www/tracker/framework/base/CModel.php(260): TorrentFirstForm->createValidators()
+#3 /var/www/tracker/framework/base/CModel.php(303): TorrentFirstForm->getValidators()
+#4 /var/www/tracker/framework/web/helpers/CHtml.php(1237): TorrentFirstForm->isAttributeRequired()
+#5 /var/www/tracker/framework/web/widgets/CActiveForm.php(562): activeLabelEx()
+#6 /var/www/tracker/protected/views/torrent/_form.php(18): CActiveForm->labelEx()
+#7 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#8 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#9 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#10 /var/www/tracker/protected/views/torrent/create.php(15): TorrentController->renderPartial()
+#11 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#12 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#13 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#14 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#15 /var/www/tracker/protected/controllers/TorrentController.php(74): TorrentController->render()
+#16 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#17 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#18 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#19 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#21 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#22 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#23 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#24 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#25 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#26 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#27 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#28 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (18)
+in /var/www/tracker/protected/views/torrent/create.php (15)
+in /var/www/tracker/protected/controllers/TorrentController.php (74)
+2013/03/06 22:00:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:01:14 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "TorrentFirstForm.postmode".' in /var/www/tracker/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/tracker/framework/web/helpers/CHtml.php(2255): CComponent->__get('postmode')
+#1 /var/www/tracker/framework/web/helpers/CHtml.php(1716): CHtml::resolveValue(Object(TorrentFirstForm), 'postmode')
+#2 /var/www/tracker/framework/web/widgets/CActiveForm.php(811): CHtml::activeRadioButtonList(Object(TorrentFirstForm), 'postmode', Array, Array)
+#3 /var/www/tracker/protected/views/torrent/_form.php(25): CActiveForm->radioButtonList(Object(TorrentFirstForm), 'postmode', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/protected/views/torrent/create.php(15): CController->renderPartial('_form', Array)
+#8 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#9 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#10 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#11 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /var/www/tracker/protected/controllers/TorrentController.php(74): CController->render('create', Array)
+#13 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#14 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#24 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /var/www/tracker/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/torrent/create
+HTTP_REFERER=http://localhost/torrent/special/10
+---
+2013/03/06 22:01:14 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "TorrentFirstForm.postmode".' in /var/www/tracker/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/tracker/framework/web/helpers/CHtml.php(2255): CComponent->__get('postmode')
+#1 /var/www/tracker/framework/web/helpers/CHtml.php(1716): CHtml::resolveValue(Object(TorrentFirstForm), 'postmode')
+#2 /var/www/tracker/framework/web/widgets/CActiveForm.php(811): CHtml::activeRadioButtonList(Object(TorrentFirstForm), 'postmode', Array, Array)
+#3 /var/www/tracker/protected/views/torrent/_form.php(25): CActiveForm->radioButtonList(Object(TorrentFirstForm), 'postmode', Array)
+#4 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#5 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#6 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#7 /var/www/tracker/protected/views/torrent/create.php(15): CController->renderPartial('_form', Array)
+#8 /var/www/tracker/framework/web/CBaseController.php(126): require('/var/www/tracke...')
+#9 /var/www/tracker/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/tracke...', Array, true)
+#10 /var/www/tracker/framework/web/CController.php(869): CBaseController->renderFile('/var/www/tracke...', Array, true)
+#11 /var/www/tracker/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /var/www/tracker/protected/controllers/TorrentController.php(74): CController->render('create', Array)
+#13 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#14 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/create')
+#24 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#25 /var/www/tracker/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/torrent/create
+---
+2013/03/06 22:01:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:01:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:02:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:04:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:04:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:04:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:06:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:06:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:07:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:07:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:12:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:12:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:13:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:13:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:13:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:13:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:13:55 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:13:55 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:13:55 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:13:55 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:13:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:14:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:18:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:18:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:19:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:23:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:25:24 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /var/www/tracker/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/tracker/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/tracker/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/tracker/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('edit')
+#9 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/edit')
+#10 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/tracker/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/torrent/edit/
+HTTP_REFERER=http://localhost/torrent/create
+---
+2013/03/06 22:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:25:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:25:40 [warning] [application] Не удалось присвоить небезопасный атрибут "id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:25:40 [warning] [application] Не удалось присвоить небезопасный атрибут "created_dt" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:25:40 [warning] [application] Не удалось присвоить небезопасный атрибут "created_by" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:25:40 [warning] [application] Не удалось присвоить небезопасный атрибут "approve_id" класса "TorrentEditForm".
+in /var/www/tracker/protected/controllers/TorrentController.php (95)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:25:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:27:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:27:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:37:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:41:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:42:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:45:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:45:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "s".' in /var/www/tracker/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(270): CController->missingAction('s')
+#1 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('s')
+#2 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/s')
+#3 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/tracker/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/torrent/s
+---
+2013/03/06 22:45:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:45:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:45:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:46:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:46:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "s".' in /var/www/tracker/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/tracker/framework/web/CController.php(270): CController->missingAction('s')
+#1 /var/www/tracker/framework/web/CWebApplication.php(282): CController->run('s')
+#2 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('torrent/s')
+#3 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/tracker/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/torrent/s
+---
+2013/03/06 22:46:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:47:03 [error] [php] Missing argument 2 for CHtml::listData(), called in /var/www/tracker/protected/views/torrent/_form.php on line 84 and defined (/var/www/tracker/framework/web/helpers/CHtml.php:1836)
+Stack trace:
+#0 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#1 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#2 /var/www/tracker/protected/views/torrent/create.php(16): TorrentController->renderPartial()
+#3 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#4 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#5 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#6 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#7 /var/www/tracker/protected/controllers/TorrentController.php(80): TorrentController->render()
+#8 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#9 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#11 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#14 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#17 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#18 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (84)
+in /var/www/tracker/protected/views/torrent/create.php (16)
+in /var/www/tracker/protected/controllers/TorrentController.php (80)
+2013/03/06 22:47:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:47:26 [error] [php] Missing argument 2 for CHtml::listData(), called in /var/www/tracker/protected/views/torrent/_form.php on line 84 and defined (/var/www/tracker/framework/web/helpers/CHtml.php:1836)
+Stack trace:
+#0 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#1 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#2 /var/www/tracker/protected/views/torrent/create.php(16): TorrentController->renderPartial()
+#3 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#4 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#5 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#6 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#7 /var/www/tracker/protected/controllers/TorrentController.php(80): TorrentController->render()
+#8 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#9 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#11 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#14 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#17 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#18 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (84)
+in /var/www/tracker/protected/views/torrent/create.php (16)
+in /var/www/tracker/protected/controllers/TorrentController.php (80)
+2013/03/06 22:47:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:47:45 [error] [php] Missing argument 2 for CHtml::listData(), called in /var/www/tracker/protected/views/torrent/_form.php on line 84 and defined (/var/www/tracker/framework/web/helpers/CHtml.php:1836)
+Stack trace:
+#0 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#1 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#2 /var/www/tracker/protected/views/torrent/create.php(16): TorrentController->renderPartial()
+#3 /var/www/tracker/framework/web/CBaseController.php(126): require()
+#4 /var/www/tracker/framework/web/CBaseController.php(95): TorrentController->renderInternal()
+#5 /var/www/tracker/framework/web/CController.php(869): TorrentController->renderFile()
+#6 /var/www/tracker/framework/web/CController.php(782): TorrentController->renderPartial()
+#7 /var/www/tracker/protected/controllers/TorrentController.php(80): TorrentController->render()
+#8 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#9 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#11 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#14 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#17 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#18 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/views/torrent/_form.php (84)
+in /var/www/tracker/protected/views/torrent/create.php (16)
+in /var/www/tracker/protected/controllers/TorrentController.php (80)
+2013/03/06 22:47:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:47:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:48:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:48:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:49:15 [error] [php] include(Var_Dumper.php): failed to open stream: No such file or directory (/var/www/tracker/framework/YiiBase.php:421)
+Stack trace:
+#0 /var/www/tracker/protected/controllers/TorrentController.php(75): spl_autoload_call()
+#1 /var/www/tracker/framework/web/actions/CInlineAction.php(49): TorrentController->actionCreate()
+#2 /var/www/tracker/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#4 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#6 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#7 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#8 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#10 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#11 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/controllers/TorrentController.php (75)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:49:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:49:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:51:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:52:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:52:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:52:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:52:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:53:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:54:56 [error] [php] Undefined variable: torrent_id (/var/www/tracker/protected/controllers/TorrentController.php:70)
+Stack trace:
+#0 /var/www/tracker/framework/web/filters/CFilterChain.php(133): TorrentController->runAction()
+#1 /var/www/tracker/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /var/www/tracker/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /var/www/tracker/framework/web/filters/CInlineFilter.php(58): TorrentController->filterAccessControl()
+#4 /var/www/tracker/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /var/www/tracker/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/tracker/framework/web/CController.php(265): TorrentController->runActionWithFilters()
+#7 /var/www/tracker/framework/web/CWebApplication.php(282): TorrentController->run()
+#8 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/tracker/index.php(13): CWebApplication->run()
+REQUEST_URI=/torrent/create
+in /var/www/tracker/protected/controllers/TorrentController.php (70)
+in /var/www/tracker/index.php (13)
+2013/03/06 22:54:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/03/06 22:55:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /var/www/tracker/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/tracker/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/tracker/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/tracker/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

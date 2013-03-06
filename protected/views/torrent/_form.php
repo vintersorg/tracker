@@ -11,7 +11,22 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>	
+	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
+	<p class="note">Выберите тип раздачи.</p>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model, 'category'); ?>
+ 
+            <div class="radioCategory">
+            <?php
+                echo $form->radioButtonList($model, 'category',
+                    Func::arrayValToKey(Tags::model()->getTagsByAlias('category')),
+					array( 'separator' => " .|. " ) ); // choose your own separator 
+            ?>
+            </div>
+            <?php echo $form->error($model, 'category'); ?>
+    </div>
+		
 	<p class="note">Введите название и год выпуска чтобы проверить наличие такой раздачи.</p>
 
 	<?php echo $form->errorSummary($model); ?>
@@ -21,7 +36,7 @@
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'nameLocal',
 		    'attribute'=>'nameLocal',
-		    'source'=> Tags::model()->getTagsByAlias('nameLocal'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('nameLocal')),
 		    'model' => $model,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
@@ -36,7 +51,7 @@
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'nameOrigin',
 		    'attribute'=>'nameOrigin',
-		    'source'=> Tags::model()->getTagsByAlias('nameOrigin'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('nameOrigin')),
 		    'model' => $model,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
@@ -51,7 +66,7 @@
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'year',
 		    'attribute'=>'year',
-		    'source'=> Tags::model()->getTagsByAlias('year'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('year')),
 		    'model' => $model,
 		    // additional javascript options for the autocomplete plugin
 		    'options'=>array(
@@ -65,7 +80,6 @@
 		<?php echo CHtml::submitButton('Проверить'); ?>
 	</div>
 
-	<?php if(!empty($torrentsSearch)) echo DrowList::torrents($torrentsSearch); ?>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

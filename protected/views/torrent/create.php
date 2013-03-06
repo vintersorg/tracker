@@ -11,5 +11,10 @@ $this->breadcrumbs=array(
 
 <?php echo $this->renderPartial('_form', array(
 	'model'=>$model,
-	'torrentsSearch'=> $torrentsSearch,
 )); ?>
+<?php if(!empty($modelChois))
+		echo $this->renderPartial('_chois', array(
+			'model'=>$modelChois,
+			'torrents' => $torrents,
+		));
+?>

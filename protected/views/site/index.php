@@ -8,4 +8,4 @@ $this->pageTitle=Yii::app()->name;
 
 <p>Это зачаток дипломной работы "Трекер".</p>
 
-<p><pre><?php var_dump(Yii::app()->user->id)?></pre></p>
+<p><pre><?php var_dump(Yii::app()->request->baseUrl)?></pre></p>

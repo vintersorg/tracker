@@ -19,7 +19,7 @@
 		<?php echo $form->labelEx($model,'country'); ?>
 		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'attribute'=>'country',
-		    'source'=> Tags::model()->getTagsByAlias('country'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('country')),
 		    'model' => $model,
 		    'value' => $model->country,
 		    // additional javascript options for the autocomplete plugin
@@ -34,7 +34,7 @@
         <?php echo $form->labelEx($model,'actor'); ?>
 		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'attribute'=>'actor',
-		    'source'=> Tags::model()->getTagsByAlias('actor'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('actor')),
 		    'model' => $model,
 		    'value' => $model->actor,
 		    // additional javascript options for the autocomplete plugin
@@ -49,7 +49,7 @@
 		<?php echo $form->labelEx($model,'producer'); ?>	
 		<?php $form->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'attribute'=>'producer',
-		    'source'=> Tags::model()->getTagsByAlias('producer'),
+		    'source'=> array_values(Tags::model()->getTagsByAlias('producer')),
 		    'model' => $model,
 		    'value' => $model->producer,
 		    // additional javascript options for the autocomplete plugin

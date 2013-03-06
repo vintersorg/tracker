@@ -140,6 +140,6 @@ class Tags extends CActiveRecord
 	}
 	public function getTagsByAlias($alias='')
 	{
-		return array_values(CHtml::listData($this->getTagByCategory(Tagcategories::getIDByAlias($alias)), 'id', 'caption'));
+		return CHtml::listData($this->getTagByCategory(Tagcategories::getIDByAlias($alias)), 'id', 'caption');
 	}
 }

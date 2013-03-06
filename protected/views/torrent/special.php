@@ -3,8 +3,12 @@
 
 $this->breadcrumbs=array(
 	'Torrent'=>array('index'),
-	'Новsfssdfsfsdfача',
+	'Special',
 );
 ?>
 
-<h1>Нfsdfsdfsdfsdfача</h1>
+<h1>Special</h1>
+
+<?php echo $this->renderPartial('_special', array(
+	'model'=>$model,
+)); ?>

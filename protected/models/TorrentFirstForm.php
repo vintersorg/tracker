@@ -5,15 +5,14 @@ class TorrentFirstForm extends CFormModel
 	public $nameLocal;
 	public $nameOrigin;
 	public $year;
-	public $isNew;
+	public $category;
 	
 	public function rules()
 	{
 		return array(
 			// username and password are required
-			array('nameLocal, nameOrigin, year', 'required'),
-			array('year', 'numerical', 'integerOnly'=>true, 'min'=>1895),
-			array('isNew', 'boolean'),
+			array('category, nameLocal, nameOrigin, year', 'required'),
+			array('year', 'numerical', 'integerOnly'=>true, 'min'=>1895)
 		);
 	}
 
@@ -26,7 +25,7 @@ class TorrentFirstForm extends CFormModel
 			'nameLocal' => 'Локализованное название',
 			'nameOrigin' => 'Оригинальное название',
 			'year' => 'Год выпуска',
-			'isNew'=>'Создать новую раздачу',
+			'category'=>'Категория',
 		);
 	}
 	
@@ -37,6 +36,7 @@ class TorrentFirstForm extends CFormModel
 			$this->nameLocal => Tagcategories::getIDByAlias('nameLocal'),
 			$this->nameOrigin => Tagcategories::getIDByAlias('nameOrigin'),
 			$this->year => Tagcategories::getIDByAlias('year'),
+			$this->category => Tagcategories::getIDByAlias('category'),
 		);
 		
 		foreach($array as $value => $category_id)
@@ -54,6 +54,8 @@ class TorrentFirstForm extends CFormModel
 		$tag_ids = $this->searchTags();
 
 		$torrents = $torsModel->getTorrentByTags($tag_ids);
+		$torrents = (CHtml::listData($torrents, 'torrent_id', 'torrent_id'));
+		//VarDumper::dump($torrents);exit;
 		if(empty($torrents))
 		{
 			$torsModel->created_by = Yii::app()->user->id;
@@ -70,12 +72,15 @@ class TorrentFirstForm extends CFormModel
 					if(!$link->save() && !($link->getError('exists')))
 						throw new CHttpException(500, "Unable to save torrent tags.");				
 				}
-				return $torsModel->id;
+				return array('created'=>true, 'torent_id'=>$torsModel->id);
 			}
 			else
 			{
 				throw new CHttpException(500, "Unable to save torrent.");
 			}
+		}else
+		{
+			return array('created'=>false, 'torrents'=>$torrents);
 		}
 	}
 	

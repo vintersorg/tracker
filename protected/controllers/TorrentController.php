@@ -55,22 +55,41 @@ class TorrentController extends Controller
 	public function actionCreate()
 	{
 		$formModel		= new TorrentFirstForm;
+		$formModelChois	= new TorrentChoisForm;
 		$tagsModel		= new Tags;
-		$torrentsSearch	= ''; //в представлении будет проверка на пустоту
+		$torrents		= array(); //для отображения списка найденых раздач
 		
 		if(isset($_POST['TorrentFirstForm']))
 		{
+			//VarDumper::dump($_POST);
 			$formModel->attributes=$_POST['TorrentFirstForm'];
 			if($formModel->validate())
 			{
-				$torrent_id = $formModel->createTorrent();
-				$this->redirect(array('edit','id'=>$torrent_id));
+				$result = $formModel->createTorrent();
+				if($result['created'])
+					$this->redirect(array('edit','id'=>$result['torrent_id']));
+				else {
+					$torrents = $result['torrents'];
+				}
 			}			
 		}
-	
+		if(isset($_POST['TorrentChoisForm']))
+		{
+			$formModelChois->attributes=$_POST['TorrentChoisForm'];
+			if($formModelChois->validate())
+			{
+				$this->redirect(array('special','id'=>$formModelChois->torrentGroup));
+				//$this->redirect(array('edit','id'=>$formModelChois->torrentGroup));
+			}else{
+				VarDumper::dump($formModelChois->attributes);
+			}
+		}
+		
+		//VarDumper::dump($formModelChois);
 		$this->render('create',array(
 			'model'			=> $formModel,
-			'torrentsSearch'=> $torrentsSearch,
+			'torrents'		=> $torrents,
+			'modelChois'	=> $formModelChois,
 		));
 	}
 	public function actionEdit($id)
@@ -81,7 +100,7 @@ class TorrentController extends Controller
 		
 		if(isset($_POST['TorrentEditForm']))
 		{
-			VarDumper::dump($_POST);
+			//VarDumper::dump($_POST);
 			$formModel->attributes=$_POST['TorrentEditForm'];
 			if($formModel->validate())
 			{
