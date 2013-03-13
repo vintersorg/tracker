@@ -63,7 +63,7 @@ class Tags extends CActiveRecord
 			'author' => array(self::BELONGS_TO, 'Users', 'created_by'),
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
 			'category' => array(self::BELONGS_TO, 'Tagcategories', 'category_id'),
-			'tTorrents' => array(self::MANY_MANY, 'Torrents', '{{torrent_tags}}(id, torrent_id)'),
+			'torrenttags' => array(self::HAS_MANY, 'Torrenttags', 'tag_id'),
 		);
 	}
 
@@ -81,6 +81,7 @@ class Tags extends CActiveRecord
 			'category_id' => 'Карегория',
 			'category' => 'Карегория',
 			'author' => 'Автор',
+			'torrenttags'=> 'Торренты',
 		);
 	}
 

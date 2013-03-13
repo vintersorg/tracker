@@ -7,40 +7,77 @@
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'torrents-form',
+	'id'=>'torrentFirst-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
+	<p class="note">Выберите тип раздачи.</p>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model, 'category'); ?>
+ 
+            <div class="radioCategory">
+            <?php
+                echo $form->radioButtonList($model, 'category',
+                    Func::arrayValToKey(Tags::model()->getTagsByAlias('category')),
+					array( 'separator' => " .|. " ) ); // choose your own separator 
+            ?>
+            </div>
+            <?php echo $form->error($model, 'category'); ?>
+    </div>
+		
+	<p class="note">Введите название и год выпуска чтобы проверить наличие такой раздачи.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+	
 	<div class="row">
-		<?php echo $form->labelEx($model,'created_dt'); ?>
-		<?php echo $form->textField($model,'created_dt'); ?>
-		<?php echo $form->error($model,'created_dt'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'created_by'); ?>
-		<?php echo $form->textField($model,'created_by'); ?>
-		<?php echo $form->error($model,'created_by'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'approve_id'); ?>
-		<?php echo $form->textField($model,'approve_id'); ?>
-		<?php echo $form->error($model,'approve_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description'); ?>
-		<?php echo $form->error($model,'description'); ?>
+		<?php echo $form->labelEx($model,'nameLocal'); ?>
+		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'name'=>'nameLocal',
+		    'attribute'=>'nameLocal',
+		    'source'=> array_values(Tags::model()->getTagsByAlias('nameLocal')),
+		    'model' => $model,
+		    // additional javascript options for the autocomplete plugin
+		    'options'=>array(
+		        //'minLength'=>'2',
+		    ),
+		));?>
+		<?php echo $form->error($model,'nameLocal'); ?>
 	</div>
 	
+	<div class="row">
+        <?php echo $form->labelEx($model,'nameOrigin'); ?>
+		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'name'=>'nameOrigin',
+		    'attribute'=>'nameOrigin',
+		    'source'=> array_values(Tags::model()->getTagsByAlias('nameOrigin')),
+		    'model' => $model,
+		    // additional javascript options for the autocomplete plugin
+		    'options'=>array(
+		        //'minLength'=>'2',
+		    ),
+		));?>
+		<?php echo $form->error($model,'nameOrigin'); ?>
+	</div>
+	
+	<div>
+		<?php echo $form->labelEx($model,'year'); ?>	
+		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+		    'name'=>'year',
+		    'attribute'=>'year',
+		    'source'=> array_values(Tags::model()->getTagsByAlias('year')),
+		    'model' => $model,
+		    // additional javascript options for the autocomplete plugin
+		    'options'=>array(
+		        //'minLength'=>'2',
+		    ),
+		));?>
+		<?php echo $form->error($model,'year'); ?>
+	</div>		
+	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton('Проверить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

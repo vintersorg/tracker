@@ -18,9 +18,15 @@
 class Torrents extends CActiveRecord
 {
 	
+	public $none;
+	public $nameOrigin;
+	public $nameLocal;
+	public $year;
 	public $country;
 	public $actor;
 	public $producer;
+	public $category;
+
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -67,7 +73,7 @@ class Torrents extends CActiveRecord
 			'createdBy' => array(self::BELONGS_TO, 'Users', 'created_by'),
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
 			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'torrent_id'),
-			'tags' => array(self::MANY_MANY, 'Tags', '{{torrent_tags}}(torrent_id, tag_id)'),
+			'torrenttags' => array(self::HAS_MANY, 'Torrenttags', 'torrent_id'),
 		);
 	}
 
@@ -82,6 +88,7 @@ class Torrents extends CActiveRecord
 			'created_by' => 'Created By',
 			'approve_id' => 'Approve',
 			'description'=> 'Описание',
+			'torrenttags'=> 'Тэги',
 		);
 	}
 
@@ -145,16 +152,15 @@ class Torrents extends CActiveRecord
 		$tag_ids = array_keys($list);
 		$record = Tags::model()->findByAttributes(array('category_id' => $category_id, 'id'=> $tag_ids));
 		
-		if(empty($record->caption)) return '';
-		
-		return $record->caption;
+		return (empty($record->caption))?'':$record->caption;
 		
 	}
-	public function getAdditionalFields()
-	{		
-		$this->setAttribute('country', $this->getTagNameByAlias('country'));
-		$this->setAttribute('producer', $this->getTagNameByAlias('producer'));
-		$this->setAttribute('actor', $this->getTagNameByAlias('actor'));
+	public function afterFind()
+	{
+		foreach($this->torrenttags as $key => $value)
+		{
+			$this->setAttribute($value->tag->category->alias, $value->tag->caption);
+		} 
 	}
 	public function beforeSave()
 	{

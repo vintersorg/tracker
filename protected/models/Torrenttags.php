@@ -37,7 +37,7 @@ class Torrenttags extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('torrent_id, tag_id, created_by', 'required'),
+			array('torrent_id, tag_id, created_dt, created_by', 'required'),
 			array('torrent_id, tag_id, created_by', 'numerical', 'integerOnly'=>true),
 			array('tag_id', 'uniqueTorrentAndTag'),
 			// The following rule is used by search().
@@ -54,7 +54,9 @@ class Torrenttags extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		
+			'author' => array(self::BELONGS_TO, 'Users', 'created_by'),
+			'torrent' => array(self::BELONGS_TO, 'Torrents', 'torrent_id'),
+			'tag' => array(self::BELONGS_TO, 'Tags', 'tag_id'),
 		);
 	}
 
@@ -68,6 +70,9 @@ class Torrenttags extends CActiveRecord
 			'tag_id' => 'Tag',
 			'created_dt' => 'Created Dt',
 			'created_by' => 'Created By',
+			'author' => 'Автор',
+			'torrent' => 'Торрент',
+			'tag' => 'Тэг',
 		);
 	}
 
@@ -86,12 +91,13 @@ class Torrenttags extends CActiveRecord
 		$criteria->compare('tag_id',$this->tag_id);
 		$criteria->compare('created_dt',$this->created_dt,true);
 		$criteria->compare('created_by',$this->created_by);
+		$criteria->compare('torrent',$this->torrent->id);
+		$criteria->compare('tag',$this->tag->id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
-
 	public function uniqueTorrentAndTag($attribute,$params=array())
 	{
 	    if(!$this->hasErrors())

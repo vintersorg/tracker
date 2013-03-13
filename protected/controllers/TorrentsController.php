@@ -27,129 +27,123 @@ class TorrentsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','index','view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('@'),
+				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
 	}
-
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
+	public function actionIndex()
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$this->redirect(array('view'));
 	}
-
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
-		$model=new Torrents;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Torrents']))
+		$formModel		= new TorrentFirstForm;
+		$formModelChois	= new TorrentChoisForm;
+		$tagsModel		= new Tags;
+		$torrents		= array(); //для отображения списка найденых раздач
+		
+		if(isset($_POST['TorrentFirstForm']))
 		{
-			$model->attributes=$_POST['Torrents'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			//VarDumper::dump($_POST);
+			$formModel->attributes=$_POST['TorrentFirstForm'];
+			if($formModel->validate())
+			{
+				$result = $formModel->createTorrent();
+				if($result['created'])
+					$this->redirect(array('edit','id'=>$result['torrent_id']));
+				else {
+					$torrents = $result['torrents'];
+				}
+			}			
 		}
-
+		if(isset($_POST['TorrentChoisForm']))
+		{
+			$formModelChois->attributes=$_POST['TorrentChoisForm'];
+			if($formModelChois->validate())
+			{
+				$this->redirect(array('special','id'=>$formModelChois->torrentGroup));
+				//$this->redirect(array('edit','id'=>$formModelChois->torrentGroup));
+			}else{
+				VarDumper::dump($formModelChois->attributes);
+			}
+		}
+		
+		//VarDumper::dump($formModelChois);
 		$this->render('create',array(
+			'model'			=> $formModel,
+			'torrents'		=> $torrents,
+			'modelChois'	=> $formModelChois,
+		));
+	}
+	public function actionView($id){
+		$model = $this->loadModel($id);
+		$this->render('view', array(
 			'model'=>$model,
 		));
 	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
+	public function actionEdit($id)
 	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Torrents']))
+		$formModel		= new TorrentEditForm;
+		$formModel->torrent_id	= $id;
+		$tagsModel		= new Tags;
+		
+		if(isset($_POST['TorrentEditForm']))
 		{
-			$model->attributes=$_POST['Torrents'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			//VarDumper::dump($_POST);
+			$formModel->attributes=$_POST['TorrentEditForm'];
+			if($formModel->validate())
+			{
+				$formModel->saveTorrent();
+				$this->redirect(array('special','id'=>$id));
+			}
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
+		$torrentModel = Torrents::model()->findByPK($formModel->torrent_id);
+		if(empty($torrentModel->id)){ $torrentModel = new Torrents;}
+		$formModel->attributes=$torrentModel->attributes;
+				
+		$this->render('edit',array(
+			'model'			=> $formModel,
+			'torrentModel'	=> $torrentModel,
+			
 		));
 	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
+	public function actionSpecial($id)
 	{
-		$this->loadModel($id)->delete();
+		$formModel		= new TorrentEditForm;
+		$formModel->torrent_id	= $id;
+		$tagsModel		= new Tags;
+		
+		if(isset($_POST['TorrentEditForm']))
+		{
+			$formModel->attributes=$_POST['TorrentEditForm'];
+			if($formModel->validate())
+			{
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Torrents');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+				$formModel->saveTorrent();
+				$this->redirect(array('special','id'=>$id));
+			}
+		}
+		
+		$this->render('special',array(
+			'model'			=> $formModel,
+			'country'		=> $tagsModel->getCat('country'),
+			'producer'		=> $tagsModel->getCat('producer'),
+			'actors'		=> $tagsModel->getCat('actor'),
 		));
 	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Torrents('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Torrents']))
-			$model->attributes=$_GET['Torrents'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return Torrents the loaded model
-	 * @throws CHttpException
-	 */
 	public function loadModel($id)
 	{
 		$model=Torrents::model()->findByPk($id);
@@ -158,16 +152,4 @@ class TorrentsController extends Controller
 		return $model;
 	}
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param Torrents $model the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='torrents-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }
