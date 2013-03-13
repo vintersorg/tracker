@@ -31,19 +31,17 @@ class TorrentsController extends Controller
 				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','index','view'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
 	}
-	public function actionIndex()
+	
+	public function actionIndex($id)
 	{
-		$this->redirect(array('view'));
+		$this->redirect(array('view', 'id'=>$id));
 	}
+	
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -81,7 +79,6 @@ class TorrentsController extends Controller
 			}
 		}
 		
-		//VarDumper::dump($formModelChois);
 		$this->render('create',array(
 			'model'			=> $formModel,
 			'torrents'		=> $torrents,
@@ -123,6 +120,7 @@ class TorrentsController extends Controller
 	public function actionSpecial($id)
 	{
 		$formModel		= new TorrentEditForm;
+		$model 			= $this->loadModel($id);
 		$formModel->torrent_id	= $id;
 		$tagsModel		= new Tags;
 		

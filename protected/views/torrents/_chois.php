@@ -9,7 +9,8 @@
 	 
 	            <div class="radioTorrentGroup">
 	        <?php
-	            echo $form->radioButtonList($model, 'torrentGroup',
+	        	
+	           	echo $form->radioButtonList($model, 'torrentGroup',
 	                Func::arrayValToKey(CHtml::listData(Torrents::model()->findAllByPk($torrents), 'id', 'id')));
 	        ?>
 	        </div>

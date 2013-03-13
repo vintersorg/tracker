@@ -49,13 +49,13 @@ class TorrentFirstForm extends CFormModel
 	}
 	public function createTorrent()
 	{
+		
 		$torsModel		= new Torrents;
 
 		$tag_ids = $this->searchTags();
-
+		
 		$torrents = $torsModel->getTorrentByTags($tag_ids);
-		$torrents = (CHtml::listData($torrents, 'torrent_id', 'torrent_id'));
-		//VarDumper::dump($torrents);exit;
+		$torrents = array_keys(CHtml::listData($torrents, 'torrent_id', 'torrent_id'));
 		if(empty($torrents))
 		{
 			$torsModel->created_by = Yii::app()->user->id;
@@ -68,11 +68,11 @@ class TorrentFirstForm extends CFormModel
 					$link->torrent_id = $torsModel->id;
 					$link->tag_id = $tag_id;
 					$link->created_by = Yii::app()->user->id;
-					
 					if(!$link->save() && !($link->getError('exists')))
-						throw new CHttpException(500, "Unable to save torrent tags.");				
+						throw new CHttpException(500, "Unable to save torrent tags.");
+									
 				}
-				return array('created'=>true, 'torent_id'=>$torsModel->id);
+				return array('created'=>true, 'torrent_id'=>$torsModel->id);
 			}
 			else
 			{

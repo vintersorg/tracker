@@ -37,7 +37,7 @@ class Torrenttags extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('torrent_id, tag_id, created_dt, created_by', 'required'),
+			array('torrent_id, tag_id, created_by', 'required'),
 			array('torrent_id, tag_id, created_by', 'numerical', 'integerOnly'=>true),
 			array('tag_id', 'uniqueTorrentAndTag'),
 			// The following rule is used by search().

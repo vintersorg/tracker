@@ -16,7 +16,8 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Перейти к раздаче'); ?>
+		<!--"Перейти к раздаче", $url='#'-->
+		<?php echo CHtml::link("Перейти к раздаче", array("view", "id"=>$model->torrent_id));?>
 	</div>
 
 <?php $this->endWidget(); ?>
