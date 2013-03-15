@@ -45,6 +45,7 @@ $this->breadcrumbs=array(
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
+	
 	<p><? echo CHtml::link('Регистрация', array('passport/register'))?><br>
 		<? echo CHtml::link('Восстановить пароль', array('passport/restore'))?></p>
 	

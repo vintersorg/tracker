@@ -16,11 +16,11 @@ class PassportController extends Controller {
 	{
 		return array(
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('restore', 'register'),
+				'actions'=>array('restore', 'register', 'login'),
 				'users'=>array('*'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('index','view','edit', 'restore'),
+				'actions'=>array('index','view','edit', 'restore', 'logout'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -43,7 +43,8 @@ class PassportController extends Controller {
 		{
 			$model->attributes=$_POST['RestoreForm'];
 			if($model->validate() && $model->checkEmail())
-			{				
+			{
+				$model->sendRestoreEmail();
 				Yii::app()->user->setFlash('success', "Сообщение отправлено!");
 			}else{
 				$model->addError('email', 'Введен не корректный Email');			
@@ -98,15 +99,10 @@ class PassportController extends Controller {
 			$post['username']	= $username[0];
 			$post['role_id']	= Yii::app()->params['defaultRoleID'];			
 			$post['password']	= crypt($post['password'],$post['password']);
+			$post['sendEmail']	= 'register';
 			
 			$model->attributes = $post;
-
-			$this->message = new YiiMailMessage;
-			$this->message->setBody('Message content here with HTML', 'text/html');
-			$this->message->subject = 'My Subject';
-			$this->message->addTo('vintersorg61@gmail.com');
-			$this->message->from = Yii::app()->params['adminEmail'];
-
+			
 			if(!$model->save())
 			{
 				//если имя пользователя уже занято - добаляем к нему случайное число
@@ -145,8 +141,8 @@ class PassportController extends Controller {
 		// validate user input and redirect to the previous page if valid
 		if($login->validate() && $login->login())
 		{
-			if(!empty($this->message))
-				Yii::app()->mail->send($this->message);		
+			if(isset($params['sendEmail']) && $params['sendEmail'] == "register")
+				$login->sendRegisterEmail();
 			$this->redirect(array('edit'));
 		}
 		$this->redirect(array('register'));
@@ -163,5 +159,39 @@ class PassportController extends Controller {
 		return array(
 			'accessControl',
 		);
+	}
+	/**
+	 * Displays the login page
+	 */
+	public function actionLogin()
+	{
+		$model=new LoginForm;
+
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+				$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('login',array('model'=>$model));
+	}
+
+	/**
+	 * Logs out the current user and redirect to homepage.
+	 */
+	public function actionLogout()
+	{
+		Yii::app()->user->logout();
+		$this->redirect(Yii::app()->homeUrl);
 	}	
 }

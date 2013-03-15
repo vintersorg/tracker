@@ -76,4 +76,21 @@ class LoginForm extends CFormModel
 		else
 			return false;
 	}
+	public function sendRegisterEmail()
+	{
+		$user = Users::model()->findByPk(Yii::app()->user->id);
+		
+		$message = new YiiMailMessage;
+		$message->setBody(
+			'Привет, '.Yii::app()->user->name.'. <br>'
+			.'Поздравляю с регистрацией на '.Yii::app()->params['oficialAppName'].'!<br>'
+			.'--<br>'
+			.'С уважением администрация<br>'
+			.'<a href="http://'.Yii::app()->params['oficialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>',
+			 'text/html');
+		$message->subject = 'Регистрация на '.Yii::app()->params['oficialAppName'];
+		$message->addTo($user->email);
+		$message->from = Yii::app()->params['registerMail'];		
+		Yii::app()->mail->send($message);
+	}
 }

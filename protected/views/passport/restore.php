@@ -20,8 +20,6 @@ $this->breadcrumbs=array(
 
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 	
-	<p class="note">Укажите Email для восстановления пароля.</p>
-	
 	<p class="note">На указанный Email будет выслано письмо с новым паролем.</p>
 	
 	<?php echo $form->errorSummary($model); ?>

@@ -42,13 +42,17 @@ class RestoreForm extends CFormModel
 		else
 			return true;
 	}
-	public function sendEmail()
+	public function sendRestoreEmail()
 	{
-		$this->message = new YiiMailMessage;
-		$this->message->setBody('Message content here with HTML', 'text/html');
-		$this->message->subject = 'My Subject';
-		$this->message->addTo('vintersorg61@gmail.com');
-		$this->message->from = Yii::app()->params['adminEmail'];
-		Yii::app()->mail->send($this->message);
+		$message = new YiiMailMessage;
+		$message->setBody(
+			'Для восстановления пароля пройдите по ссылке <a href="#">пустая ссылка</a><br>'
+			.'--<br>'
+			.'С уважением администрация<br>'
+			.'<a href="http://'.Yii::app()->params['oficialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>', 'text/html');
+		$message->subject = 'Восстановления пароля '.Yii::app()->params['oficialAppName'];
+		$message->addTo($this->email);
+		$message->from = Yii::app()->params['registerMail'];
+		Yii::app()->mail->send($message);
 	}
 }

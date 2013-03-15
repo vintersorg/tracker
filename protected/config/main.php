@@ -47,7 +47,7 @@ return array(
 			//'class'=> 'RWebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,		
-			//'loginUrl' => array('/user/login'),
+			'loginUrl' => array('/passport/login'),
 			
 		),
 		'authManager'=>array(
@@ -61,6 +61,7 @@ return array(
 			'showScriptName'=>false,
 			'caseSensitive'=>false,
 			'rules'=>array(
+				''=>'tracker/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -70,8 +71,8 @@ return array(
 		'db'=>array(
 		        'tablePrefix'=>'t_',
 		        'connectionString' => 'pgsql:host=localhost;port=5432;dbname=tracker',
-		        'username'=>'postgres',
-		        'password'=>'',
+		        'username'=>'tracker',
+		        'password'=>'tracker',
 		        'charset'=>'UTF8',
 		        // включаем профайлер
 		        'enableProfiling'=>true,
@@ -93,8 +94,8 @@ return array(
 		),
 		*/
 		'errorHandler'=>array(
-			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
+			// use 'tracker/error' action to display errors
+			'errorAction'=>'tracker/error',
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -140,5 +141,7 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'vintersorg61@gmail.com',
 		'defaultRoleID'=>2,
+		'oficialAppName'=> $_SERVER['SERVER_NAME'],
+		'registerMail' => 'vintersorg61@gmail.com',
 	),
 );
