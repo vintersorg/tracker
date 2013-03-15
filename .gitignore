@@ -39,3 +39,8 @@ Thumbs.db
 
 #####################
 .htaccess
+.gitignore
+
+# cache #
+#########
+assets/
