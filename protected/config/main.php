@@ -17,17 +17,15 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
-		'application.components.*',
+        'application.components.*',
 		'application.extensions.yii-mail.YiiMailMessage',
-		//'application.modules.rights.*',
-		//'application.modules.rights.components.*',		
+
+		'application.modules.rights.*',
+		'application.modules.rights.models.*',
+		'application.modules.rights.components.*',
+		
 	),
-	'aliases' => array(
-	    //If you used composer your path should be
-	    //'xupload' => 'ext.vendor.Asgaroth.xupload',
-	    //If you manually installed it
-	    'xupload' => 'ext.xupload',
-	),
+	
 	'modules'=>array(
 
 		// uncomment the following to enable the Gii tool
@@ -36,25 +34,55 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			'ipFilters'=>array('127.0.0.1','::1', '10.65.224.118'),
 		),
 		
+		'rights'=>array(
+			//'class'=>'ext.rights.RightsModule',
+			'userClass'=>'Users',
+			'superuserName'=>'Developer',
+			'authenticatedName'=>'Authenticated',
+			'userIdColumn'=>'id',
+			'userNameColumn'=>'username',
+			'enableBizRule'=>true,
+			'enableBizRuleData'=>false,
+			'displayDescription'=>true,
+			'flashSuccessKey'=>'RightsSuccess',
+			'flashErrorKey'=>'RightsError',
+			'baseUrl'=>'/rights',
+			'layout'=>'rights.views.layouts.main',
+			'appLayout'=>'application.views.layouts.main',
+			'cssFile'=>'rights.css',
+			//'install'=>true,
+			'debug'=>false,
+		),
+
+
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
-			//'class'=> 'RWebUser',
+			'class' => 'WebUser',
+			//'class' => 'RWebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,		
 			'loginUrl' => array('/passport/login'),
 			
 		),
 		'authManager'=>array(
-            'class'=>'CDbAuthManager',
+				
+            //'class'=>'CDbAuthManager',
+            'class'=>'RDbAuthManager',
             'connectionID'=>'db',
-            'assignmentTable'=>'{{users}}',
-            //'authItems'=>'id',
+            
+            'itemTable'         => 'authitem',
+			'itemChildTable'    => 'authttemchild',
+			'assignmentTable'	=> 'authassignment',
+			'rightsTable'		=> 'rights',
+			'defaultRoles'		=> array('Guest'),
+			 
+			 		
         ),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
@@ -84,19 +112,21 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+		*/
+		'dbt'=>array(
+			'class' => 'system.db.CDbConnection',
+			'connectionString' => 'mysql:host=mysql.spark-media.ru;dbname=torent',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'tracker',
+			'password' => '8ZIPeapZMYr4NYu9tG8s',
 			'charset' => 'utf8',
 		),
-		*/
+		
 		'errorHandler'=>array(
 			// use 'tracker/error' action to display errors
 			'errorAction'=>'tracker/error',
 		),
+		/*
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -106,7 +136,7 @@ return array(
 					'levels'=>'error, warning',
 					 
 					 
-					 'class'=>'CProfileLogRoute',
+					'class'=>'CProfileLogRoute',
 		            'levels'=>'profile',
 		            'enabled'=>true,
 		            
@@ -118,7 +148,8 @@ return array(
 				),
 				
 			),
-		),
+		),		
+		*/
 		'mail'=>array(
 	        'class' => 'ext.yii-mail.YiiMail',
 	        'transportType' => 'smtp',

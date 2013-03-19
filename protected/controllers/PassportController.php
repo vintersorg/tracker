@@ -1,6 +1,6 @@
 <?php
 
-class PassportController extends Controller {
+class PassportController extends RController {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -20,20 +20,30 @@ class PassportController extends Controller {
 				'users'=>array('*'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('index','view','edit', 'restore', 'logout'),
+				'actions'=>array('index','logout','edit','view'),
 				'users'=>array('@'),
+				//'roles'=>array('Developer'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
-	}	
+	}
+	/*
+	public function allowedActions() {
+		return 'index';
+	}*/
+	public function filters()
+	{
+		return array(
+			//'rights',
+			'accessControl',
+		);
+	}
 	
 	public function actionIndex(){
 		
-		$this->render('view', array(
-			'model'=>$this->loadModel(Yii::app()->user->id),
-		));
+		$this->render('index');
 	}
 	public function actionRestore()
 	{
@@ -56,9 +66,14 @@ class PassportController extends Controller {
 		));
 		
 	}
-	public function actionEdit(){
-
-		$model = $this->loadModel(Yii::app()->user->id);
+	public function actionEdit($id){
+		/*
+		if(Yii::app()->user->id != $id)
+		{
+			Yii::app()->user->checkAccess('Admin');
+		}
+		 * */
+		$model = $this->loadModel($id);
 		
 		if(isset($_POST['Users']))
 		{
@@ -154,12 +169,7 @@ class PassportController extends Controller {
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-	public function filters()
-	{
-		return array(
-			'accessControl',
-		);
-	}
+	
 	/**
 	 * Displays the login page
 	 */

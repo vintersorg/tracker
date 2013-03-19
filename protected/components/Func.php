@@ -10,5 +10,10 @@ class Func {
 		}
 		return $output_array;
 	}
-	
+	public static function pre($array=array())
+	{
+		echo "<pre>";
+		print_r($array);
+		echo "</pre>";
+	}
 }

@@ -30,8 +30,6 @@ class UserIdentity extends CUserIdentity
             $this->_id=$record->id;
 			//сохраняем данные о пользователе
             $this->setState('name', $record->username);
-			//$this->setState('id', $record->id);
-			//$this->setRole($record->id);
             $this->errorCode=self::ERROR_NONE;
         }
         return !$this->errorCode;
@@ -51,11 +49,4 @@ class UserIdentity extends CUserIdentity
 		else
 			return 'username';
     }
-	public function setRole($id)
-	{
-		$roles = new Roles;
-		$record = $roles->findByPk($id);
-		echo 'is'.$record->caption;die;
-		$this->setState('is'.$record->caption, true);
-	}
 }

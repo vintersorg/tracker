@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 	'Просмотр профиля',
 );
 $this->menu=array(
-	array('label'=>'Редактирование профиля', 'url'=>array('edit')),
+	array('label'=>'Редактирование профиля', 'url'=>array('edit', 'id' => $model->id)),
 );
 ?>
 <h1>Просмотр профиля</h1>

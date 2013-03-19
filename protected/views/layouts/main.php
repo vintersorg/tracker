@@ -30,7 +30,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/tracker/index')),
-				array('label'=>'Мой профиль', 'url'=>array('/passport/index')),
+				array('label'=>'Мой профиль', 'url'=>array('/passport/view', 'id'=>Yii::app()->user->id)),
 				array('label'=>'Раздача', 'url'=>array('/torrents/index')),
 				array('label'=>'Новая раздача', 'url'=>array('/torrents/create')),
 				array('label'=>'Login', 'url'=>array('/passport/login'), 'visible'=>Yii::app()->user->isGuest),
