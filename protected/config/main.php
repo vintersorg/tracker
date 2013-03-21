@@ -19,10 +19,6 @@ return array(
 		'application.models.*',
         'application.components.*',
 		'application.extensions.yii-mail.YiiMailMessage',
-
-		'application.modules.rights.*',
-		'application.modules.rights.models.*',
-		'application.modules.rights.components.*',
 		
 	),
 	
@@ -35,28 +31,7 @@ return array(
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1', '10.65.224.118'),
-		),
-		
-		'rights'=>array(
-			//'class'=>'ext.rights.RightsModule',
-			'userClass'=>'Users',
-			'superuserName'=>'Developer',
-			'authenticatedName'=>'Authenticated',
-			'userIdColumn'=>'id',
-			'userNameColumn'=>'username',
-			'enableBizRule'=>true,
-			'enableBizRuleData'=>false,
-			'displayDescription'=>true,
-			'flashSuccessKey'=>'RightsSuccess',
-			'flashErrorKey'=>'RightsError',
-			'baseUrl'=>'/rights',
-			'layout'=>'rights.views.layouts.main',
-			'appLayout'=>'application.views.layouts.main',
-			'cssFile'=>'rights.css',
-			//'install'=>true,
-			'debug'=>false,
-		),
-
+		),		
 
 	),
 
@@ -72,16 +47,9 @@ return array(
 		),
 		'authManager'=>array(
 				
-            //'class'=>'CDbAuthManager',
-            'class'=>'RDbAuthManager',
+            'class'=>'CDbAuthManager',
             'connectionID'=>'db',
             
-            'itemTable'         => 'authitem',
-			'itemChildTable'    => 'authttemchild',
-			'assignmentTable'	=> 'authassignment',
-			'rightsTable'		=> 'rights',
-			'defaultRoles'		=> array('Guest'),
-			 
 			 		
         ),
 		'urlManager'=>array(

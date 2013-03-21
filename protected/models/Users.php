@@ -125,4 +125,12 @@ class Users extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord){
+			$approve = Approves::model()->getApprove();
+			$this->approve_id = $approve->id;
+		}			
+		return parent::beforeSave();
+	}
 }
