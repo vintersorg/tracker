@@ -19,60 +19,95 @@
 </head>
 
 <body>
+<?php $this->widget('bootstrap.widgets.TbNavbar', array(
+    'type'=>'inverse', // null or 'inverse'
+    'brand'=>CHtml::encode(Yii::app()->name),
+    'brandUrl'=>'/',
+    //'collapse'=>true, // requires bootstrap-responsive.css прикольно, но нахуй
+    'htmlOptions' => array('style' => 'position:static'),
+    'items'=>array(
+        array(
+            'class'=>'bootstrap.widgets.TbMenu',
+            'items'=>array(
+                //array('label'=>'Раздача', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index'),
+                array('label'=>'Видео', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index',
+                'items'=>array(
+                    array('label'=>'Фильмы', 'url'=>'#'),
+                    array('label'=>'Клипы', 'url'=>'#'),
+                    array('label'=>'Сериалы', 'url'=>'#'),
+                    array('label'=>'ТВ', 'url'=>'#'),
+                )),
+                array('label'=>'Музыка', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index'),
+				array('label'=>'Игры', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index'),
+				array('label'=>'Софт', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index'),
+                array('label'=>'Загрузить', 'url'=>'/torrents/create', 'active'=>Yii::app()->request->requestUri == '/torrents/create'),
+            ),
+        ),
+        '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
+        array(
+            'class'=>'bootstrap.widgets.TbMenu',
+            'htmlOptions'=>array('class'=>'pull-right'),
+            'items'=>array(
+                array('label'=>'Профиль', 'url'=>'/passport/view', 'visible'=>!Yii::app()->user->isGuest),
+                
+                array('label'=>'Login', 'url'=>'/passport/login', 'htmlOptions' => array('class'=>'icon-user icon-white'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>'/passport/logout', 'visible'=>!Yii::app()->user->isGuest),
+            ),
+        ),
+    ),
+)); ?>
+<!-- mainmenu -->
+<?php if(in_array(Yii::app()->request->requestUri, array('/tracker/index', '/'))):?>
+	<?php $this->widget('bootstrap.widgets.TbCarouselBg', array(
+	    'items' => array(
+	        array(
+	            'image' => '/images/0.png',
+	            'label' => 'Статическая надпись #1',
+	            'caption' => 'Статическая подпись #1',
+				),
+	        array(
+	            'image' => '/images/1.jpg',
+	            'label' => 'Статическая надпись #2',
+	            'caption' => 'Статическая подпись #2',
+				),
+			array(
+	            'image' => '/images/2.jpg',
+	            'label' => 'Статическая надпись #3',
+	            'caption' => 'Статическая подпись #3',
+				),
+			array(
+	            'image' => '/images/3.png',
+	            'label' => 'Статическая надпись #4',
+	            'caption' => 'Статическая подпись #4',
+				),
+			array(
+	            'image' => '/images/4.jpg',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+	    ),
+	)); ?><!--bigslider-->
+<?php endif ?>
 
-<div class="container" id="page">
-
-	<div id="header">
-		<!--div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div-->
-		<div style="height: 40px"></div>
-	</div><!-- header -->
-
+<?php if(isset($this->breadcrumbs)):?>
 	<div class="container">
-		<?php $this->widget('bootstrap.widgets.TbNavbar', array(
-		    //'type'=>'inverse', // null or 'inverse'
-		    'brand'=>CHtml::encode(Yii::app()->name),
-		    'brandUrl'=>'/tracker/index',
-		    //'collapse'=>true, // requires bootstrap-responsive.css прикольно, но нахуй
-		    'items'=>array(
-		        array(
-		            'class'=>'bootstrap.widgets.TbMenu',
-		            'items'=>array(
-		                array('label'=>'Раздача', 'url'=>'/torrents/index', 'active'=>true),
-		                array('label'=>'Новая раздача', 'url'=>'/torrents/create'),
-		            ),
-		        ),
-		        '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
-		        array(
-		            'class'=>'bootstrap.widgets.TbMenu',
-		            'htmlOptions'=>array('class'=>'pull-right'),
-		            'items'=>array(
-		                array('label'=>'Профиль', 'url'=>'/passport/view', 'visible'=>!Yii::app()->user->isGuest),
-		                
-		                array('label'=>'Login', 'url'=>'/passport/login', 'visible'=>Yii::app()->user->isGuest),
-		                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>'/passport/logout', 'visible'=>!Yii::app()->user->isGuest),
-		            ),
-		        ),
-		    ),
-		)); ?>
-	</div><!-- mainmenu -->
-	<div class="container">
-		<?php if(isset($this->breadcrumbs)):?>
-			<?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
-				'links'=>$this->breadcrumbs,
-			)); ?><!-- breadcrumbs -->
-		<?php endif?>
-		
-		<?php echo $content; ?>
+		<?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+			'links'=>$this->breadcrumbs,
+		)); ?><!-- breadcrumbs -->
 	</div>
-	<div class="clear"></div>
+<?php endif?>
 
-	<!--div class="navbar navbar-fixed-bottom">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div--><!-- footer -->
+<?php echo $content; ?>
 
-</div><!-- page -->
+<div class="clear"></div>
+
+<!--div class="navbar navbar-fixed-bottom">
+	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+	All Rights Reserved.<br/>
+	<?php echo Yii::powered(); ?>
+</div--><!-- footer -->
+
+<!-- page -->
 
 </body>
 </html>

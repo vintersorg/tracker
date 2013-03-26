@@ -2,7 +2,6 @@
 /* @var $this SiteController */
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
-
 $this->pageTitle=Yii::app()->name . ' - Авторизация';
 $this->breadcrumbs=array(
 	'Авторизация',
@@ -14,7 +13,7 @@ $this->breadcrumbs=array(
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
-	'htmlOptions'=>array('class'=>'well'),
+	'htmlOptions'=>array('class'=>'well span3'),
 )); ?>
 
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>

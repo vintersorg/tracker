@@ -5727,14 +5727,19 @@ a.badge:hover {
     margin-bottom: 20px;
     line-height: 1;
 }
+.carouselbg {
+    position: relative;
+    line-height: 1;
+}
 
 .carousel-inner {
     position: relative;
     width: 100%;
     overflow: hidden;
-}
+}     
 
-.carousel .item {
+.carousel .item,
+.carouselbg .item {
     position: relative;
     display: none;
     -webkit-transition: 0.6s ease-in-out left;
@@ -5743,14 +5748,18 @@ a.badge:hover {
     transition: 0.6s ease-in-out left;
 }
 
-.carousel .item > img {
+.carousel .item > img,
+.carouselbg .item > img {
     display: block;
     line-height: 1;
 }
 
 .carousel .active,
 .carousel .next,
-.carousel .prev {
+.carousel .prev,
+.carouselbg .active,
+.carouselbg .next,
+.carouselbg .prev {
     display: block;
 }
 
@@ -5759,30 +5768,39 @@ a.badge:hover {
 }
 
 .carousel .next,
-.carousel .prev {
+.carousel .prev,
+.carouselbg .next,
+.carouselbg .prev {
     position: absolute;
     top: 0;
     width: 100%;
 }
 
-.carousel .next {
+.carousel .next,
+.carouselbg .next
+ {
     left: 100%;
 }
 
-.carousel .prev {
+.carousel .prev,
+.carouselbg .prev {
     left: -100%;
 }
 
 .carousel .next.left,
-.carousel .prev.right {
+.carousel .prev.right,
+.carouselbg .next.left,
+.carouselbg .prev.right {
     left: 0;
 }
 
-.carousel .active.left {
+.carousel .active.left,
+.carouselbg .active.left {
     left: -100%;
 }
 
-.carousel .active.right {
+.carousel .active.right,
+.carouselbg .active.right {
     left: 100%;
 }
 

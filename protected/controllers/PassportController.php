@@ -31,14 +31,10 @@ class PassportController extends Controller {
 			),
 		);
 	}
-	/*
-	public function allowedActions() {
-		return 'index';
-	}*/
+
 	public function filters()
 	{
 		return array(
-			//'rights',
 			'accessControl',
 		);
 	}

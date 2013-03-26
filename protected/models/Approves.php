@@ -120,7 +120,7 @@ class Approves extends CActiveRecord
 			$model = new self;
 			$model->state_id = 1;
 			$model->type_id = (empty($type_id))?1:$type_id;
-			$model->created_by = Yii::app()->user->id;
+			$model->created_by = !empty(Yii::app()->user->id)?Yii::app()->user->id:1; //иначе guest (регистрация)
 			$model->save();
 				
 			return $model;
