@@ -49,7 +49,7 @@ class RestoreForm extends CFormModel
 			'Для восстановления пароля пройдите по ссылке <a href="#">пустая ссылка</a><br>'
 			.'--<br>'
 			.'С уважением администрация<br>'
-			.'<a href="http://'.Yii::app()->params['oficialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>', 'text/html');
+			.'<a href="http://'.Yii::app()->params['officialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>', 'text/html');
 		$message->subject = 'Восстановления пароля '.Yii::app()->params['oficialAppName'];
 		$message->addTo($this->email);
 		$message->from = Yii::app()->params['registerMail'];

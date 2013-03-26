@@ -12,7 +12,10 @@ return array(
 	'language' => 'ru',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+		'log',
+		'bootstrap',
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -31,6 +34,9 @@ return array(
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1', '10.65.224.118'),
+			'generatorPaths' => array(
+				'bootstrap.gii'
+			),
 		),		
 
 	),
@@ -39,7 +45,6 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			'class' => 'WebUser',
-			//'class' => 'RWebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,		
 			'loginUrl' => array('/passport/login'),
@@ -70,10 +75,12 @@ return array(
 		        'username'=>'tracker',
 		        'password'=>'tracker',
 		        'charset'=>'UTF8',
+		        /*
 		        // включаем профайлер
 		        'enableProfiling'=>true,
 		        // показываем значения параметров
 		        'enableParamLogging' => true,
+				*/
 		),
 		/*
 		'db'=>array(
@@ -127,11 +134,15 @@ return array(
  			'transportOptions' => array(  
 			   'host' => 'smtp.gmail.com',  
 			   'username' => 'vintersorg61@gmail.com',  
-			   'password' => 'Pk0gbpltw',  
+			   'password' => 'Tissit3000',  
 			   'port' => '465',  
 			   'encryption' => 'tls',  
 			),  
 	    ),
+	    'bootstrap' => array(
+		    'class' => 'ext.bootstrap.components.Bootstrap',
+		    'responsiveCss' => true,
+		),
 	),
 
 	// application-level parameters that can be accessed
@@ -140,7 +151,7 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'vintersorg61@gmail.com',
 		'defaultRoleID'=>2,
-		'oficialAppName'=> $_SERVER['SERVER_NAME'],
+		'officialAppName'=> $_SERVER['SERVER_NAME'],
 		'registerMail' => 'vintersorg61@gmail.com',
 	),
 );

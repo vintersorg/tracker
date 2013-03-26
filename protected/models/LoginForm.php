@@ -83,7 +83,7 @@ class LoginForm extends CFormModel
 		$message = new YiiMailMessage;
 		$message->setBody(
 			'Привет, '.Yii::app()->user->name.'. <br>'
-			.'Поздравляю с регистрацией на '.Yii::app()->params['oficialAppName'].'!<br>'
+			.'Поздравляю с регистрацией на '.Yii::app()->params['officialAppName'].'!<br>'
 			.'--<br>'
 			.'С уважением администрация<br>'
 			.'<a href="http://'.Yii::app()->params['oficialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>',
