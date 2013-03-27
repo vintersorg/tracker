@@ -2,7 +2,11 @@
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="container">
 	<div class="row">
-		<div class="span9">
+		<?php if(!empty($this->menu)):?>
+			<div class="span9">
+		<?php else:?>
+			<div class="span12">
+		<?php endif ?>
 		<?php echo $content; ?>
 		</div>
 		<!-- content -->

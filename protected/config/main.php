@@ -10,6 +10,7 @@ return array(
 	'name'=>'Трекер',
 	'timeZone'=>'Europe/Moscow',
 	'language' => 'ru',
+	'defaultController' => 'tracker', 
 
 	// preloading 'log' component
 	'preload'=>array(

@@ -6,7 +6,9 @@ class PassportController extends Controller {
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+	public $defaultAction = 'view';
 	private $message;
+	
 	/*
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -39,10 +41,6 @@ class PassportController extends Controller {
 		);
 	}
 	
-	public function actionIndex(){
-		
-		$this->render('index');
-	}
 	public function actionRestore()
 	{
 		$model = new RestoreForm;
@@ -85,8 +83,9 @@ class PassportController extends Controller {
 			'model'=>$model
 		));
 	}
-	public function actionView($id){
-
+	public function actionView($id = ''){
+		//по дефолту смотрим себя
+		if(empty($id)) $id = Yii::app()->user->id;
 		$this->render('view', array(
 			'model'=>$this->loadModel($id),
 		));
