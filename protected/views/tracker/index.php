@@ -21,14 +21,14 @@ $this->pageTitle=Yii::app()->name;
 	<div class="span6">
 		<?php $this->widget('bootstrap.widgets.TbBox', array(
 		    'title' => 'Избранные',
-		    'headerIcon' => 'icon-star',
+		    'headerIcon' => 'icon-heart',
 		    'content' => $this->renderPartial('_new'),
 		)); ?>
 	</div>
 	<div class="span12">
 		<?php $this->widget('bootstrap.widgets.TbBox', array(
 		    'title' => 'Рекомендуемые',
-		    'headerIcon' => 'icon-star',
+		    'headerIcon' => 'icon-ok',
 		    'content' => $this->renderPartial('_new'),
 		)); ?>
 	</div>

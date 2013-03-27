@@ -2,7 +2,7 @@
 
 $this->pageTitle=Yii::app()->name . ' - Восстановление пароля';
 $this->breadcrumbs=array(
-	'Мой профиль' => array('/passport/restore'),
+	'Паспорт' => array('/passport/restore'),
 	'Восстановление пароля',
 );
 $this->menu=array(

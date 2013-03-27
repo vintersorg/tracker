@@ -2,7 +2,7 @@
 
 $this->pageTitle=Yii::app()->name . ' - Редактирование профиля';
 $this->breadcrumbs=array(
-	'Мой профиль' => array('/passport/register'),
+	'Паспорт' => array('/passport/register'),
 	'Регистрация',
 );
 $this->menu=array(

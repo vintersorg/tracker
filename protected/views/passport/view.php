@@ -2,8 +2,8 @@
 
 $this->pageTitle=Yii::app()->name . ' - Просмотр профиля';
 $this->breadcrumbs=array(
-	'Мой профиль' => array('/passport/index'),
-	'Просмотр профиля',
+	'Паспорт' => array('/passport/view', 'id'=> $model->id),
+	'Просмотр',
 );
 $this->menu=array(
 	array('label'=>'Действия'),

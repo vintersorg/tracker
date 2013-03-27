@@ -48,7 +48,7 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),
             'items'=>array(
-                array('label'=> 'Профиль', 'url'=>'/passport/view/'.Yii::app()->user->id, 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=> 'Профиль', 'url'=>'/passport/view/'.Yii::app()->user->id, 'visible'=>!Yii::app()->user->isGuest, 'active'=>Yii::app()->request->requestUri == '/passport/view'),
                 
                 array('label'=>'Войти', 'url'=>'/passport/login', 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>'/passport/logout', 'visible'=>!Yii::app()->user->isGuest),

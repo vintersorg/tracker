@@ -2,12 +2,12 @@
 
 $this->pageTitle=Yii::app()->name . ' - Редактирование профиля';
 $this->breadcrumbs=array(
-	'Мой профиль' => array('/passport/index'),
-	'Редактирование профиля',
+	'Паспорт' => array('/passport/view', 'id'=> $model->id),
+	'Редактирование',
 );
 $this->menu=array(
 	array('label'=>'Действия'),
-	array('label'=>'Просмотр профиля', 'icon'=>'eye-open', 'url'=>array('view', 'id' => $model->id)),
+	array('label'=>'Просмотр', 'icon'=>'eye-open', 'url'=>array('view', 'id' => $model->id)),
 );
 ?>
 <h1>Редактирование профиля</h1>
@@ -47,7 +47,7 @@ $this->menu=array(
 	));?>
 	<?php echo $form->error($model,'birthday'); ?>
 	
-	<?php echo $form->textAreaRow($model,'description', array('class'=>'span3')); ?>
+	<?php echo $form->textAreaRow($model,'description', array('class'=>'span3', 'rows'=>3)); ?>
 	
 	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Сохранить')); ?>
 
