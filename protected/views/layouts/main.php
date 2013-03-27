@@ -66,12 +66,12 @@
 	            'caption' => 'Статическая подпись #1',
 				),
 	        array(
-	            'image' => '/images/1.jpg',
+	            'image' => '/images/1.png',
 	            'label' => 'Статическая надпись #2',
 	            'caption' => 'Статическая подпись #2',
 				),
 			array(
-	            'image' => '/images/2.jpg',
+	            'image' => '/images/2.png',
 	            'label' => 'Статическая надпись #3',
 	            'caption' => 'Статическая подпись #3',
 				),
@@ -81,7 +81,37 @@
 	            'caption' => 'Статическая подпись #4',
 				),
 			array(
-	            'image' => '/images/4.jpg',
+	            'image' => '/images/4.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/5.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/6.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/7.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/8.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/9.png',
+	            'label' => 'Статическая надпись #5',
+	            'caption' => 'Статическая подпись #5',
+				),
+			array(
+	            'image' => '/images/10.png',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
