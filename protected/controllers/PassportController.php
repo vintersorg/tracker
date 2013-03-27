@@ -8,6 +8,7 @@ class PassportController extends Controller {
 	public $layout='//layouts/column2';
 	public $defaultAction = 'view';
 	private $message;
+	public $page;
 	
 	/*
 	 * Specifies the access control rules.

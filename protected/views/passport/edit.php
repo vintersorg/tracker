@@ -9,8 +9,9 @@ $this->menu=array(
 	array('label'=>'Действия'),
 	array('label'=>'Просмотр', 'icon'=>'eye-open', 'url'=>array('view', 'id' => $model->id)),
 );
+$this->page = true;
 ?>
-<h1>Редактирование профиля</h1>
+<!--h1>Редактирование профиля</h1-->
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'register-form',

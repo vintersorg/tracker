@@ -5,9 +5,8 @@ $this->breadcrumbs=array(
 	'Torrent'=>array('index'),
 	'Новая раздача',
 );
+$this->page = true;
 ?>
-
-<h1>Название</h1>
 
 <?php echo $this->renderPartial('_edit', array(
 	'model'=>$model,
