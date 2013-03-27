@@ -23,7 +23,7 @@ $(function(){
 <?php echo $this->renderPartial('_form', array(
 	'model'=>$model,
 )); ?>
-<?php if(!empty($modelChois))
+<?php if(!empty($torrents))
 		echo $this->renderPartial('_chois', array(
 			'model'=>$modelChois,
 			'torrents' => $torrents,

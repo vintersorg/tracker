@@ -13,6 +13,7 @@
 	<p class="note">Введите данные чтобы проверить наличие такой раздачи.</p>
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 	
+	<?php echo $form->labelEx($model,'category'); ?>
     <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
 	    'type' => 'inverse',
 	    'toggle' => 'radio', // 'checkbox' or 'radio'

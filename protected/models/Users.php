@@ -133,7 +133,9 @@ class Users extends CActiveRecord
 		if($this->isNewRecord){
 			$approve = Approves::model()->getApprove();
 			$this->approve_id = $approve->id;
-		}			
+		}
+		if(empty($this->birthday)) $this->birthday = null;
+		 			
 		return parent::beforeSave();
 	}
 	//получаем текстовое значение Пола

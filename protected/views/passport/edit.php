@@ -36,6 +36,7 @@ $this->menu=array(
 	    'options'=>array(
 			'changeMonth' => true,
 			'changeYear' => true,
+			'yearRange'=>'-100:+0',
 	        'showAnim'=>'fold',
 	        'showButtonPanel'=>true,
 			'autoSize'=>true,
