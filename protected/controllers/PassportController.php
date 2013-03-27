@@ -65,12 +65,7 @@ class PassportController extends Controller {
 		
 	}
 	public function actionEdit($id){
-		/*
-		if(Yii::app()->user->id != $id)
-		{
-			Yii::app()->user->checkAccess('Admin');
-		}
-		 * */
+		
 		$model = $this->loadModel($id);
 		
 		if(isset($_POST['Users']))
@@ -83,7 +78,7 @@ class PassportController extends Controller {
 			$model->attributes = $post;
 			
 			if($model->save())
-				$this->redirect(array('edit'));
+				$this->redirect(array('edit', 'id'=>$id));
 		}
 		
 		$this->render('edit', array(
@@ -99,6 +94,8 @@ class PassportController extends Controller {
 	
 	public function actionRegister(){
 
+		if(!Yii::app()->user->isGuest) $this->redirect(array('logout'));
+		
 		$model = new Users;
 		
 		if(isset($_POST['Users']))
@@ -156,7 +153,7 @@ class PassportController extends Controller {
 		{
 			if(isset($params['sendEmail']) && $params['sendEmail'] == "register")
 				$login->sendRegisterEmail();
-			$this->redirect(array('edit'));
+			$this->redirect(array('edit', 'id'=>Yii::app()->user->id));
 		}
 		$this->redirect(array('register'));
 	}

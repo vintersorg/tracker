@@ -6,19 +6,15 @@ $this->breadcrumbs=array(
 	'Редактирование профиля',
 );
 $this->menu=array(
-	array('label'=>'Просмотр профиля', 'url'=>array('view', 'id' => $model->id)),
+	array('label'=>'Действия'),
+	array('label'=>'Просмотр профиля', 'icon'=>'eye-open', 'url'=>array('view', 'id' => $model->id)),
 );
 ?>
 <h1>Редактирование профиля</h1>
 
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'passportedit-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+	'id'=>'register-form',
+	'htmlOptions'=>array('class'=>'well span3'),
 )); ?>
 
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
@@ -26,89 +22,48 @@ $this->menu=array(
 	<?php echo $form->errorSummary($model); ?>
 	<?php echo FlashDesigner::flashSummary();?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model, 'username', array('class'=>'span3')); ?>
+	<?php echo $form->textFieldRow($model, 'email', array('class'=>'span3')); ?>
+	<?php echo $form->dropDownListRow($model, 'gender',	Data::$genders, array('class'=>'span3')); ?>	
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'gender'); ?>
-		<?php echo $form->dropDownList(
-			$model,
-			'gender',
-			array( 
-				null => '',
-				1 => 'Мужской',
-				2 => 'Женский',
-			)		
-		); ?>
-		<?php echo $form->error($model,'gender'); ?>
-	</div>
+	<?php echo $form->labelEx($model,'birthday'); ?>
+	<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+	    'model' => $model,
+	    'attribute'=>'birthday',
+	    'value'=>$model->birthday,
+	    // additional javascript options for the date picker plugin
+	    'options'=>array(
+			'changeMonth' => true,
+			'changeYear' => true,
+	        'showAnim'=>'fold',
+	        'showButtonPanel'=>true,
+			'autoSize'=>true,
+	        'dateFormat'=>'yy-mm-dd',
+	        'defaultDate'=>$model->birthday,
+	    ),
+	    'language' => 'ru',
+	    'htmlOptions'=>array('class'=>'span3'),
+	));?>
+	<?php echo $form->error($model,'birthday'); ?>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'birthday'); ?>
-		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
-		    'model' => $model,
-		    'attribute'=>'birthday',
-		    'value'=>$model->birthday,
-		    // additional javascript options for the date picker plugin
-		    'options'=>array(
-				'changeMonth' => true,
-				'changeYear' => true,
-		        'showAnim'=>'fold',
-		        'showButtonPanel'=>true,
-    			'autoSize'=>true,
-		        'dateFormat'=>'yy-mm-dd',
-		        'defaultDate'=>$model->birthday,
-		    ),
-		    'language' => 'ru',
-		));?>
-		<?php echo $form->error($model,'birthday'); ?>
-	</div>
+	<?php echo $form->textAreaRow($model,'description', array('class'=>'span3')); ?>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description'); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
-	
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Сохранить'); ?>
-	</div>
+	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Сохранить')); ?>
+
 
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->
 
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'passportedit-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
+	'htmlOptions'=>array('class'=>'well span3'),
 )); ?>
 	<p class="note">Поменять пароль</p>
-	<div class="row">
-        <?php echo $form->labelEx($model, 'password'); ?>        
-        <?php echo $form->passwordField($model, 'password', array('value' => '')) ?>
-        <?php echo $form->error($model,'password'); ?>
-	</div>
+	<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
 		
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Сохранить'); ?>
-	</div>
+	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Сохранить')); ?>
 
 
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

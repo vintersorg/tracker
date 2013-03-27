@@ -6,7 +6,11 @@ $this->pageTitle=Yii::app()->name . ' - Авторизация';
 $this->breadcrumbs=array(
 	'Авторизация',
 );
-
+$this->menu=array(
+	array('label'=>'Действия'),
+	array('label'=>'Регистрация', 'icon'=>'edit', 'url'=>'register'),
+	array('label'=>'Восстановление пароля', 'icon'=>'trash', 'url'=>'restore'),	
+);
 ?>
 
 <h1>Авторизация</h1>
@@ -24,10 +28,6 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
 		<?php echo $form->checkboxRow($model, 'rememberMe'); ?>
 	
-		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Войти')); ?>
-	
-	<p><?php echo CHtml::link('Регистрация', array('passport/register')); ?><br>
-	<?php echo CHtml::link('Восстановить пароль', array('passport/restore')); ?></p>
-	
+		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Войти')); ?>	
 
 <?php $this->endWidget(); ?>

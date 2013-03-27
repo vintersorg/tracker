@@ -5,6 +5,11 @@ $this->breadcrumbs=array(
 	'Мой профиль' => array('/passport/register'),
 	'Регистрация',
 );
+$this->menu=array(
+	array('label'=>'Действия'),
+	array('label'=>'Войти', 'icon'=>'user', 'url'=>'login'),
+	array('label'=>'Восстановление пароля', 'icon'=>'trash', 'url'=>'restore'),
+);
 ?>
 <h1>Регистрация</h1>
 
@@ -23,10 +28,7 @@ $this->breadcrumbs=array(
 	<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
 	<br	>
 
-	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Сохранить')); ?>	
-	
-	<p><? echo CHtml::link('Восстановить пароль', array('passport/restore'))?></p>
-
+	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Сохранить')); ?>
 
 <?php $this->endWidget(); ?>
 

@@ -25,6 +25,7 @@
  */
 class Users extends CActiveRecord
 {
+	public $gendername;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -79,6 +80,7 @@ class Users extends CActiveRecord
 			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'created_by'),
 			'approves' => array(self::HAS_MANY, 'Approves', 'created_by'),
 			'approveStates' => array(self::HAS_MANY, 'ApproveStates', 'created_by'),
+			//'gendername'=>array(self::BELONGS_TO, 'Genders', array(0 => '', 1 => 'Мужской', 2 => 'Женский',),'through'=>'posts'),	
 		);
 	}
 
@@ -97,6 +99,7 @@ class Users extends CActiveRecord
 			'gender' => 'Пол',
 			'birthday' => 'Дата рождения',
 			'description' => 'Немного о себе',
+			'gendername' => 'Пол',
 		);
 	}
 
@@ -132,5 +135,11 @@ class Users extends CActiveRecord
 			$this->approve_id = $approve->id;
 		}			
 		return parent::beforeSave();
+	}
+	//получаем текстовое значение Пола
+	public function AfterFind()
+	{
+		if(isset($this->gender))
+	    	$this->gendername = Data::$genders[$this->gender];
 	}
 }

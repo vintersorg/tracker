@@ -5,6 +5,11 @@ $this->breadcrumbs=array(
 	'Мой профиль' => array('/passport/restore'),
 	'Восстановление пароля',
 );
+$this->menu=array(
+	array('label'=>'Действия'),
+	array('label'=>'Войти', 'icon'=>'user', 'url'=>'login'),
+	array('label'=>'Регистрация', 'icon'=>'edit', 'url'=>'register'),
+);
 ?>
 <h1>Восстановление пароля</h1>
 
