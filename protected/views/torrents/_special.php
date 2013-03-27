@@ -1,25 +1,20 @@
-<?php
-/* @var $this TorrentsController */
-/* @var $model Torrents */
-/* @var $form CActiveForm */
-?>
-
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'torrentEdit-form',
-	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('class'=>'well span8'),
 )); ?>
-
 	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row buttons">
-		<!--"Перейти к раздаче", $url='#'-->
-		<?php echo CHtml::link("Перейти к раздаче", array("view", "id"=>$model->torrent_id));?>
-	</div>
-
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+	    'label'=>'Перейти к раздаче',
+	    'type'=>'success', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+	    'url'=>array('view', "id"=>$model->torrent_id),
+	)); ?>
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+	    'label'=>'Предпросмотр',
+	    'type'=>'info', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+	    'url'=>array('view', "id"=>$model->torrent_id), //TODO:сделать предпросмотр:)
+	)); ?>
+	
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

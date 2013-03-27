@@ -7,7 +7,7 @@ class TorrentsController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+	public $defaultAction = 'create';
 	/**
 	 * @return array action filters
 	 */
@@ -37,18 +37,14 @@ class TorrentsController extends Controller
 		);
 	}
 	
-	public function actionIndex($id)
-	{
-		$this->redirect(array('view', 'id'=>$id));
-	}
-	
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
-		$formModel		= new TorrentFirstForm;
+		$formModel		= new TorrentFirstForm;		
 		$formModelChois	= new TorrentChoisForm;
 		$tagsModel		= new Tags;
 		$torrents		= array(); //для отображения списка найденых раздач

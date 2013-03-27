@@ -4,82 +4,56 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'torrentFirst-form',
-	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('class'=>'well span8'),
 )); ?>
-
-	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
-	<p class="note">Выберите тип раздачи.</p>
-	
-	<div class="row">
-        <?php echo $form->labelEx($model, 'category'); ?>
- 
-            <div class="radioCategory">
-            <?php
-                echo $form->radioButtonList($model, 'category',
-                    Func::arrayValToKey(Tags::model()->getTagsByAlias('category')),
-					array( 'separator' => " .|. " ) ); // choose your own separator 
-            ?>
-            </div>
-            <?php echo $form->error($model, 'category'); ?>
-    </div>
-		
-	<p class="note">Введите название и год выпуска чтобы проверить наличие такой раздачи.</p>
-
 	<?php echo $form->errorSummary($model); ?>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'nameLocal'); ?>
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'nameLocal',
-		    'attribute'=>'nameLocal',
-		    'source'=> array_values(Tags::model()->getTagsByAlias('nameLocal')),
-		    'model' => $model,
-		    // additional javascript options for the autocomplete plugin
-		    'options'=>array(
-		        //'minLength'=>'2',
-		    ),
-		));?>
-		<?php echo $form->error($model,'nameLocal'); ?>
-	</div>
+	<p class="note">Введите данные чтобы проверить наличие такой раздачи.</p>
+	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
 	
-	<div class="row">
-        <?php echo $form->labelEx($model,'nameOrigin'); ?>
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'nameOrigin',
-		    'attribute'=>'nameOrigin',
-		    'source'=> array_values(Tags::model()->getTagsByAlias('nameOrigin')),
-		    'model' => $model,
-		    // additional javascript options for the autocomplete plugin
-		    'options'=>array(
-		        //'minLength'=>'2',
-		    ),
-		));?>
-		<?php echo $form->error($model,'nameOrigin'); ?>
-	</div>
+    <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
+	    'type' => 'inverse',
+	    'toggle' => 'radio', // 'checkbox' or 'radio'
+	    'buttons' => Func::arrayToButton(Tags::model()->getTagsByAlias('category'), 'category'),
+	    'htmlOptions'=>array('style'=>'padding-bottom: 8px;',),
+	)); ?>
 	
-	<div>
-		<?php echo $form->labelEx($model,'year'); ?>	
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'year',
-		    'attribute'=>'year',
-		    'source'=> array_values(Tags::model()->getTagsByAlias('year')),
-		    'model' => $model,
-		    // additional javascript options for the autocomplete plugin
-		    'options'=>array(
-		        //'minLength'=>'2',
-		    ),
-		));?>
-		<?php echo $form->error($model,'year'); ?>
-	</div>		
+	<?php echo CHtml::activeHiddenField($model, 'category');?>
 	
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Проверить'); ?>
-	</div>
+	<?php echo $form->error($model,'category'); ?>
+	
+	<?php echo $form->labelEx($model,'nameLocal'); ?>
+	<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+	    'name'=>'nameLocal',
+	    'attribute'=>'nameLocal',
+	    'source'=> array_values(Tags::model()->getTagsByAlias('nameLocal')),
+	    'model' => $model,
+	    'htmlOptions'=>array('class'=>'span5',),
+	));?>
+	<?php echo $form->error($model,'nameLocal'); ?>
+
+    <?php echo $form->labelEx($model,'nameOrigin'); ?>
+	<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+	    'name'=>'nameOrigin',
+	    'attribute'=>'nameOrigin',
+	    'source'=> array_values(Tags::model()->getTagsByAlias('nameOrigin')),
+	    'model' => $model,
+	    'htmlOptions'=>array('class'=>'span5',),
+	));?>
+	<?php echo $form->error($model,'nameOrigin'); ?>
+
+	<?php echo $form->labelEx($model,'year'); ?>	
+	<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+	    'name'=>'year',
+	    'attribute'=>'year',
+	    'source'=> array_values(Tags::model()->getTagsByAlias('year')),
+	    'model' => $model,
+	    'htmlOptions'=>array('class'=>'span5',),
+	));?>
+	<?php echo $form->error($model,'year'); ?>
+	<br>
+	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Проверить')); ?>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->
