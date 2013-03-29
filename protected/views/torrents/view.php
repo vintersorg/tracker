@@ -16,28 +16,31 @@ $(function(){
 });
 ", CClientScript::POS_END); ?>
 <div class="row">
-	<div class="span5"><img src="<?php echo Images::src($model->posterview, 'posterview'); ?>" class="img-polaroid"></div>
+	<div class="span5"><img src="<?php echo Images::src($model->posterview, 'posterview'); ?>" class="img-rounded" ></div>
+	
+	<div class="span7"><h3><?php echo $model->nameLocal." / ".$model->nameOrigin." ".$model->year; ?></h3></div>
 	<div class="span7">
-		<div class="span7"><h3><?php echo $model->nameLocal." / ".$model->nameOrigin." ".$model->year; ?></h3></div>
-			<?php $this->widget('bootstrap.widgets.TbDetailView', array(
-			    'data'=>$model,
-			    'attributes'=>array(
-				    array('name'=>'nameLocal'),
-				    array('name'=>'nameOrigin'),
-				    array('name'=>'year'),
-			        array('name'=>'producer'),
-			        array('name'=>'actor'),
-			    ),
-			)); ?>
-		</div>
-		<div class="span7">
-			<?php $ratings = 89515; ?>
-			<img src="http://api.pro-kino.com/<?php echo $ratings; ?>.gif" alt="Оценка фильма на Kinopoisk.ru и IMDB.com" title="Оценка фильма на Kinopoisk.ru и IMDB.com" />
-		</div>
+		<?php $this->widget('bootstrap.widgets.TbDetailView', array(
+		    'data'=>$model,
+		    'attributes'=>array(
+			    array('name'=>'nameLocal'),
+			    array('name'=>'nameOrigin'),
+			    array('name'=>'year'),
+		        array('name'=>'producer'),
+		        array('name'=>'actor'),
+		    ),
+		)); ?>
 	</div>
+	<div class="span7">
+		<?php $ratings = 'tt1442449'; ?>
+		<img src="http://imdb.snick.ru/ratefor/03/<?php echo $ratings; ?>.png" alt="Оценка фильма на Kinopoisk.ru и IMDB.com" title="Оценка фильма на Kinopoisk.ru и IMDB.com" />
+	</div>
+
 	<!--Info-->
 </div>
-<div class="row span12">
+<div class="row">
+	<div class="span12">
+	</div>
 	<!--Описание-->
 </div>
 <?php if(!$preview): ?>
