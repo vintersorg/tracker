@@ -26,7 +26,7 @@ class Torrents extends CActiveRecord
 	public $actor;
 	public $producer;
 	public $category;
-
+	public $posterview;
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -83,12 +83,19 @@ class Torrents extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'created_dt' => 'Created Dt',
-			'created_by' => 'Created By',
-			'approve_id' => 'Approve',
-			'description'=> 'Описание',
-			'torrenttags'=> 'Тэги',
+			'id'			=> 'ID',
+			'created_dt'	=> 'Created Dt',
+			'created_by'	=> 'Created By',
+			'approve_id'	=> 'Approve',
+			'description'	=> 'Описание',
+			'torrenttags'	=> 'Тэги',
+			'nameLocal'		=> 'Локализованное название',
+			'nameOrigin'	=> 'Оригинальное название',
+			'year'			=> 'Год впуска',
+			'country'		=> 'Страна',
+			'actor'			=> 'Актеры',
+			'producer'		=> 'Режисер',
+			'category'		=> 'Категоия',
 		);
 	}
 
@@ -160,7 +167,8 @@ class Torrents extends CActiveRecord
 		foreach($this->torrenttags as $key => $value)
 		{
 			$this->setAttribute($value->tag->category->alias, $value->tag->caption);
-		} 
+		}
+		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
 	}
 	public function beforeSave()
 	{
@@ -169,5 +177,30 @@ class Torrents extends CActiveRecord
 			$this->approve_id = $approve->id;
 		}			
 		return parent::beforeSave();
+	}
+	/*
+	 *	получаем путь до файлов раздачи относительно id 
+	 * 
+	 */
+	public function idToPath($id)
+	{
+		$path	= '';
+		$string	= $id;
+		while(strlen($string)){
+			//поддиректории из 2х символов
+			$step = substr($string, 0, 2);
+			$string = substr_replace($string, '', 0, 2);
+			if(strlen($step) == 1)
+				$path .= '0'.$step;
+			else
+				$path .= $step;			
+			if(strlen($string) >0 ) $path .= DIRECTORY_SEPARATOR;
+		}
+		$path = $path.DIRECTORY_SEPARATOR.$id;
+		return $path;
+	}
+	public function getPosterPath()
+	{
+		return Data::$path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
 	}
 }

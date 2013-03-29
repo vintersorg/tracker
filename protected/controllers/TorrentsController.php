@@ -27,8 +27,12 @@ class TorrentsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','index','view'),
+			array('allow',  // allow all users to perform 'view' actions
+				'actions'=>array('view'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform actions
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -84,7 +88,8 @@ class TorrentsController extends Controller
 	public function actionView($id){
 		$model = $this->loadModel($id);
 		$this->render('view', array(
-			'model'=>$model,
+			'model'=>$model,			
+			'preview' => false,
 		));
 	}
 	public function actionEdit($id)
@@ -145,5 +150,11 @@ class TorrentsController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
+	public function actionPreview($id){
+		$model = $this->loadModel($id);
+		$this->render('view', array(
+			'model'=>$model,
+			'preview' => true,
+		));
+	}
 }
