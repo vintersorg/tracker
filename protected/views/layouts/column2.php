@@ -3,9 +3,9 @@
 <div class="container">
 	<div class="row">
 		<?php if(!empty($this->menu)):?>
-			<div class="span9">
+			<div class="span9 <?php if(isset($this->page)):?>page<?php endif ?>">
 		<?php else:?>
-			<div class="span12">
+			<div class="span12 <?php if(isset($this->page)):?>page<?php endif ?>">
 		<?php endif ?>
 		<?php echo $content; ?>
 		</div>

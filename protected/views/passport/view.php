@@ -9,8 +9,9 @@ $this->menu=array(
 	array('label'=>'Действия'),
 	array('label'=>'Редактирование', 'icon'=>'cog', 'url'=>array('edit', 'id' => $model->id)),
 );
+$this->page = true;
 ?>
-<h1>Просмотр профиля</h1>
+<!--h1>Просмотр профиля</h1-->
 
 <?php //VarDumper::dump($model); ?>
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(

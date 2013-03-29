@@ -5,6 +5,7 @@ $this->breadcrumbs=array(
 	'Загрузить'=>array('torrents/'),
 	'Новая раздача',
 );
+$this->page = true;
 ?>
 <?php Yii::app()->clientScript->registerScript('buttonGroup', "
 $(function(){
@@ -17,8 +18,6 @@ $(function(){
     });
 });
 ", CClientScript::POS_END); ?>
-
-<h1>Новая раздача</h1>
 
 <?php echo $this->renderPartial('_form', array(
 	'model'=>$model,

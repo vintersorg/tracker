@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Трекерок',
+	'name'=>'FireBow',
 	'timeZone'=>'Europe/Moscow',
 	'language' => 'ru',
 	'defaultController' => 'tracker', 

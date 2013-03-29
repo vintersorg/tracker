@@ -8,6 +8,7 @@ class TorrentsController extends Controller
 	 */
 	public $layout='//layouts/column2';
 	public $defaultAction = 'create';
+	public $page;
 	/**
 	 * @return array action filters
 	 */

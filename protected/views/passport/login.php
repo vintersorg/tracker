@@ -11,9 +11,10 @@ $this->menu=array(
 	array('label'=>'Регистрация', 'icon'=>'edit', 'url'=>'register'),
 	array('label'=>'Восстановление пароля', 'icon'=>'trash', 'url'=>'restore'),	
 );
+$this->page = true;
 ?>
 
-<h1>Авторизация</h1>
+<!--h1>Авторизация</h1-->
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',

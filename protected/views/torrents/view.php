@@ -3,6 +3,7 @@ $this->breadcrumbs=array(
 	'Torrent'=>array('index'),
 	'Просмотр раздачи',
 );
+$this->page = true;
 ?>
 <?php Yii::app()->clientScript->registerScript('buttonGroup', "
 $(function(){
