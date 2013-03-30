@@ -13,7 +13,16 @@ class TrackerController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$this->render('index');
+		$this->render('index', array(
+			//Новые раздачи
+			'recently'		=> new CActiveDataProvider(Torrents::model()->recently()),
+			//Популярные раздачи
+			'top'			=> new CActiveDataProvider(Torrents::model()->top()),
+			//Избранные раздачи
+			'favorites'		=> new CActiveDataProvider(Torrents::model()->favorites()),
+			//Рекомендуемые раздачи
+			'recommended'	=> new CActiveDataProvider(Torrents::model()->recommended()),
+		));
 	}
 
 	/**

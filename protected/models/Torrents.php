@@ -27,6 +27,7 @@ class Torrents extends CActiveRecord
 	public $producer;
 	public $category;
 	public $posterview;
+	public $postermini;
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -181,6 +182,7 @@ class Torrents extends CActiveRecord
 			$this->setAttribute($alias, implode(', ', $array_values));
 		}
 		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
+		$this->setAttribute('postermini',$this->getPosterPath().'active/mini');
 	}
 	public function beforeSave()
 	{
@@ -215,4 +217,25 @@ class Torrents extends CActiveRecord
 	{
 		return Data::$path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
 	}
+	public function scopes()
+    {
+        return array(
+            'top'=>array(
+                'order'=>'id DESC',
+                'limit'=>10,
+            ),
+             'favorites'=>array(
+                'order'=>'id DESC',
+                'limit'=>10,
+            ),
+             'recommended'=>array(
+                'order'=>'id DESC',
+                'limit'=>10,
+            ),
+            'recently'=>array(
+                'order'=>'id DESC',
+                'limit'=>10,
+            ),
+        );
+    }
 }
