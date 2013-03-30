@@ -133,9 +133,9 @@ return array(
  			'logging' => true,
  			'dryRun' => false,
  			'transportOptions' => array(  
-			   'host' => 'smtp.gmail.com',  
-			   'username' => 'vintersorg61@gmail.com',  
-			   'password' => 'Tissit3000',  
+			   'host' => 'smtp.yandex.ru',  
+			   'username' => 'mailer@firebow.org',  
+			   'password' => 'firebow+3000mailer',  
 			   'port' => '465',  
 			   'encryption' => 'tls',  
 			),  
@@ -150,9 +150,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'vintersorg61@gmail.com',
+		'adminEmail'=>'admin@firebow.org',
 		'defaultRoleID'=>2,
 		'officialAppName'=> $_SERVER['SERVER_NAME'],
-		'registerMail' => 'vintersorg61@gmail.com',
+		'registerMail' => 'mailer@firebow.org',
 	),
 );

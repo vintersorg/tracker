@@ -21,7 +21,7 @@ class Images
 	}
 	public static function src($src='', $type='', $width=0, $height=0)
 	{
-		if (!is_readable($src)) {
+		if (!is_readable($_SERVER['DOCUMENT_ROOT'].$src)) {
 			if(empty($type))
 				return self::$emptyImages['empty'];
 			return self::$emptyImages[$type];

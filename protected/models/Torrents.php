@@ -162,11 +162,23 @@ class Torrents extends CActiveRecord
 		return (empty($record->caption))?'':$record->caption;
 		
 	}
+	/*
+	 * После создания модели добавляем необходимые поля 
+	 * 
+	 */
 	public function afterFind()
 	{
+		
+		$group = array();
+		//разбираем по кучкам
 		foreach($this->torrenttags as $key => $value)
 		{
-			$this->setAttribute($value->tag->category->alias, $value->tag->caption);
+			$group[$value->tag->category->alias][] =  $value->tag->caption;
+		}
+		//собираем строку
+		foreach($group as $alias => $array_values)
+		{
+			$this->setAttribute($alias, implode(', ', $array_values));
 		}
 		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
 	}
