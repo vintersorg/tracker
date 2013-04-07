@@ -19,6 +19,32 @@
 </head>
 
 <body>
+<?php Yii::app()->clientScript->registerScript('metrica',
+	'<!-- Yandex.Metrika counter -->
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter20884282 = new Ya.Metrika({id:20884282,
+	                    webvisor:true,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+	
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+	
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	<!-- /Yandex.Metrika counter -->',
+	CClientScript::POS_READY); ?>
 <?php $this->widget('bootstrap.widgets.TbNavbar', array(
     'type'=>'inverse', // null or 'inverse'
     'brand'=>CHtml::encode(Yii::app()->name),
@@ -61,57 +87,57 @@
 	<?php $this->widget('bootstrap.widgets.TbCarouselBg', array(
 	    'items' => array(
 	        array(
-	            'image' => '/images/0.png',
+	            'image' => '/images/main_slider/0_mini.jpg',
 	            'label' => 'Статическая надпись #1',
 	            'caption' => 'Статическая подпись #1',
 				),
 	        array(
-	            'image' => '/images/1.png',
+	            'image' => '/images/main_slider/1_mini.jpg',
 	            'label' => 'Статическая надпись #2',
 	            'caption' => 'Статическая подпись #2',
 				),
 			array(
-	            'image' => '/images/2.png',
+	            'image' => '/images/main_slider/2_mini.jpg',
 	            'label' => 'Статическая надпись #3',
 	            'caption' => 'Статическая подпись #3',
 				),
 			array(
-	            'image' => '/images/3.png',
+	            'image' => '/images/main_slider/3_mini.jpg',
 	            'label' => 'Статическая надпись #4',
 	            'caption' => 'Статическая подпись #4',
 				),
 			array(
-	            'image' => '/images/4.png',
+	            'image' => '/images/main_slider/4_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/5.png',
+	            'image' => '/images/main_slider/5_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/6.png',
+	            'image' => '/images/main_slider/6_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/7.png',
+	            'image' => '/images/main_slider/7_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/8.png',
+	            'image' => '/images/main_slider/8_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/9.png',
+	            'image' => '/images/main_slider/9_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
 			array(
-	            'image' => '/images/10.png',
+	            'image' => '/images/main_slider/10_mini.jpg',
 	            'label' => 'Статическая надпись #5',
 	            'caption' => 'Статическая подпись #5',
 				),
