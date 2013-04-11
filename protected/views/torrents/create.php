@@ -1,6 +1,4 @@
 <?php
-
-
 $this->breadcrumbs=array(
 	'Загрузить'=>array('torrents/'),
 	'Новая раздача',
@@ -19,13 +17,16 @@ $(function(){
 });
 ", CClientScript::POS_END); ?>
 
-<?php echo $this->renderPartial('_form', array(
+<?php echo $this->renderPartial('_create', array(
 	'model'=>$model,
 )); ?>
-<?php if(!empty($torrents))
-		echo $this->renderPartial('_chois', array(
-			'model'=>$modelChois,
-			'torrents' => $torrents,
-		));
-	//VarDumper::dump($modelChois);
-?>
+
+<?php if(!empty($list)): ?>
+	<div class="span8">		
+		<?php $this->widget('bootstrap.widgets.TbBox', array(
+		    'title' => 'Раздача с таким названием уже существует, вы можете добавить в нее свой торрент файл.',
+		    'headerIcon' => 'icon-plus',
+		    'content' => $this->renderPartial('_chois', array('dataProvider'=> $list), true),
+		));?>
+	</div>
+<?php endif;?>

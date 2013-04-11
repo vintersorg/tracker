@@ -15,6 +15,7 @@
 	    'label'=>'Предпросмотр',
 	    'type'=>'info', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
 	    'url'=>array('view', "id"=>$model->torrent_id), //TODO:сделать предпросмотр:)
+	    'htmlOptions'=>array('target'=>'_blank'),
 	)); ?>
 	
 <?php $this->endWidget(); ?>

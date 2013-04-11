@@ -1,1 +1,1 @@
-<?php echo $content; ?>
+<?php ob_clean(); echo $content; exit;?>

@@ -41,7 +41,6 @@ class TorrentFirstForm extends CFormModel
 		
 		foreach($array as $value => $category_id)
 		{
-			//через $model->isNewRecord=true и $model->id=false пытается создать запись c id=0. почему?
 			$model = new Tags;
 			$tag_ids[] = $model->makeTag($value, $category_id);
 		}
@@ -49,15 +48,13 @@ class TorrentFirstForm extends CFormModel
 	}
 	public function createTorrent()
 	{
+		//ищем ИД тэгов, если нет
+		$tag_ids	= $this->searchTags();			
+		$torrents = Torrents::model()->getTorrentByTags($tag_ids);
 		
-		$torsModel		= new Torrents;
-
-		$tag_ids = $this->searchTags();
-		
-		$torrents = $torsModel->getTorrentByTags($tag_ids);
-		$torrents = array_keys(CHtml::listData($torrents, 'torrent_id', 'torrent_id'));
 		if(empty($torrents))
 		{
+			$torsModel	= new Torrents;
 			$torsModel->created_by = Yii::app()->user->id;
 			$torsModel->approve_id = 1;
 			if($torsModel->save())

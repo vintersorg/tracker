@@ -75,6 +75,7 @@ class Torrents extends CActiveRecord
 			'approve' => array(self::BELONGS_TO, 'Approves', 'approve_id'),
 			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'torrent_id'),
 			'torrenttags' => array(self::HAS_MANY, 'Torrenttags', 'torrent_id'),
+			'tag' =>  array(self::HAS_MANY, 'Tags', 'id'),
 		);
 	}
 
@@ -116,6 +117,13 @@ class Torrents extends CActiveRecord
 		$criteria->compare('created_by',$this->created_by);
 		$criteria->compare('approve_id',$this->approve_id);
 		$criteria->compare('description',$this->description);
+		$criteria->compare('nameLocal',$this->nameLocal);
+		$criteria->compare('nameOrigin',$this->nameOrigin);
+		$criteria->compare('year',$this->year);
+		$criteria->compare('country',$this->country);
+		$criteria->compare('actor',$this->actor);
+		$criteria->compare('producer',$this->producer);
+		$criteria->compare('category',$this->category);		
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -123,17 +131,23 @@ class Torrents extends CActiveRecord
 	}
 	public function getTorrentByTags($tags = array())
 	{
-		/*
-		$link = new Torrenttags;
-		$tors = $link->findAllByAttributes(array('tag_id' => $tags));
-		*/
 		//пока так реализовал and...
+		//находим все ИД раздач, у которых есть все указанные тэги
 		$criteria = new CDbCriteria;
 		$criteria->select='torrent_id, count(tag_id) as tag_id';
 		$criteria->condition='tag_id in ('.implode(',',$tags).')';		
 		$criteria->group='torrent_id';
 		$criteria->having='count(tag_id)='.count($tags);
 		$tors = Torrenttags::model()->findAll($criteria);
+		
+		//делаем список
+		$torrents = array_keys(CHtml::listData($tors, 'torrent_id', 'torrent_id'));
+		
+		//собираем модель с найденными раздачами
+		$criteria = new CDbCriteria;
+		$criteria->addInCondition('id', $torrents);
+		$tors = new CActiveDataProvider('Torrents', array('criteria' => $criteria));		
+		
 		return $tors;
 	}
 	public function loadModel($id)

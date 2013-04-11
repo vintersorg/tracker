@@ -143,6 +143,18 @@
 				),
 	    ),
 	)); ?><!--bigslider-->
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="span5"><img src="/images/remont.jpg" class="img-rounded" ></div>
+				<div class="span6">
+					<span style="font-size: 15px">
+						<br><br>Сайт находится в на ранней стадии разработки. Сохранение внесенных данных не гарантируется! Если быть точнее, то все будет удалено :). Заходите позже.
+						<br>Жалобы, вопросы, пожелания принимаются на <a href="mailto:mailbox@firebow.org" target="_blank">mailbox@firebow.org</a>
+					</span></div>
+			</div>
+		</div>
+	</div>
 <?php endif ?>
 
 <?php if(isset($this->breadcrumbs)):?>
@@ -152,18 +164,6 @@
 		)); ?><!-- breadcrumbs -->
 	</div>
 <?php endif?>
-<div class="container">
-	<div class="row">
-		<div class="span12">
-			<div class="span5"><img src="/images/remont.jpg" class="img-rounded" ></div>
-			<div class="span6">
-				<span style="font-size: 15px">
-					<br><br>Сайт находится в на ранней стадии разработки. Сохранение внесенных данных не гарантируется! Если быть точнее, то все будет удалено :). Заходите позже.
-					<br>Жалобы, вопросы, пожелания принимаются на <a href="mailto:mailbox@firebow.org" target="_blank">mailbox@firebow.org</a>
-				</span></div>
-		</div>
-	</div>
-</div>
 <?php echo $content; ?>
 
 <div class="clear"></div>

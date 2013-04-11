@@ -95,7 +95,7 @@ return array(
 			'emulatePrepare' => true,
 			'username' => 'tracker',
 			'password' => '8ZIPeapZMYr4NYu9tG8s',
-			'charset' => 'utf8',
+			'charset' => 'UTF8',
 		),
 		
 		'errorHandler'=>array(

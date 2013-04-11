@@ -56,7 +56,6 @@ class TorrentsController extends Controller
 		
 		if(isset($_POST['TorrentFirstForm']))
 		{
-			//VarDumper::dump($_POST);
 			$formModel->attributes=$_POST['TorrentFirstForm'];
 			if($formModel->validate())
 			{
@@ -73,16 +72,14 @@ class TorrentsController extends Controller
 			$formModelChois->attributes=$_POST['TorrentChoisForm'];
 			if($formModelChois->validate())
 			{
-				$this->redirect(array('special','id'=>$formModelChois->torrentGroup));
-				//$this->redirect(array('edit','id'=>$formModelChois->torrentGroup));
+				$this->redirect(array('special','id'=>$formModelChois->torrentGroup));				
 			}else{
 				VarDumper::dump($formModelChois->attributes);
 			}
 		}
-		
 		$this->render('create',array(
 			'model'			=> $formModel,
-			'torrents'		=> $torrents,
+			'list'			=> $torrents, 
 			'modelChois'	=> $formModelChois,
 		));
 	}

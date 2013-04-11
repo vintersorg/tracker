@@ -52,7 +52,8 @@ class TransportController extends Controller
 		//$data = $result[0];
 		foreach($result as $k => $val)
 			foreach($val as $key => $value)
-				$data[$key] = preg_replace('#[\n\r]+#', "\\n", $value);
+				if($key !== 'info_hash')
+					$data[$key] = preg_replace('#[\n\r]+#', "\\n", $value);
 		
 		$data['host'] = 'http://tracker.spark-media.ru';
 		$data['poster_path'] = '/poster/'.substr($id, 0, strlen($id)-3).'/';
