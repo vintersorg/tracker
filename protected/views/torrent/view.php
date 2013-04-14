@@ -27,19 +27,22 @@ $(function(){
 			    array('name'=>'nameOrigin'),
 			    array('name'=>'year'),
 		        array('name'=>'producer'),
-		        array('name'=>'actor'),
-		    ),
+		        array('name'=>'actor'),		    ),
 		)); ?>
 	</div>
 	<div class="span7">
 		<?php $ratings = 'tt1442449'; ?>
 		<img src="http://imdb.snick.ru/ratefor/03/<?php echo $ratings; ?>.png" alt="Оценка фильма на Kinopoisk.ru и IMDB.com" title="Оценка фильма на Kinopoisk.ru и IMDB.com" />
 	</div>
-
 	<!--Info-->
 </div>
 <div class="row">
 	<div class="span12">
+		<?php $this->widget('bootstrap.widgets.TbBox', array(
+		    'title' => 'Описание',
+		    'headerIcon' => 'icon-ok',
+		    'content' => $this->renderPartial('_description', array('data'=> $model), true),
+		)); ?>
 	</div>
 	<!--Описание-->
 </div>

@@ -56,7 +56,7 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 //array('label'=>'Раздача', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index'),
-                array('label'=>'Видео', 'url'=>'/torrents/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index',
+                array('label'=>'Видео', 'url'=>'/torrent/index', 'active'=>Yii::app()->request->requestUri == '/torrents/index',
                 'items'=>array(
                     array('label'=>'Фильмы', 'url'=>'#'),
                     array('label'=>'Клипы', 'url'=>'#'),
@@ -66,7 +66,7 @@
                 array('label'=>'Музыка', 'url'=>'#'),
 				array('label'=>'Игры', 'url'=>'#'),
 				array('label'=>'Софт', 'url'=>'#'),
-                array('label'=>'Загрузить', 'url'=>'/torrents/create', 'active'=>Yii::app()->request->requestUri == '/torrents/create', 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Загрузить', 'url'=>'/torrent/create', 'active'=>Yii::app()->request->requestUri == '/torrents/create', 'visible'=>!Yii::app()->user->isGuest),
             ),
         ),
         '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',

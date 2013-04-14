@@ -1,6 +1,6 @@
 <?php
 
-class TorrentsController extends Controller
+class TorrentController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -33,7 +33,7 @@ class TorrentsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','uposter'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -118,28 +118,14 @@ class TorrentsController extends Controller
 	}
 	public function actionSpecial($id)
 	{
-		$formModel		= new TorrentEditForm;
-		$model 			= $this->loadModel($id);
-		$formModel->torrent_id	= $id;
-		$tagsModel		= new Tags;
-		
-		if(isset($_POST['TorrentEditForm']))
-		{
-			$formModel->attributes=$_POST['TorrentEditForm'];
-			if($formModel->validate())
-			{
-
-				$formModel->saveTorrent();
-				$this->redirect(array('special','id'=>$id));
-			}
-		}
-		
-		$this->render('special',array(
-			'model'			=> $formModel,
-			'country'		=> $tagsModel->getCat('country'),
-			'producer'		=> $tagsModel->getCat('producer'),
-			'actors'		=> $tagsModel->getCat('actor'),
-		));
+		$model = new Torrents;
+	    Yii::import( "xupload.models.XUploadForm" );
+	    $photos = new XUploadForm;
+	
+	    $this->render( 'special', array(
+	        'model' => $model,
+	        'photos' => $photos,
+	    ) );
 	}
 	public function loadModel($id)
 	{
@@ -154,5 +140,21 @@ class TorrentsController extends Controller
 			'model'=>$model,
 			'preview' => true,
 		));
+	}
+	public function actionUposter($id)
+	{
+	        Yii::import("ext.EAjaxUpload.qqFileUploader");
+	 		$folder = $_SERVER['DOCUMENT_ROOT'].Torrents::model()->findByPk($id)->getPosterPath();			
+	        //$folder='images/';// folder for uploaded files
+	        $allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
+	        $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
+	        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+	        $result = $uploader->handleUpload($folder);			
+			$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+	 
+	        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+	        $fileName=$result['filename'];//GETTING FILE NAME
+	 
+	        echo $return;// it's array
 	}
 }

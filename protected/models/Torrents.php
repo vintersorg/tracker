@@ -28,6 +28,12 @@ class Torrents extends CActiveRecord
 	public $category;
 	public $posterview;
 	public $postermini;
+	public $torrent;
+	
+	public $path = array(
+		'poster' => '/images/poster',
+		'torrent' => '/torrents',
+	);
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -59,7 +65,7 @@ class Torrents extends CActiveRecord
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_dt, created_by, approve_id, description', 'safe', 'on'=>'search'),
+			array('id, created_dt, created_by, approve_id, description, torrent_file', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -190,6 +196,12 @@ class Torrents extends CActiveRecord
 		}
 		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
 		$this->setAttribute('postermini',$this->getPosterPath().'active/mini');
+		
+		$posterPath = $this->getTorrentPath().$this->id.'.torrent';
+		if(is_readable($_SERVER['DOCUMENT_ROOT'].$posterPath))
+			$this->setAttribute('torrent', $posterPath);
+		else
+			$this->setAttribute('torrent', '');
 	}
 	public function beforeSave()
 	{
@@ -221,8 +233,18 @@ class Torrents extends CActiveRecord
 		return $path;
 	}
 	public function getPosterPath()
+	{		
+		$dir = $this->path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
+		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
+			mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0700, true);
+		return $dir;
+	}
+	public function getTorrentPath()
 	{
-		return Data::$path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
+		$dir = $this->path['torrent'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
+		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
+			mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0700, true);			
+		return $dir;
 	}
 	public function scopes()
     {

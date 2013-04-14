@@ -7,6 +7,7 @@ class Data
 		2 => 'Женский',
 	);
 	public static $path = array(
-		'poster' => '/images/poster'
+		'poster' => 'images/poster',
+		'torrent' => 'torrents',
 	);
 } 
