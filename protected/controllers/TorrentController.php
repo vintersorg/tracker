@@ -33,7 +33,7 @@ class TorrentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','uposter'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -118,13 +118,9 @@ class TorrentController extends Controller
 	}
 	public function actionSpecial($id)
 	{
-		$model = new Torrents;
-	    Yii::import( "xupload.models.XUploadForm" );
-	    $photos = new XUploadForm;
-	
-	    $this->render( 'special', array(
+		$model = new Torrents;	
+	    $this->render('special', array(
 	        'model' => $model,
-	        'photos' => $photos,
 	    ) );
 	}
 	public function loadModel($id)
@@ -141,20 +137,39 @@ class TorrentController extends Controller
 			'preview' => true,
 		));
 	}
-	public function actionUposter($id)
+	public function actionUpload($id, $type)
 	{
-	        Yii::import("ext.EAjaxUpload.qqFileUploader");
-	 		$folder = $_SERVER['DOCUMENT_ROOT'].Torrents::model()->findByPk($id)->getPosterPath();			
-	        //$folder='images/';// folder for uploaded files
-	        $allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
-	        $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
-	        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-	        $result = $uploader->handleUpload($folder);			
-			$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
-	 
-	        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+			Yii::import("ext.EAjaxUpload.qqFileUploader");
+			$model = Torrents::model()->findByPk($id);
+			$sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
+			switch ($type) {
+				case 'poster':						
+						$folder = $_SERVER['DOCUMENT_ROOT'].$model->getPosterPath();
+						$allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
+						$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+						$result = $uploader->handleUpload($folder);
+						//создаем ссылки 
+						$model->makePosterLink($result['filename'], 'view');
+						$model->makePosterLink($result['filename'], 'mini');
+						
+					break;
+				case 'screen':
+						$folder = $_SERVER['DOCUMENT_ROOT'].$model->getScreenPath();
+						$allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
+						$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+						$result = $uploader->handleUpload($folder);
+					break;
+				case 'torrent':
+						$folder = $_SERVER['DOCUMENT_ROOT'].$model->getTorrentPath();
+						$allowedExtensions = array("torrent");//array("jpg","jpeg","gif","exe","mov" and etc...
+						$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+						$result = $uploader->handleUpload($folder);
+					break;
+			}			
+	        			
+	 		$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+	 		$fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
 	        $fileName=$result['filename'];//GETTING FILE NAME
-	 
 	        echo $return;// it's array
 	}
 }

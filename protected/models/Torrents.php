@@ -33,6 +33,7 @@ class Torrents extends CActiveRecord
 	public $path = array(
 		'poster' => '/images/poster',
 		'torrent' => '/torrents',
+		'screen' => '/images/screen',
 	);
 	
 	/**
@@ -145,7 +146,8 @@ class Torrents extends CActiveRecord
 		$criteria->group='id';
 		$criteria->having='count(tag_id)=:tagsCount';
 		$criteria->params[':tagsCount'] = count($tags);
-		$torrents = new CActiveDataProvider('Torrents', array('criteria' => $criteria));	
+		$torrents = new CActiveDataProvider('Torrents', array('criteria' => $criteria));
+		//$torrents = self::model()->findAll($criteria); 	
 		
 		return $torrents;
 	}
@@ -211,6 +213,19 @@ class Torrents extends CActiveRecord
 		}			
 		return parent::beforeSave();
 	}
+	protected function afterSave()
+	{
+	    if($this->isNewRecord){
+	    	$allFolders = array(
+		    	'poster/active'	=> $this->getPosterPath().'/active',
+		    	'screen'		=> $this->getScreenPath(),
+		    	'torrent'		=> $this->getTorrentPath(),
+		    );
+			foreach ($allFolders as $key => $value) {
+				$this->checkDirectory($value);
+			}
+		}
+	}
 	/*
 	 *	получаем путь до файлов раздачи относительно id 
 	 * 
@@ -235,16 +250,29 @@ class Torrents extends CActiveRecord
 	public function getPosterPath()
 	{		
 		$dir = $this->path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
-		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
-			mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0700, true);
+		//$this->checkDirectory($dir);
 		return $dir;
 	}
 	public function getTorrentPath()
 	{
 		$dir = $this->path['torrent'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
-		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
-			mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0700, true);			
+		//$this->checkDirectory($dir);
 		return $dir;
+	}
+	public function getScreenPath()
+	{
+		$dir = $this->path['screen'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
+		//$this->checkDirectory($dir);
+		return $dir;
+	}
+	public function checkDirectory($dir){
+		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
+			try{
+				mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0777, true);
+			}catch(exception $e){
+				throw new Exception("Не удалось создать директорию.");				
+			}
+		return true;
 	}
 	public function scopes()
     {
@@ -267,4 +295,14 @@ class Torrents extends CActiveRecord
             ),
         );
     }
+	public function makePosterLink($filename, $type)
+	{		
+		$path = $_SERVER['DOCUMENT_ROOT'].$this->getPosterPath();
+		//киляем старую ссылку
+		if(is_readable($path.'active/'.$type)) unlink($path.'active/'.$type);		
+		$target = $path.$filename; // Это уже существующий файл
+		$link = $path.'active/'.$type; // Это файл, который вы хотите привязать к первому
+				
+		return link($target, $link);
+	}
 }

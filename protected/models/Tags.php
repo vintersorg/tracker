@@ -119,8 +119,10 @@ class Tags extends CActiveRecord
 	public function makeTag($value='', $category_id = 1)
 	{
 		$tag = $this->findByAttributes(array(), 
-			'lower(caption) = lower(:caption)', 
-			array(':caption' => $value
+			'lower(caption) = lower(:caption) and category_id = :category_id', 
+			array(
+				':caption' => $value,
+				':category_id' => $category_id,
 		));
 		
 		if(!isset($tag->id)){

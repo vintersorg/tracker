@@ -46,6 +46,16 @@ $(function(){
 	</div>
 	<!--Описание-->
 </div>
+<div class="row">
+	<div class="span12">
+		<?php $this->widget('bootstrap.widgets.TbBox', array(
+		    'title' => 'Скриншоты',
+		    'headerIcon' => 'icon-eye-open',
+		    'content' => $this->renderPartial('_screen', array('data'=> $model), true),
+		)); ?>
+	</div>
+	<!--Описание-->
+</div>
 <?php if(!$preview): ?>
 	<?php echo $this->renderPartial('_tabs', array(
 		'model'=>$model,

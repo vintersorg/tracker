@@ -21,7 +21,7 @@ $(function(){
 	'model'=>$model,
 )); ?>
 
-<?php if(!empty($list)): ?>
+<?php if(isset($list->itemCount) && $list->itemCount>0): ?>
 	<div class="span8">		
 		<?php $this->widget('bootstrap.widgets.TbBox', array(
 		    'title' => 'Раздача с таким названием уже существует, вы можете добавить в нее свой торрент файл.',

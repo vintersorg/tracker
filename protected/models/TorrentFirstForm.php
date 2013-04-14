@@ -52,7 +52,7 @@ class TorrentFirstForm extends CFormModel
 		$tag_ids	= $this->searchTags();			
 		$torrents = Torrents::model()->getTorrentByTags($tag_ids);
 		
-		if(empty($torrents))
+		if($torrents->itemCount==0)
 		{
 			$torsModel	= new Torrents;
 			$torsModel->created_by = Yii::app()->user->id;
