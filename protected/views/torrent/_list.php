@@ -1,6 +1,6 @@
 <div class="" style="float: left; margin-right: 5px; margin-left: 5px;">
 	<a href="<?php echo $this->createUrl('torrents/view',array('id' => $data->id));?>" target="_blank">
-		<img width="150" height="174" src="<?php echo Images::src($data->postermini, 'postermini'); ?>" class="img-rounded" >
+		<img src="<?php echo $this->createUrl('image/poster',array('id' => $data->id, 'size'=>'big'));?>" class="img-rounded" >
 	</a>
 	<div style="clear: both"></div>
 	

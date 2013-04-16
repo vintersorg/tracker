@@ -1,6 +1,7 @@
 <?php
 $this->pageTitle=Yii::app()->name;
 ?>
+
 <div class="row">
 	<div class="span12">
 		<?php $this->widget('bootstrap.widgets.TbBox', array(

@@ -29,6 +29,7 @@ class Torrents extends CActiveRecord
 	public $posterview;
 	public $postermini;
 	public $torrent;
+	public $middlePath;
 	
 	public $path = array(
 		'poster' => '/images/poster',
@@ -200,6 +201,9 @@ class Torrents extends CActiveRecord
 		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
 		$this->setAttribute('postermini',$this->getPosterPath().'active/mini');
 		
+		$middlePath = $this->idToPath();
+		$this->setAttribute('middlePath', $middlePath);
+		
 		$posterPath = $this->getTorrentPath().$this->id.'.torrent';
 		if(is_readable($_SERVER['DOCUMENT_ROOT'].$posterPath))
 			$this->setAttribute('torrent', $posterPath);
@@ -231,10 +235,13 @@ class Torrents extends CActiveRecord
 	 *	получаем путь до файлов раздачи относительно id 
 	 * 
 	 */
-	public function idToPath($id)
+	public function idToPath()
 	{
-		$path	= '';
-		$string	= $id;
+		$path = '';
+		
+		if(empty($this->id)) return $path;
+		
+		$string = $this->id;
 		while(strlen($string)){
 			//поддиректории из 2х символов
 			$step = substr($string, 0, 2);
@@ -245,7 +252,7 @@ class Torrents extends CActiveRecord
 				$path .= $step;			
 			if(strlen($string) >0 ) $path .= DIRECTORY_SEPARATOR;
 		}
-		$path = $path.DIRECTORY_SEPARATOR.$id;
+		$path = $path.DIRECTORY_SEPARATOR.$this->id;
 		return $path;
 	}
 	public function getPosterPath()

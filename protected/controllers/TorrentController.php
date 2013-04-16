@@ -152,12 +152,26 @@ class TorrentController extends Controller
 						$model->makePosterLink($result['filename'], 'view');
 						$model->makePosterLink($result['filename'], 'mini');
 						
+						
+						//TODO: подобрать размер и папку куда кэш класть
+						$thumb=Yii::app()->phpThumb->create($folder.$result['filename']);
+						$thumb->resize(500,500);
+						$thumb->save($folder.$result['filename'].'_');
+						$thumb->show();
+						
 					break;
 				case 'screen':
 						$folder = $_SERVER['DOCUMENT_ROOT'].$model->getScreenPath();
 						$allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
 						$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
 						$result = $uploader->handleUpload($folder);
+						
+						//TODO: подобрать размер и папку куда кэш класть
+						$thumb=Yii::app()->phpThumb->create($folder.$result['filename']);
+						$thumb->resize(100,100);
+						$thumb->save($folder.$result['filename'].'_');
+						
+						
 					break;
 				case 'torrent':
 						$folder = $_SERVER['DOCUMENT_ROOT'].$model->getTorrentPath();
