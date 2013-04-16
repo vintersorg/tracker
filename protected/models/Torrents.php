@@ -62,7 +62,7 @@ class Torrents extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by', 'required'),
+			array('created_by',  'required'),
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -83,6 +83,7 @@ class Torrents extends CActiveRecord
 			'torrentGroups' => array(self::HAS_MANY, 'TorrentGroups', 'torrent_id'),
 			'torrenttags' => array(self::HAS_MANY, 'Torrenttags', 'torrent_id'),
 			'tag' =>  array(self::HAS_MANY, 'Tags', 'id'),
+			'children'=>array(self::HAS_MANY, 'Torrents', 'parent'),
 		);
 	}
 
@@ -278,18 +279,22 @@ class Torrents extends CActiveRecord
     {
         return array(
             'top'=>array(
+            	'condition'=>'parent=0',
                 'order'=>'id DESC',
                 'limit'=>10,
             ),
              'favorites'=>array(
+             	'condition'=>'parent=0',
                 'order'=>'id DESC',
                 'limit'=>10,
             ),
              'recommended'=>array(
+             	'condition'=>'parent=0',
                 'order'=>'id DESC',
                 'limit'=>10,
             ),
             'recently'=>array(
+            	'condition'=>'parent=0',
                 'order'=>'id DESC',
                 'limit'=>10,
             ),

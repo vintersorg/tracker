@@ -164,6 +164,13 @@ class TorrentController extends Controller
 						$allowedExtensions = array("torrent");//array("jpg","jpeg","gif","exe","mov" and etc...
 						$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
 						$result = $uploader->handleUpload($folder);
+											
+						//запоминаем оригинальное название
+						$model->torrent_file = $result['filename'];
+						$model->save();
+						//переименовываем файл для упрощения поиска						
+						rename($folder.$result['filename'], $folder.$model->id.'.torrent');
+						$result['filename'] = $model->id.'.torrent'; 
 					break;
 			}			
 	        			
