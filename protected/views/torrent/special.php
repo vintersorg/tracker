@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 $this->page = true;
 ?>
-
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'torrentEdit-form',
 	'htmlOptions'=>array('class'=>'well span8','enctype' => 'multipart/form-data'),
@@ -16,7 +15,7 @@ $this->page = true;
 			array(
 		        'id'=>'uploadPoster',
 		        'config'=>array(
-		               'action'=>Yii::app()->createUrl('torrent/upload', array('id'=>Yii::app()->request->getParam('id'), 'type'=>'poster')),
+		               'action'=>Yii::app()->createUrl('file/upload', array('id'=>$model->id, 'type'=>'poster')),
 		               'allowedExtensions'=>array("jpg","jpeg","gif","png","bmp"),//array("jpg","jpeg","gif","exe","mov" and etc...
 		               'sizeLimit'=>10*1024*1024,// maximum file size in bytes
 		               'minSizeLimit'=>10*1024,// minimum file size in bytes
@@ -38,7 +37,7 @@ $this->page = true;
 			array(
 		        'id'=>'uploadScreen',
 		        'config'=>array(
-		               'action'=>Yii::app()->createUrl('torrent/upload', array('id'=>Yii::app()->request->getParam('id'), 'type'=>'screen')),
+		               'action'=>Yii::app()->createUrl('file/upload', array('id'=>$model->id, 'type'=>'screen')),
 		               'allowedExtensions'=>array("jpg","jpeg","gif","png","bmp"),//array("jpg","jpeg","gif","exe","mov" and etc...
 		               'sizeLimit'=>10*1024*1024,// maximum file size in bytes
 		               'minSizeLimit'=>10*1024,// minimum file size in bytes
@@ -61,7 +60,7 @@ $this->page = true;
 			array(
 		        'id'=>'uploadTorrent',
 		        'config'=>array(
-		               'action'=>Yii::app()->createUrl('torrent/upload', array('id'=>Yii::app()->request->getParam('id'), 'type'=>'torrent')),
+		               'action'=>Yii::app()->createUrl('file/upload', array('id'=>$model->id, 'type'=>'torrent')),
 		               'allowedExtensions'=>array("torrent"),//array("jpg","jpeg","gif","exe","mov" and etc...
 		               'sizeLimit'=>10*1024*1024,// maximum file size in bytes
 		               'minSizeLimit'=>10*1024,// minimum file size in bytes

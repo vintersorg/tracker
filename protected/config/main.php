@@ -25,10 +25,7 @@ return array(
 		'application.extensions.yii-mail.YiiMailMessage',
 		
 	),
-	'aliases' => array(
-	    //If you manually installed it
-	    'xupload' => 'ext.xupload'
-	),
+
 	'modules'=>array(
 
 		// uncomment the following to enable the Gii tool

@@ -16,7 +16,7 @@ $(function(){
 });
 ", CClientScript::POS_END); ?>
 <div class="row">
-	<div class="span5"><img src="<?php echo $this->createUrl('image/poster',array('id' => $model->id, 'size'=>'big'));?>" class="img-rounded" ></div>
+	<div class="span5"><img src="<?php echo $this->createUrl('file/poster',array('id' => $model->id, 'size'=>'big'));?>" class="img-rounded" ></div>
 	
 	<div class="span7"><h3><?php echo $model->nameLocal." / ".$model->nameOrigin." ".$model->year; ?></h3></div>
 	<div class="span7">

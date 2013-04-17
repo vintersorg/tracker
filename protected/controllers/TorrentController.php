@@ -118,7 +118,7 @@ class TorrentController extends Controller
 	}
 	public function actionSpecial($id)
 	{
-		$model = new Torrents;	
+		$model = Torrents::model()->findByPk($id);	
 	    $this->render('special', array(
 	        'model' => $model,
 	    ) );

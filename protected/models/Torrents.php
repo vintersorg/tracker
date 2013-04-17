@@ -252,7 +252,7 @@ class Torrents extends CActiveRecord
 				$path .= $step;			
 			if(strlen($string) >0 ) $path .= DIRECTORY_SEPARATOR;
 		}
-		$path = $path.DIRECTORY_SEPARATOR.$this->id;
+		$path = $path.DIRECTORY_SEPARATOR.$this->id.DIRECTORY_SEPARATOR;
 		return $path;
 	}
 	public function getPosterPath()
