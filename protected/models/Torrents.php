@@ -26,17 +26,7 @@ class Torrents extends CActiveRecord
 	public $actor;
 	public $producer;
 	public $category;
-	public $posterview;
-	public $postermini;
-	public $torrent;
-	public $middlePath;
-	
-	public $path = array(
-		'poster' => '/images/poster',
-		'torrent' => '/torrents',
-		'screen' => '/images/screen',
-	);
-	
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -198,17 +188,7 @@ class Torrents extends CActiveRecord
 		{
 			$this->setAttribute($alias, implode(', ', $array_values));
 		}
-		$this->setAttribute('posterview',$this->getPosterPath().'active/view');
-		$this->setAttribute('postermini',$this->getPosterPath().'active/mini');
-		
-		$middlePath = $this->idToPath();
-		$this->setAttribute('middlePath', $middlePath);
-		
-		$posterPath = $this->getTorrentPath().$this->id.'.torrent';
-		if(is_readable($_SERVER['DOCUMENT_ROOT'].$posterPath))
-			$this->setAttribute('torrent', $posterPath);
-		else
-			$this->setAttribute('torrent', '');
+	
 	}
 	public function beforeSave()
 	{
@@ -218,70 +198,7 @@ class Torrents extends CActiveRecord
 		}			
 		return parent::beforeSave();
 	}
-	protected function afterSave()
-	{
-	    if($this->isNewRecord){
-	    	$allFolders = array(
-		    	'poster/active'	=> $this->getPosterPath().'/active',
-		    	'screen'		=> $this->getScreenPath(),
-		    	'torrent'		=> $this->getTorrentPath(),
-		    );
-			foreach ($allFolders as $key => $value) {
-				$this->checkDirectory($value);
-			}
-		}
-	}
-	/*
-	 *	получаем путь до файлов раздачи относительно id 
-	 * 
-	 */
-	public function idToPath()
-	{
-		$path = '';
-		
-		if(empty($this->id)) return $path;
-		
-		$string = $this->id;
-		while(strlen($string)){
-			//поддиректории из 2х символов
-			$step = substr($string, 0, 2);
-			$string = substr_replace($string, '', 0, 2);
-			if(strlen($step) == 1)
-				$path .= '0'.$step;
-			else
-				$path .= $step;			
-			if(strlen($string) >0 ) $path .= DIRECTORY_SEPARATOR;
-		}
-		$path = $path.DIRECTORY_SEPARATOR.$this->id.DIRECTORY_SEPARATOR;
-		return $path;
-	}
-	public function getPosterPath()
-	{		
-		$dir = $this->path['poster'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
-		//$this->checkDirectory($dir);
-		return $dir;
-	}
-	public function getTorrentPath()
-	{
-		$dir = $this->path['torrent'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
-		//$this->checkDirectory($dir);
-		return $dir;
-	}
-	public function getScreenPath()
-	{
-		$dir = $this->path['screen'].DIRECTORY_SEPARATOR.$this->idToPath($this->id).DIRECTORY_SEPARATOR;
-		//$this->checkDirectory($dir);
-		return $dir;
-	}
-	public function checkDirectory($dir){
-		if(!is_dir($_SERVER['DOCUMENT_ROOT'].$dir))
-			try{
-				mkdir($_SERVER['DOCUMENT_ROOT'].$dir, 0777, true);
-			}catch(exception $e){
-				throw new Exception("Не удалось создать директорию.");				
-			}
-		return true;
-	}
+
 	public function scopes()
     {
         return array(
