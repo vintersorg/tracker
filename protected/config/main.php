@@ -171,8 +171,8 @@ return array(
 		),
 		'imageSize' => array(
 			'poster' => array(
-				'big'	=> array(200,250),
-				'small'	=> array(100,150),
+				'big'	=> array(250,300),
+				'small'	=> array(150,200),
 			),
 			'screen' => array(
 				'small'	=> array(150,100),

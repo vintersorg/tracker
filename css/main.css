@@ -1,3 +1,14 @@
 img {
-	background-image: url('/images/empty.png');
+	background-image: url(/images/empty.png); /* Путь к фоновому рисунку */
+    background-position: center center; /* Положение фона */
+    background-repeat: no-repeat; /* Отменяем повторение фона */
+   	
+}
+.poster-big{
+	width: 250px;
+	height: 300px;
+}
+.poster-small{
+	width: 150px;
+	height: 200px;
 }
