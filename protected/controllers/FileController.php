@@ -2,37 +2,7 @@
 
 class FileController extends Controller
 {
-	public $layout=false;
-	public $defaultAction = 'show';
-	public $fileDefaultPaths = array(
-		'poster'		=> '/images/poster/',
-		'screen'		=> '/images/screen/',
-		'original'		=> 'original/',
-		'big'			=> 'big/',
-		'small'			=> 'small/',
-	);
-	public $fileEmptyPaths = array(
-		'poster'	=> '/images/empty/poster/',
-		'screen'	=> '/images/empty/screen/',
-	);
-	public $fileDefaultNames = array(
-		'poster'	=> 'poster',
-		'screen'	=> 'screen',
-	);
-	public $fileDefaultExtension = 'png';
-	
-	//источник безысходности
-	public $emptyImage = '/images/empty/empty.png';
-	
-	public $imageDefaultSize = array(
-		'poster' => array(
-			'big'	=> array(200,250),
-			'small'	=> array(100,150),
-		),
-		'screen' => array(
-			'small'	=> array(150,100),
-		),
-	);
+	public $layout=false;		
 	/**
 	 * @return array action filters
 	 */
@@ -96,16 +66,11 @@ class FileController extends Controller
 	
 	public function actionUpload($id, $type)
 	{
-		//получаем полный путь до будующего файла	
-		$fileFullPath = $this->makeFilePath($type, $id);
-		//отрезаем директорию 		
-		$filePath = pathinfo($fileFullPath,PATHINFO_DIRNAME).DIRECTORY_SEPARATOR;
 		//делаем особые дела для каждого типа загрузок
 		$result = $this->prepareSwitcher($id, $type);
 		//вывод данных о конечном файле
 		$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
- 		$fileSize=filesize($fileFullPath);//GETTING FILE SIZE
-        $fileName=$result['filename'];//GETTING FILE NAME
+		
         echo $return;// it's array	
 	}
 	/*
@@ -130,21 +95,21 @@ class FileController extends Controller
 	 */	
 	public function preparePoster($id)
 	{
-		//получаем часть пути основанной на is		
-		$middlePath = $this->getMiddlePath($id);
 		//получаем пути до кэшей
-		$files[] = $this->getImagePath('poster', 'original', $id);
-		$files[] = $this->getImagePath('poster', 'big', $id);
-		$files[] = $this->getImagePath('poster', 'small', $id);
+		$files[] = $this->getFilePath('poster', 'original', $id);
+		$files[] = $this->getFilePath('poster', 'big', $id);
+		$files[] = $this->getFilePath('poster', 'small', $id);
+		
+		$fileName = Yii::app()->params['fileDefaultNames']['poster'];
 		//удаляем кэши, если такие имеются
 		foreach ($files as $key => $value) {
-			if(file_exists($value)) unlink($value);
+			if(file_exists($value.$fileName)) unlink($value.$fileName);
 		}
 		//кладем файл на винт
-		$filePath = pathinfo($files[0],PATHINFO_DIRNAME).DIRECTORY_SEPARATOR;		
-		$result = $this->putImage($filePath);
+		
+		$result = $this->putImage($files[0], 'poster');
 		//переименовываем как положено
-		rename($filePath.$result['filename'], $files[0]);
+		rename($files[0].$result['filename'], $files[0].$fileName);
 		
 		return $result;
 	}
@@ -157,42 +122,14 @@ class FileController extends Controller
 	 */	
 	public function prepareScreen($id)
 	{
-		//получаем часть пути основанной на is		
-		$middlePath = $this->getMiddlePath($id);
-		//получаем пути до кэшей		
-		$files[] = $this->getImagePath('screen', 'original', $id);
-		$files[] = $this->getImagePath('screen', 'small', $id);
-		//удаляем кэши, если такие имеются
-		foreach ($files as $key => $value) {
-			if(file_exists($value)) unlink($value);
-		}
+		//получаем путь		
+		$filePath = $this->getFilePath('screen', 'original', $id);		
 		//кладем файл на винт
-		$filePath = pathinfo($files[0],PATHINFO_DIRNAME).DIRECTORY_SEPARATOR;	
-		$result = $this->putImage($filePath);
-		//переименовываем как положено
-		rename($filePath.$result['filename'], $files[0]);
+		$result = $this->putImage($filePath, 'screen');
 		
 		return $result;
 	}
-	/*
-	 * Делаем папку для загрузки
-	 * params:
-	 * (int)id = id торрента
-	 * (char)type = тип ('poster','screen')
-	 * return
-	 * 	(char)fileFullPath
-	 */
-	public function makeFilePath($type, $id)
-	{
-		//получаем путь куда класть файл
-		$fileFullPath = $this->getImagePath($type, 'original', $id);
-		$filePath = pathinfo($fileFullPath,PATHINFO_DIRNAME).DIRECTORY_SEPARATOR;
-		//если папки нет, создаем
-		if(!file_exists($filePath))
-			mkdir($filePath, 0777, true);
-		
-		return $fileFullPath;
-	}
+
 	/*
 	 * Кладем папку на винт
 	 * params:
@@ -200,15 +137,12 @@ class FileController extends Controller
 	 * return
 	 * 	(json array)about file
 	 */
-	public function putImage($filePath)
+	public function putImage($filePath, $type)
 	{
-		$sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
-		$allowedExtensions = array("jpg","jpeg","gif","png","bmp");//array("jpg","jpeg","gif","exe","mov" and etc...
-		
 		Yii::import("ext.EAjaxUpload.qqFileUploader");			
-		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+		$uploader = new qqFileUploader(Yii::app()->params['fileAllowedExtensions'][$type], Yii::app()->params['fileSizeLimit'][$type]);
 		//true - перезапись файла. иначе будет менять имя. нам вроде без разницы, но и файлы плодить не нужно
-		return $uploader->handleUpload($filePath, true);
+		return $uploader->handleUpload($filePath);
 	}
 	/*
 	 * Собирает путь до картинки (файла?)
@@ -220,27 +154,21 @@ class FileController extends Controller
 	 * return
 	 * 	(char)filePath
 	 */
-	public function getImagePath($type, $size='small', $id, $empty=FALSE)
+	public function getFilePath($type, $size='', $id)
 	{
 		$filePath	= '';
-		if(
-			!isset($this->fileEmptyPaths[$type])	||
-			!isset($this->fileDefaultPaths[$type])	||
-			!isset($this->fileDefaultPaths[$size])	||
-			!isset($this->fileDefaultNames[$type])
-		) 
-		return $filePath;
 		
 		$filePath	.=	$_SERVER['DOCUMENT_ROOT'];
-		$filePath	.=	($empty)?$this->fileEmptyPaths[$type]:$this->fileDefaultPaths[$type];
+		$filePath	.=	Yii::app()->params['filePath'][$type];
 		$filePath	.=	$this->getMiddlePath($id);
-		$filePath	.=	$this->fileDefaultPaths[$size];
-		$filePath	.=	$this->fileDefaultNames[$type];
-		$filePath	.=	'.';
-		$filePath	.=	$this->fileDefaultExtension;
+		$filePath	.=	!empty($size)?Yii::app()->params['filePath'][$size]:'';
+		
+		//если папки нет, создаем
+		if(!file_exists($filePath)) mkdir($filePath, 0777, true);
 		
 		return $filePath;
 	}
+	
 	/*
 	 * Выдает картинку потоком
 	 * params:
@@ -250,44 +178,29 @@ class FileController extends Controller
 	 * return
 	 * 	(stream)image not null
 	 */
-	public function getImage($type, $size, $id)
+	public function getImage($type, $size, $id, $filename='')
 	{
+		$filePathCache		= $this->getFilePath($type, $size, $id);
+		$filePathOriginal	= $this->getFilePath($type, 'original', $id);
+		if(empty($filename))		
+			$filename		= Yii::app()->params['fileDefaultNames'][$type];	
+		
 		//смотрим в кэш
-		if(is_readable($filePathTarget=$this->getImagePath($type, $size, $id))){
-			
-			Yii::app()->phpThumb
-				->create($filePathTarget)
-				->show();
+		if(is_readable($filePathCache.$filename)){			
+			Yii::app()->phpThumb->create($filePathCache.$filename)->show();
 		//в кеше фига? тогда в оригиральный файл
-		}elseif(is_readable($filePathOriginal=$this->getImagePath($type, 'original', $id))){
-			list($width, $height) = $this->imageDefaultSize[$type][$size];
-			if(!file_exists(pathinfo($filePathTarget, PATHINFO_DIRNAME)))
-				mkdir(pathinfo($filePathTarget, PATHINFO_DIRNAME), 0777, true);
+		}elseif(is_readable($filePathOriginal.$filename)){
+			//размеры
+			list($width, $height) = Yii::app()->params['imageSize'][$type][$size];
+			//готовим папку
+			if(!file_exists($filePathCache)) mkdir($filePathCache, 0777, true);
 			
-			Yii::app()->phpThumb
-				->create($filePathOriginal)
+			Yii::app()->phpThumb->create($filePathOriginal.$filename)
 				->adaptiveResize($width,$height)
-				->save($filePathTarget)
-				->show();
-		//нет картинки? тогда подставим заглушку
-		}elseif(is_readable($filePathEmpty=$this->getImagePath($type, $size, $id, true))){			
-			Yii::app()->phpThumb->create($filePathEmpty)->show();			
-		//заглушки тоже нет по размеру? так и быть сделаем из заготовки
-		}else{
-			//безысходность
-			$emptyPath = $_SERVER['DOCUMENT_ROOT'].$this->emptyImage;
-			list($width, $height) = $this->imageDefaultSize[$type][$size];
-			if(!file_exists(pathinfo($filePathEmpty, PATHINFO_DIRNAME)))
-				mkdir(pathinfo($filePathEmpty, PATHINFO_DIRNAME), 0777, true);
-			
-			Yii::app()->phpThumb
-				->create($emptyPath)
-				->adaptiveResize($width,$height)
-				->save($filePathEmpty)
-				->show();
-		}
-		//если и тут нет, то ищите сами
+				->save($filePathCache.$filename)->show();
+		}		
 	}
+	
 	/*
 	 * получаем путь до файлов раздачи относительно id 
 	 * params:

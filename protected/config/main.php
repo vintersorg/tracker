@@ -158,5 +158,34 @@ return array(
 		'defaultRoleID'=>2,
 		'officialAppName'=> $_SERVER['SERVER_NAME'],
 		'registerMail' => 'mailer@firebow.org',
+		'filePath' => array(
+			'poster'		=> '/images/poster/',
+			'screen'		=> '/images/screen/',
+			'original'		=> 'original/',
+			'big'			=> 'big/',
+			'small'			=> 'small/',
+		),
+		'fileDefaultNames' => array(
+			'poster'	=> 'poster.png',
+			'screen'	=> 'screen.png',
+		),
+		'imageSize' => array(
+			'poster' => array(
+				'big'	=> array(200,250),
+				'small'	=> array(100,150),
+			),
+			'screen' => array(
+				'small'	=> array(150,100),
+			),
+		),
+		'fileSizeLimit' => array(
+			'poster' => 10 * 1024 * 1024,// maximum file size in bytes,
+			'screen' => 10 * 1024 * 1024,// maximum file size in bytes,
+			'torrent' => 10 * 1024 * 1024,// maximum file size in bytes,
+		),
+		'fileAllowedExtensions' => array(
+			'poster' => array("jpg","jpeg","gif","png","bmp"),
+			'screen' => array("jpg","jpeg","gif","png","bmp"),
+		),
 	),
 );
