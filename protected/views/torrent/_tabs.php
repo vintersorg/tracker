@@ -20,6 +20,7 @@
 			<div class="tab-pane" id="download">
 				<?php echo $this->renderPartial('_download', array(
 					'model'=>$model,
+					'torrent'=>$torrent,
 				)); ?>
 			</div>
 				

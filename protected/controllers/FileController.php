@@ -37,9 +37,9 @@ class FileController extends Controller
 	 * 	(stream)image not null
 	 */
 	
-	public function actionPoster($id=null, $size='small')
-	{
-		echo $this->getImage('poster', $size, $id);		
+	public function actionPoster($id=null, $size='original')
+	{		
+		echo Func::getImage('poster', $size, $id, Yii::app()->params['fileDefaultNames']['poster']);		
 	}
 	/*
 	 * отображает скрин 
@@ -50,11 +50,38 @@ class FileController extends Controller
 	 * 	(stream)image not null
 	 */
 	
-	public function actionScreen($id, $size='small')
-	{		
-		echo $this->getImage('screen', $size, $id);		
+	public function actionScreen($id, $size='original', $file)
+	{
+		echo Func::getImage('screen', $size, $id, $file);		
 	}
+	/*
+	 * выдает торрент файл
+	 * params:
+	 * (int)id = id торрента
+	 * return
+	 * 	(stream)image not null
+	 */
 	
+	public function actionTorrent($id)
+	{
+		$model = Torrents::model()->findByPk($id);
+		$pathToTorrent = Func::getFilePath('torrent', $id);
+		$torrent = $pathToTorrent.Yii::app()->params['fileDefaultNames']['torrent'];
+		if (ob_get_level()) {
+	    	ob_end_clean();
+	    }		
+	    // заставляем браузер показать окно сохранения файла
+	    header('Content-Description: File Transfer');
+	    header('Content-Type: '. mime_content_type($torrent));
+	    header('Content-Disposition: attachment; filename=' . $model->torrent_file);
+	    header('Content-Transfer-Encoding: binary');
+	    header('Expires: 0');
+	    header('Cache-Control: must-revalidate');
+	    header('Pragma: public');
+	    header('Content-Length: ' . filesize($torrent));
+	    // читаем файл и отправляем его пользователю
+	    readfile($torrent);
+	}
 	/*
 	 * Сохраняем файлы 
 	 * params:
@@ -96,20 +123,15 @@ class FileController extends Controller
 	public function preparePoster($id)
 	{
 		//получаем пути до кэшей
-		$files[] = $this->getFilePath('poster', 'original', $id);
-		$files[] = $this->getFilePath('poster', 'big', $id);
-		$files[] = $this->getFilePath('poster', 'small', $id);
+		$file = Func::getFilePath('poster', $id);
 		
 		$fileName = Yii::app()->params['fileDefaultNames']['poster'];
-		//удаляем кэши, если такие имеются
-		foreach ($files as $key => $value) {
-			if(file_exists($value.$fileName)) unlink($value.$fileName);
-		}
+
 		//кладем файл на винт
 		
-		$result = $this->putImage($files[0], 'poster');
+		$result = Func::putFile($file, 'poster');
 		//переименовываем как положено
-		rename($files[0].$result['filename'], $files[0].$fileName);
+		rename($file.$result['filename'], $file.$fileName);
 		
 		return $result;
 	}
@@ -123,109 +145,44 @@ class FileController extends Controller
 	public function prepareScreen($id)
 	{
 		//получаем путь		
-		$filePath = $this->getFilePath('screen', 'original', $id);		
+		$filePath = Func::getFilePath('screen', $id);		
 		//кладем файл на винт
-		$result = $this->putImage($filePath, 'screen');
+		$result = Func::putFile($filePath, 'screen');
+		//переименовываем как положено
+		//даем псевдослучайное цифовое имя
+		$micro = explode('.',microtime(true));
+		$fileName = $micro[0].$micro[1].Yii::app()->params['fileDefaultExtention']['image'];
+		rename($filePath.$result['filename'], $filePath.$fileName);
 		
 		return $result;
 	}
-
 	/*
-	 * Кладем папку на винт
+	 * Делат хорошо torrent файлу
 	 * params:
-	 * (char)filePath = путь до файла
+	 * (int)id = id торрента
 	 * return
 	 * 	(json array)about file
-	 */
-	public function putImage($filePath, $type)
+	 */	
+	public function prepareTorrent($id)
 	{
-		Yii::import("ext.EAjaxUpload.qqFileUploader");			
-		$uploader = new qqFileUploader(Yii::app()->params['fileAllowedExtensions'][$type], Yii::app()->params['fileSizeLimit'][$type]);
-		//true - перезапись файла. иначе будет менять имя. нам вроде без разницы, но и файлы плодить не нужно
-		return $uploader->handleUpload($filePath);
-	}
-	/*
-	 * Собирает путь до картинки (файла?)
-	 * params:
-	 * (char)type = тип
-	 * (char)size = размер
-	 * (int)id = id раздачи
-	 * (boolean)empty = true - выдать файл заглушку
-	 * return
-	 * 	(char)filePath
-	 */
-	public function getFilePath($type, $size='', $id)
-	{
-		$filePath	= '';
+		//получаем пути до кэшей
+		$file = Func::getFilePath('torrent', $id);
 		
-		$filePath	.=	$_SERVER['DOCUMENT_ROOT'];
-		$filePath	.=	Yii::app()->params['filePath'][$type];
-		$filePath	.=	$this->getMiddlePath($id);
-		$filePath	.=	!empty($size)?Yii::app()->params['filePath'][$size]:'';
+		$fileName = Yii::app()->params['fileDefaultNames']['torrent'];
+
+		//кладем файл на винт		
+		$result = Func::putFile($file, 'torrent');
+		//переименовываем как положено
+		rename($file.$result['filename'], $file.$fileName);
 		
-		//если папки нет, создаем
-		if(!file_exists($filePath)) mkdir($filePath, 0777, true);
+		$torrent = Torrents::model()->findByPk($id);
+		$torrent->torrent_file = $result['filename'];
+		$torrent->save();
 		
-		return $filePath;
+		return $result;
 	}
 	
-	/*
-	 * Выдает картинку потоком
-	 * params:
-	 * (char)type = тип
-	 * (char)size = размер
-	 * (int)id = id раздачи
-	 * return
-	 * 	(stream)image not null
-	 */
-	public function getImage($type, $size, $id, $filename='')
-	{
-		$filePathCache		= $this->getFilePath($type, $size, $id);
-		$filePathOriginal	= $this->getFilePath($type, 'original', $id);
-		if(empty($filename))		
-			$filename		= Yii::app()->params['fileDefaultNames'][$type];	
-		
-		//смотрим в кэш
-		if(is_readable($filePathCache.$filename)){			
-			Yii::app()->phpThumb->create($filePathCache.$filename)->show();
-		//в кеше фига? тогда в оригиральный файл
-		}elseif(is_readable($filePathOriginal.$filename)){
-			//размеры
-			list($width, $height) = Yii::app()->params['imageSize'][$type][$size];
-			//готовим папку
-			if(!file_exists($filePathCache)) mkdir($filePathCache, 0777, true);
-			
-			Yii::app()->phpThumb->create($filePathOriginal.$filename)
-				->adaptiveResize($width,$height)
-				->save($filePathCache.$filename)->show();
-		}		
-	}
 	
-	/*
-	 * получаем путь до файлов раздачи относительно id 
-	 * params:
-	 * (int)id = id раздачи
-	 * return
-	 * 	(stream)image not null
-	 */
-	public function getMiddlePath($id)
-	{
-		$path = '';
-		
-		if(empty($id)) return $path;
-		
-		$string = $id;
-		while(strlen($string)){
-			//поддиректории из 2х символов
-			$step = substr($string, 0, 2);
-			$string = substr_replace($string, '', 0, 2);
-			if(strlen($step) == 1)
-				$path .= '0'.$step;
-			else
-				$path .= $step;			
-			if(strlen($string) >0 ) $path .= DIRECTORY_SEPARATOR;
-		}
-		$path = $path.DIRECTORY_SEPARATOR.$id.DIRECTORY_SEPARATOR;
-		return $path;
-	}
+	
+	
 }

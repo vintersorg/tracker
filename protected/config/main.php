@@ -159,15 +159,18 @@ return array(
 		'officialAppName'=> $_SERVER['SERVER_NAME'],
 		'registerMail' => 'mailer@firebow.org',
 		'filePath' => array(
-			'poster'		=> '/images/poster/',
-			'screen'		=> '/images/screen/',
-			'original'		=> 'original/',
-			'big'			=> 'big/',
-			'small'			=> 'small/',
+			'poster'		=> '/posters/',
+			'screen'		=> '/screens/',
+			'torrent'		=> '/torrents/',
 		),
 		'fileDefaultNames' => array(
 			'poster'	=> 'poster.png',
 			'screen'	=> 'screen.png',
+			'torrent'	=> 'torrent.torrent',
+		),
+		'fileDefaultExtention' => array(
+			'image' => '.png',
+			'torrent' => '.torrent',
 		),
 		'imageSize' => array(
 			'poster' => array(
@@ -186,6 +189,7 @@ return array(
 		'fileAllowedExtensions' => array(
 			'poster' => array("jpg","jpeg","gif","png","bmp"),
 			'screen' => array("jpg","jpeg","gif","png","bmp"),
+			'torrent' => array("torrent"),
 		),
 	),
 );

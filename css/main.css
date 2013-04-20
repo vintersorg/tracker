@@ -1,8 +1,7 @@
 img {
 	background-image: url(/images/empty.png); /* Путь к фоновому рисунку */
-    background-position: center center; /* Положение фона */
-    background-repeat: no-repeat; /* Отменяем повторение фона */
-   	
+	background-position: center center; /* Положение фона */
+	background-repeat: no-repeat; /* Отменяем повторение фона */
 }
 .poster-big{
 	width: 250px;

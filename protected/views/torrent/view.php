@@ -51,7 +51,7 @@ $(function(){
 		<?php $this->widget('bootstrap.widgets.TbBox', array(
 		    'title' => 'Скриншоты',
 		    'headerIcon' => 'icon-eye-open',
-		    'content' => $this->renderPartial('_screen', array('data'=> $model), true),
+		    'content' => $this->renderPartial('_screen', array('data'=> $model, 'screens'=> $screens), true),
 		)); ?>
 	</div>
 	<!--Описание-->
@@ -59,5 +59,6 @@ $(function(){
 <?php if(!$preview): ?>
 	<?php echo $this->renderPartial('_tabs', array(
 		'model'=>$model,
+		'torrent'=>$torrent,
 	)); ?>
 <?php endif; ?>

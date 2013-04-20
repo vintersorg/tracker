@@ -85,9 +85,18 @@ class TorrentController extends Controller
 	}
 	public function actionView($id){
 		$model = $this->loadModel($id);
+		$pathToScreen = Func::getFilePath('screen', $id);		
+		$screensPath = glob($pathToScreen.'*.{png}', GLOB_BRACE);
+		$screens = Func::getfileName($screensPath);
+		
+		$pathToTorrent = Func::getFilePath('torrent', $id);
+		$torrent = $pathToTorrent.Yii::app()->params['fileDefaultNames']['torrent'];
+		
 		$this->render('view', array(
 			'model'=>$model,			
 			'preview' => false,
+			'screens' => $screens,
+			'torrent' => $torrent,
 		));
 	}
 	public function actionEdit($id)
@@ -98,7 +107,6 @@ class TorrentController extends Controller
 		
 		if(isset($_POST['TorrentEditForm']))
 		{
-			//VarDumper::dump($_POST);
 			$formModel->attributes=$_POST['TorrentEditForm'];
 			if($formModel->validate())
 			{
@@ -137,5 +145,4 @@ class TorrentController extends Controller
 			'preview' => true,
 		));
 	}
-	
 }
