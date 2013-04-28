@@ -53,7 +53,7 @@ class Torrents extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by',  'required'),
+			array('created_by, info_hash',  'required'),
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -224,14 +224,4 @@ class Torrents extends CActiveRecord
             ),
         );
     }
-	public function makePosterLink($filename, $type)
-	{		
-		$path = $_SERVER['DOCUMENT_ROOT'].$this->getPosterPath();
-		//киляем старую ссылку
-		if(is_readable($path.'active/'.$type)) unlink($path.'active/'.$type);		
-		$target = $path.$filename; // Это уже существующий файл
-		$link = $path.'active/'.$type; // Это файл, который вы хотите привязать к первому
-				
-		return link($target, $link);
-	}
 }

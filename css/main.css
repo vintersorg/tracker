@@ -4,8 +4,8 @@ img {
 	background-repeat: no-repeat; /* Отменяем повторение фона */
 }
 .poster-big{
-	width: 250px;
-	height: 300px;
+	width: 350px;
+	height: 400px;
 }
 .poster-small{
 	width: 150px;

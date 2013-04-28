@@ -246,9 +246,4 @@ final class BDecode {
 
 }
 
-/*
-$bd = new BDecode();
-$bd->bdecode("/path/to/torrent.torrent");
-print( sha1( $bd->bencode($bd->result['info']) ) );
-*/
 ?>

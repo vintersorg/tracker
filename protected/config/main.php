@@ -174,7 +174,7 @@ return array(
 		),
 		'imageSize' => array(
 			'poster' => array(
-				'big'	=> array(250,300),
+				'big'	=> array(350,400),
 				'small'	=> array(150,200),
 			),
 			'screen' => array(
@@ -184,7 +184,7 @@ return array(
 		'fileSizeLimit' => array(
 			'poster' => 10 * 1024 * 1024,// maximum file size in bytes,
 			'screen' => 10 * 1024 * 1024,// maximum file size in bytes,
-			'torrent' => 10 * 1024 * 1024,// maximum file size in bytes,
+			'torrent' => 3145728,// maximum file size in bytes,
 		),
 		'fileAllowedExtensions' => array(
 			'poster' => array("jpg","jpeg","gif","png","bmp"),

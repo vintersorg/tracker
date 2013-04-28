@@ -64,23 +64,39 @@ class FileController extends Controller
 	
 	public function actionTorrent($id)
 	{
+		//714ebc73790bbf14c23395962a4ff53467f1a957
 		$model = Torrents::model()->findByPk($id);
 		$pathToTorrent = Func::getFilePath('torrent', $id);
 		$torrent = $pathToTorrent.Yii::app()->params['fileDefaultNames']['torrent'];
 		if (ob_get_level()) {
 	    	ob_end_clean();
 	    }		
-	    // заставляем браузер показать окно сохранения файла
+	    //подключаем класс работы с торрент файлами
+		$binary = new BDecode();
+		//декодируем файл, получаем массив
+		$dictionary = $binary->bdecode($torrent);
+		
+		unset($dictionary['announce-list']);
+		//TODO: где паскей взять?
+		//$dictionary['announce'] = "http://bt.spark-media.ru/announce.php?passkey=b253a3904f6b5d75b58746664427ecc97";
+		$dictionary['announce'] = "http://firebow.org/announce.php";
+		$dictionary['comment'] = "http://firebow.org".$this->createUrl('torrent/view',array('id' => $id));
+		
+	    // заставляем браузер показать окно сохранения файл
+	    
 	    header('Content-Description: File Transfer');
-	    header('Content-Type: '. mime_content_type($torrent));
+	    header('Content-Type: application/x-bittorrent');
 	    header('Content-Disposition: attachment; filename=' . $model->torrent_file);
 	    header('Content-Transfer-Encoding: binary');
 	    header('Expires: 0');
 	    header('Cache-Control: must-revalidate');
 	    header('Pragma: public');
-	    header('Content-Length: ' . filesize($torrent));
+	    //header('Content-Length: ' . filesize($torrent));
+		
 	    // читаем файл и отправляем его пользователю
-	    readfile($torrent);
+	    
+	    //VarDumper::dump($dictionary);
+	    print $binary->bencode($dictionary);
 	}
 	/*
 	 * Сохраняем файлы 
@@ -175,8 +191,20 @@ class FileController extends Controller
 		//переименовываем как положено
 		rename($file.$result['filename'], $file.$fileName);
 		
+		//подключаем класс работы с торрент файлами
+		$binary = new BDecode();
+		//декодируем файл, получаем массив
+		$dictionary = $binary->bdecode($file.$fileName);
+		//делаем торент приватным
+		$dictionary['info']['private'] = 1;
+		
+		//считаем хэш раздачи		
+		$info_hash = sha1($binary->bencode($dictionary['info']));
+		
+		//пишем в базу
 		$torrent = Torrents::model()->findByPk($id);
 		$torrent->torrent_file = $result['filename'];
+		$torrent->info_hash = $info_hash;
 		$torrent->save();
 		
 		return $result;
