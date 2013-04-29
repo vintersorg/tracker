@@ -70,6 +70,9 @@ if (!isset($_GET['info_hash']) || strlen($_GET['info_hash']) != 20)
 // open database
 peertracker::open();
 
+// make info_hash & peer_id SQL friendly
+$_GET['info_hash'] = pg_escape_bytea(peertracker::$db, $_GET['info_hash']);
+
 // perform scrape
 peertracker::scrape();
 

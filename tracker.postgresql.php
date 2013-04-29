@@ -139,13 +139,13 @@ class peertracker
 			// insert into the peers table
 			"INSERT INTO {$_SERVER['tracker']['db_prefix']}peers " .
 			// table columns
-			'(info_hash, peer_id, compact, ip, port, state, updated) ' .
+			"(info_hash, peer_id, compact, ip, port, state, updated) " .
 			// 20-byte info_hash, 20-byte peer_id
-			"VALUES (E'{$_GET['info_hash']}'::bytea, E'{$_GET['peer_id']}'::bytea, " .
+			"VALUES ('{$_GET['info_hash']}'::bytea, '{$_GET['peer_id']}'::bytea, " .
 			// 6-byte compacted peer info
-			"E'" . pg_escape_bytea(self::$db, pack('Nn', ip2long($_GET['ip']), $_GET['port'])) .
+			"'" . pg_escape_bytea(self::$db, pack('Nn', ip2long($_GET['ip']), $_GET['port'])) .
 			// dotted decimal string ip, integer port
-			"'::bytea, '{$_GET['ip']}', {$_GET['port']}, {$_SERVER['tracker']['seeding']}, " . time() . '); '
+			"'::bytea, '{$_GET['ip']}', ".intval($_GET['port']).", {$_SERVER['tracker']['seeding']}, " . time() . "); "
 		) OR tracker_error('failed to add new peer data');
 	}
 
@@ -157,13 +157,13 @@ class peertracker
 			// update the peers table
 			"UPDATE {$_SERVER['tracker']['db_prefix']}peers " . 
 			// set the 6-byte compacted peer info
-			"SET compact=E'" . pg_escape_bytea(self::$db, pack('Nn', ip2long($_GET['ip']), $_GET['port'])) .
+			"SET compact='" . pg_escape_bytea(self::$db, pack('Nn', ip2long($_GET['ip']), $_GET['port'])) .
 			// dotted decimal string ip, integer port
 			"'::bytea, ip='{$_GET['ip']}', port={$_GET['port']}, " .
 			// integer state and unix timestamp updated
 			"state={$_SERVER['tracker']['seeding']}, updated=" . time() .
 			// that matches the given info_hash and peer_id
-			"WHERE info_hash=E'{$_GET['info_hash']}'::bytea AND peer_id=E'{$_GET['peer_id']}'::bytea;"
+			"WHERE info_hash='{$_GET['info_hash']}'::bytea AND peer_id='{$_GET['peer_id']}'::bytea;"
 		) OR tracker_error('failed to update peer data');
 	}
 
@@ -177,7 +177,7 @@ class peertracker
 			// set updated to the current unix timestamp
 			'SET updated=' . time() .
 			// that matches the given info_hash and peer_id
-			" WHERE info_hash=E'{$_GET['info_hash']}'::bytea AND peer_id=E'{$_GET['peer_id']}'::bytea;"
+			" WHERE info_hash='{$_GET['info_hash']}'::bytea AND peer_id='{$_GET['peer_id']}'::bytea;"
 		) OR tracker_error('failed to update peers last access');
 	}
 
@@ -189,7 +189,7 @@ class peertracker
 			// delete a peer from the peers table
 			"DELETE FROM {$_SERVER['tracker']['db_prefix']}peers " .
 			// that matches the given info_hash and peer_id
-			"WHERE info_hash=E'{$_GET['info_hash']}'::bytea AND peer_id=E'{$_GET['peer_id']}'::bytea;"
+			"WHERE info_hash='{$_GET['info_hash']}'::bytea AND peer_id='{$_GET['peer_id']}'::bytea;"
 		) OR tracker_error('failed to remove peer data');
 	}
 
@@ -201,7 +201,7 @@ class peertracker
 			// select a peer from the peers table
 			"SELECT ip, port, state FROM {$_SERVER['tracker']['db_prefix']}peers " .
 			// that matches the given info_hash and peer_id
-			"WHERE info_hash=E'{$_GET['info_hash']}'::bytea AND peer_id=E'{$_GET['peer_id']}'::bytea;"
+			"WHERE info_hash='{$_GET['info_hash']}'::bytea AND peer_id='{$_GET['peer_id']}'::bytea;"
 		));
 
 		// process tracker event
@@ -242,7 +242,7 @@ class peertracker
 		// fetch peer total
 		$total = pg_fetch_row(pg_query(self::$db,
 			// select a count of the number of peers that match the given info_hash
-			"SELECT COUNT(*) FROM {$_SERVER['tracker']['db_prefix']}peers WHERE info_hash=E'{$_GET['info_hash']}'::bytea;"
+			"SELECT COUNT(*) FROM {$_SERVER['tracker']['db_prefix']}peers WHERE info_hash='{$_GET['info_hash']}'::bytea;"
 		)) OR tracker_error('failed to select peer count');
 
 		// select
@@ -255,7 +255,7 @@ class peertracker
 			'ip, port '
 			) .
 			// from peers table matching info_hash
-			"FROM {$_SERVER['tracker']['db_prefix']}peers WHERE info_hash=E'{$_GET['info_hash']}'::bytea" .
+			"FROM {$_SERVER['tracker']['db_prefix']}peers WHERE info_hash='{$_GET['info_hash']}'::bytea" .
 			// less peers than requested, so return them all
 			($total[0] <= $_GET['numwant'] ? ';' : 
 				// if the total peers count is low, use SQL RAND
@@ -277,7 +277,7 @@ class peertracker
 
 		// compact announce
 		//временно выпилен. причина - ругается uTorrent
-		if ($_GET['compact'] && 1==0)
+		if ($_GET['compact'])
 		{
 			// peers list
 			$peers = '';
@@ -331,15 +331,14 @@ class peertracker
 			// scrape
 			$scrape = pg_fetch_row(pg_query(self::$db,
 				// select total seeders
-				'SELECT SUM(CASE WHEN state=1 THEN 1 ELSE 0 END), ' .
+				"SELECT SUM(CASE WHEN state::integer=1 THEN 1 ELSE 0 END), " .
 				// and leechers
-				'SUM(CASE WHEN state=0 THEN 1 ELSE 0 END) ' .
+				"SUM(CASE WHEN state::integer=0 THEN 1 ELSE 0 END) " .
 				// from peers
-				"FROM {$_SERVER['tracker']['db_prefix']}peers " . 
+				"FROM {$_SERVER['tracker']['db_prefix']}peers " .
 				// that match info_hash
-				"WHERE info_hash=E'" . pg_escape_bytea(self::$db, ($_GET['info_hash'])) . "'::bytea;"
+				"WHERE info_hash='{$_GET['info_hash']}'::bytea;"
 			));
-
 			// 20-byte info_hash, integer complete, integer downloaded, integer incomplete
 			$response .= "20:{$_GET['info_hash']}d8:completei" . ($scrape[0]+0) . 
 			             'e10:downloadedi0e10:incompletei' . ($scrape[1]+0) . 'ee';
