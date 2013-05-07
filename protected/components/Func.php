@@ -47,7 +47,7 @@ class Func {
 			$filePath	.=	Yii::app()->params['fileDefaultNames'][$type];
 		
 		//если папки нет, создаем
-		//if(!file_exists($filePath)) mkdir($filePath, 0777, true);
+		if(!file_exists($filePath)) mkdir($filePath, 0777, true);
 				
 		return $filePath;
 	}
