@@ -159,9 +159,9 @@ return array(
 		'officialAppName'=> $_SERVER['SERVER_NAME'],
 		'registerMail' => 'mailer@firebow.org',
 		'filePath' => array(
-			'poster'		=> '/posters/',
-			'screen'		=> '/screens/',
-			'torrent'		=> '/torrents/',
+			'poster'		=> 'posters/',
+			'screen'		=> 'screens/',
+			'torrent'		=> 'torrents/',
 			'big'			=> 'big/',
 			'middle'		=> 'middle/',
 			'small'			=> 'small/',

@@ -36,11 +36,13 @@ class FileController extends Controller
 	 * return
 	 * 	(stream)image not null
 	 */
-	
+	/*
+	 * слишком медленно
 	public function actionPoster($id=null, $size='original')
 	{		
 		echo Func::getImage('poster', $size, $id, Yii::app()->params['fileDefaultNames']['poster']);		
 	}
+	*/
 	/*
 	 * отображает скрин 
 	 * params:
@@ -49,11 +51,13 @@ class FileController extends Controller
 	 * return
 	 * 	(stream)image not null
 	 */
-	
+	/*
+	 * слишком медленно
 	public function actionScreen($id, $size='original', $file)
 	{
 		echo Func::getImage('screen', $size, $id, $file);		
 	}
+	 */
 	/*
 	 * выдает торрент файл
 	 * params:
@@ -145,9 +149,11 @@ class FileController extends Controller
 
 		//кладем файл на винт
 		
-		$result = Func::putFile($file, 'poster');
+		$result = Func::putFile($id, 'poster');
 		//переименовываем как положено
-		rename($file.$result['filename'], $file.$fileName);
+		rename($file.$result['filename'], $file.$fileName);		
+		//делаем превьюхи
+		Func::makeCacheImages($id, 'poster', $fileName);
 		
 		return $result;
 	}
@@ -161,15 +167,16 @@ class FileController extends Controller
 	public function prepareScreen($id)
 	{
 		//получаем путь		
-		$filePath = Func::getFilePath('screen', $id);		
-		//кладем файл на винт
-		$result = Func::putFile($filePath, 'screen');
-		//переименовываем как положено
+		$filePath = Func::getFilePath('screen', $id);
 		//даем псевдослучайное цифовое имя
 		$micro = explode('.',microtime(true));
-		$fileName = $micro[0].$micro[1].Yii::app()->params['fileDefaultExtention']['image'];
+		$fileName = $micro[0].$micro[1].Yii::app()->params['fileDefaultExtention']['image'];		
+		//кладем файл на винт
+		$result = Func::putFile($id, 'screen');
+		//переименовываем как положено		
 		rename($filePath.$result['filename'], $filePath.$fileName);
-		
+		//делаем превьюхи
+		Func::makeCacheImages($id, 'screen', $fileName);
 		return $result;
 	}
 	/*
@@ -187,7 +194,7 @@ class FileController extends Controller
 		$fileName = Yii::app()->params['fileDefaultNames']['torrent'];
 
 		//кладем файл на винт		
-		$result = Func::putFile($file, 'torrent');
+		$result = Func::putFile($id, 'torrent');
 		//переименовываем как положено
 		rename($file.$result['filename'], $file.$fileName);
 		
