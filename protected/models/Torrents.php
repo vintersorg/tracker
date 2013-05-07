@@ -205,22 +205,22 @@ class Torrents extends CActiveRecord
             'top'=>array(
             	'condition'=>'parent=0',
                 'order'=>'id DESC',
-                'limit'=>10,
+                'limit'=>3,
             ),
              'favorites'=>array(
              	'condition'=>'parent=0',
                 'order'=>'id DESC',
-                'limit'=>10,
+                'limit'=>3,
             ),
              'recommended'=>array(
              	'condition'=>'parent=0',
                 'order'=>'id DESC',
-                'limit'=>10,
+                'limit'=>7,
             ),
             'recently'=>array(
             	'condition'=>'parent=0',
                 'order'=>'id DESC',
-                'limit'=>10,
+                'limit'=>7,
             ),
         );
     }

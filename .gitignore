@@ -45,4 +45,7 @@ mypol.te
 
 # cache #
 #########
-#assets/
+assets/
+posters/
+screens/
+torrents/

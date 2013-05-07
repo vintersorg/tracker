@@ -48,7 +48,7 @@ class Func {
 		
 		//если папки нет, создаем
 		if(!file_exists($filePath)) mkdir($filePath, 0777, true);
-				
+		
 		return $filePath;
 	}
 	public static function getImgSrc($type, $id, $size='original')
@@ -133,7 +133,6 @@ class Func {
 	public static function getImage($type, $size, $id, $filename)
 	{			
 		$filePath = self::getFilePath($type, $id, $size);
-		//VarDumper::dump($filePath.$filename);exit;
 		//смотрим файл
 		if(is_readable($filePath.$filename)){
 				Yii::app()->phpThumb->create($filePath.$filename)->show();
