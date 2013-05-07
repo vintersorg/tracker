@@ -162,7 +162,7 @@ return array(
 			'poster'		=> '/posters/',
 			'screen'		=> '/screens/',
 			'torrent'		=> '/torrents/',
-			'big'		=> 'big/',
+			'big'			=> 'big/',
 			'middle'		=> 'middle/',
 			'small'			=> 'small/',
 			'original'		=> 'original/',
@@ -180,6 +180,7 @@ return array(
 			'poster' => array(
 				'big'	=> array(350,400),
 				'small'	=> array(150,200),
+				'middle'=> array(250,300),
 			),
 			'screen' => array(
 				'small'	=> array(150,100),
