@@ -53,7 +53,7 @@ class Torrents extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_by, info_hash',  'required'),
+			array('created_by',  'required'),
 			array('created_by, approve_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

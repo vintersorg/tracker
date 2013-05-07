@@ -162,6 +162,10 @@ return array(
 			'poster'		=> '/posters/',
 			'screen'		=> '/screens/',
 			'torrent'		=> '/torrents/',
+			'big'		=> 'big/',
+			'middle'		=> 'middle/',
+			'small'			=> 'small/',
+			'original'		=> 'original/',
 		),
 		'fileDefaultNames' => array(
 			'poster'	=> 'poster.png',

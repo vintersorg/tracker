@@ -34,14 +34,13 @@ class Func {
 	 * return
 	 * 	(char)filePath
 	 */
-	public static function getFilePath($type, $id)
-	{
-		$filePath	= '';
-		
+	public static function getFilePath($type, $id, $size='original')
+	{		
+		$filePath	= '';		
 		$filePath	.=	$_SERVER['DOCUMENT_ROOT'];
 		$filePath	.=	Yii::app()->params['filePath'][$type];
-		$filePath	.=	self::getMiddlePath($id);
-		
+		$filePath	.=	self::getMiddlePath($id);		
+		$filePath	.=	Yii::app()->params['filePath'][$size];
 		//если папки нет, создаем
 		if(!file_exists($filePath)) mkdir($filePath, 0777, true);
 		
@@ -108,20 +107,17 @@ class Func {
 	 * 	(stream)image not null
 	 */
 	public static function getImage($type, $size, $id, $filename)
-	{		
-		$filePath	= self::getFilePath($type, $id);
+	{			
+		$filePath = self::getFilePath($type, $id, $size);
 		//VarDumper::dump($filePath.$filename);exit;
 		//смотрим файл
 		if(is_readable($filePath.$filename)){
-			//размеры
-			if($size == 'original'){
 				Yii::app()->phpThumb->create($filePath.$filename)->show();
-			}else{
-				list($width, $height) = Yii::app()->params['imageSize'][$type][$size];						
-				Yii::app()->phpThumb->create($filePath.$filename)
-					->adaptiveResize($width,$height)->show();
-			}
-			
+		}elseif($size != 'original'){
+			$filePathOrigin	= self::getFilePath($type, $id);
+			list($width, $height) = Yii::app()->params['imageSize'][$type][$size];				
+			Yii::app()->phpThumb->create($filePathOrigin.$filename)
+				->adaptiveResize($width,$height)->save($filePath.$filename)->show();			
 		}		
 	}
 }

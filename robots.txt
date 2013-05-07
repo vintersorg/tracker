@@ -1,0 +1,4 @@
+User-agent: Yandex # будет использована всеми роботами Яндекса
+Disallow: /
+User-agent: *
+Disallow: / 

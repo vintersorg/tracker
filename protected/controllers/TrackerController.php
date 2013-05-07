@@ -37,5 +37,44 @@ class TrackerController extends Controller
 			else
 				$this->render('error', $error);
 		}
-	}	
+	}
+	public function actionSchedule()
+	{
+		//собираем модель с найденными раздачами, у которых есть все указанные тэги
+		$criteria = new CDbCriteria;
+		$criteria->select = 'info_hash, sum(case when state=1 then 1 else 0 end) as seeders, sum(case when state=0 then 1 else 0 end) as leechers';		
+		$criteria->group='info_hash';
+		$peers = new CActiveDataProvider('Peers', array('criteria' => $criteria));
+		VarDumper::dump($peers);exit;
+		$torrent = Torrents::model();
+		foreach ($peers as $key => $value) {
+			//$torrent->findByAttributes('info_hash', 'info_hash=:info_hash', array(':info_hash'=>$peers[$key]->info_hash));
+			//$torrent->seeders = $peers[$key]->seeders;
+			//$torrent->peers = $peers[$key]->peers;
+			VarDumper::dump($key);exit;
+		}
+		echo "ok";
+	}
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'view' actions
+				'actions'=>array('*'),
+				'users'=>array('*'),
+			),
+		);
+	}
 }
