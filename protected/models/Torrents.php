@@ -198,8 +198,8 @@ class Torrents extends CActiveRecord
 		}			
 		return parent::beforeSave();
 	}
-
-	public function scopes()
+	
+	public function scopes($params=array())
     {
         return array(
             'top'=>array(
@@ -219,6 +219,62 @@ class Torrents extends CActiveRecord
             ),
             'recently'=>array(
             	'condition'=>'parent=0',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'video'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=22',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'tv'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=22',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'films'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=22',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'klip'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=22',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'serial'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=22',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'games'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=23',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'soft'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=28',
+                'order'=>'id DESC',
+                'limit'=>7,
+            ),
+            'music'=>array(
+            	'condition'=>'parent=0',
+            	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
+            	'condition' => 'tag_id=21',
                 'order'=>'id DESC',
                 'limit'=>7,
             ),

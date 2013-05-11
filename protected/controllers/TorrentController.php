@@ -33,7 +33,7 @@ class TorrentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload','category'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -130,6 +130,18 @@ class TorrentController extends Controller
 	    $this->render('special', array(
 	        'model' => $model,
 	    ) );
+	}
+	public function actionCategory($category)
+	{
+		//VarDumper::dump($category);exit;
+		try{
+			$model = Torrents::model()->$category();
+			$torrents = new CActiveDataProvider($model);	
+			$this->render('category', array('torrents'=>$torrents, 'category'=>$category));
+		}catch(exception $e){
+			$this->render('/tracker/error', array('code'=>404, 'message'=>'Системе не удалось найти запрашиваемое действие "'.$category.'".'));
+		}
+		
 	}
 	public function loadModel($id)
 	{
