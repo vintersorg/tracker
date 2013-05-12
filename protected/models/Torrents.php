@@ -143,6 +143,19 @@ class Torrents extends CActiveRecord
 		
 		return $torrents;
 	}
+	public function tagSearch($search)
+	{
+		//переделать на sphinx
+		$this->getDbCriteria()->mergeWith(array(
+			'distinct' => true,
+			'condition'=>"parent=0 AND (tag.caption ilike '%$search%' OR tag.caption ilike '%$search' OR tag.caption ilike '$search%')",
+        	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id join {{tags}} as tag on tag.id=tt.tag_id',
+            'order'=>'id DESC',            
+            'limit'=>100,	
+	   ));   
+	   
+	   return $this;
+	}
 	public function loadModel($id)
 	{
 		$model=self::model()->findByPk($id);
@@ -199,7 +212,7 @@ class Torrents extends CActiveRecord
 		return parent::beforeSave();
 	}
 	
-	public function scopes($params=array())
+	public function scopes()
     {
         return array(
             'top'=>array(
@@ -227,56 +240,56 @@ class Torrents extends CActiveRecord
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=22',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'tv'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=22',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'films'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=22',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'klip'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=22',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'serial'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=22',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'games'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=23',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'soft'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=28',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
             'music'=>array(
             	'condition'=>'parent=0',
             	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id',
             	'condition' => 'tag_id=21',
                 'order'=>'id DESC',
-                'limit'=>7,
+                'limit'=>50,
             ),
         );
     }

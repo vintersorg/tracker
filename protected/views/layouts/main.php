@@ -69,7 +69,7 @@
                 array('label'=>'Загрузить', 'url'=>'/torrent/create', 'active'=>Yii::app()->request->requestUri == '/torrents/create', 'visible'=>!Yii::app()->user->isGuest),
             ),
         ),
-        '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
+        '<form class="navbar-search pull-left" action="/torrent/search"><input type="text" class="search-query span2" name="search" placeholder="Search"></form>',
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),

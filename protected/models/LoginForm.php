@@ -88,7 +88,7 @@ class LoginForm extends CFormModel
 			.'С уважением администрация<br>'
 			.'<a href="http://'.Yii::app()->params['oficialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>',
 			 'text/html');
-		$message->subject = 'Регистрация на '.Yii::app()->params['oficialAppName'];
+		$message->subject = 'Регистрация на '.Yii::app()->params['officialAppName'];
 		$message->addTo($user->email);
 		$message->from = Yii::app()->params['registerMail'];		
 		Yii::app()->mail->send($message);

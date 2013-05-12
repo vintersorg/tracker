@@ -33,7 +33,7 @@ class TorrentController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload','category'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload','category','search'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -141,6 +141,14 @@ class TorrentController extends Controller
 		}catch(exception $e){
 			$this->render('/tracker/error', array('code'=>404, 'message'=>'Системе не удалось найти запрашиваемое действие "'.$category.'".'));
 		}
+		
+	}
+	public function actionSearch($search)
+	{
+		$category = 'Поиск';
+		$model = Torrents::model()->tagSearch($search);
+		$torrents = new CActiveDataProvider($model);	
+		$this->render('category', array('torrents'=>$torrents, 'category'=>$category));
 		
 	}
 	public function loadModel($id)

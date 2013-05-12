@@ -8,6 +8,7 @@
 class RestoreForm extends CFormModel
 {
 	public $email;
+	private $user_id;
 
 	/**
 	 * Declares the validation rules.
@@ -36,6 +37,7 @@ class RestoreForm extends CFormModel
 		
 		$model = new Users;
 		$user = $model->findByAttributes(array(), 'email = :email', array(':email' => $this->email));
+		$this->user_id = $user->id;
 		
 		if(empty($user->email))				
 			return false;
@@ -44,9 +46,13 @@ class RestoreForm extends CFormModel
 	}
 	public function sendRestoreEmail()
 	{
+		
+		$url = 'http://'.Yii::app()->params['officialAppName'].'/passport/reset?id='.$this->user_id.'&code='.$this->getRestoreCode();
+		
 		$message = new YiiMailMessage;
 		$message->setBody(
-			'Для восстановления пароля пройдите по ссылке <a href="#">пустая ссылка</a><br>'
+			'Для восстановления пароля пройдите по ссылке <a href="'.$url.'">пустая ссылка</a><br>'
+			.'Cсылка действительна до конца суток.<br>'
 			.'--<br>'
 			.'С уважением администрация<br>'
 			.'<a href="http://'.Yii::app()->params['officialAppName'].'">'.Yii::app()->params['oficialAppName'].'</a>', 'text/html');
@@ -54,5 +60,14 @@ class RestoreForm extends CFormModel
 		$message->addTo($this->email);
 		$message->from = Yii::app()->params['registerMail'];
 		Yii::app()->mail->send($message);
+	}
+	public function getRestoreCode()
+	{
+		//пока так...
+		$code = '';
+		$salt = md5(date("Ymd"));
+		$code = md5($this->user_id.date("Ymd").$salt);
+		
+		return $code;
 	}
 }
