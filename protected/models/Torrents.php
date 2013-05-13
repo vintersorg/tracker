@@ -145,13 +145,15 @@ class Torrents extends CActiveRecord
 	}
 	public function tagSearch($search)
 	{
+		$search = addcslashes($search, '%_'); // escape LIKE's special characters
 		//переделать на sphinx
 		$this->getDbCriteria()->mergeWith(array(
-			'distinct' => true,
-			'condition'=>"parent=0 AND (tag.caption ilike '%$search%' OR tag.caption ilike '%$search' OR tag.caption ilike '$search%')",
-        	'join' => 'join {{torrent_tags}} as tt on tt.torrent_id=t.id join {{tags}} as tag on tag.id=tt.tag_id',
-            'order'=>'id DESC',            
-            'limit'=>100,	
+			'distinct'	=> true,
+			'condition'	=> 'parent=0 AND (tag.caption ilike :search_all OR tag.caption ilike :search_before OR tag.caption ilike :search_after)', // no quotes around :search
+        	'join'		=> 'join {{torrent_tags}} as tt on tt.torrent_id=t.id join {{tags}} as tag on tag.id=tt.tag_id',
+        	'params'    => array(':search_all' => "%$search%",':search_before' => "%$search",':search_after' => "$search%"),  // Aha! Wildcards go here
+            'order'		=> 'id DESC',
+            'limit'		=> 100,	
 	   ));   
 	   
 	   return $this;
