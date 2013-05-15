@@ -55,17 +55,17 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Видео', 'url'=>array('torrent/category', 'category'=>'video'),
+                array('label'=>'Видео', 'url'=>array('torrent/category', 'id'=>'video'),
                 'items'=>array(
-                	array('label'=>'Видео', 'url'=>array('torrent/category', 'category'=>'video')),
-                    array('label'=>'Фильмы', 'url'=>array('torrent/category', 'category'=>'films')),
-                    array('label'=>'Клипы', 'url'=>array('torrent/category', 'category'=>'klip')),
-                    array('label'=>'Сериалы', 'url'=>array('torrent/category', 'category'=>'serial')),
-                    array('label'=>'ТВ', 'url'=>array('torrent/category', 'category'=>'tv')),
+                	array('label'=>'Видео', 'url'=>array('torrent/category', 'id'=>'video')),
+                    array('label'=>'Фильмы', 'url'=>array('torrent/category', 'id'=>'films')),
+                    array('label'=>'Клипы', 'url'=>array('torrent/category', 'id'=>'klip')),
+                    array('label'=>'Сериалы', 'url'=>array('torrent/category', 'id'=>'serial')),
+                    array('label'=>'ТВ', 'url'=>array('torrent/category', 'id'=>'tv')),
                 )),
-                array('label'=>'Музыка', 'url'=>array('torrent/category', 'category'=>'music')),
-				array('label'=>'Игры', 'url'=>array('torrent/category', 'category'=>'games')),
-				array('label'=>'Софт', 'url'=>array('torrent/category', 'category'=>'soft')),
+                array('label'=>'Музыка', 'url'=>array('torrent/category', 'id'=>'music')),
+				array('label'=>'Игры', 'url'=>array('torrent/category', 'id'=>'games')),
+				array('label'=>'Софт', 'url'=>array('torrent/category', 'id'=>'soft')),
                 array('label'=>'Загрузить', 'url'=>array('/torrent/create'), 'visible'=>!Yii::app()->user->isGuest),
             ),
         ),
@@ -168,7 +168,7 @@
 
 <div class="clear"></div>
 
-<div id="footer">
+<div id="footer" class="navbar navbar-fixed-bottom">
 	<div class="container">
 		<p class="muted credit">Copyright &copy; <?php echo date('Y'); ?> by Vintersorg.</p>
 	</div>

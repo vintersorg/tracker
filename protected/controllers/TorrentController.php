@@ -131,15 +131,15 @@ class TorrentController extends Controller
 	        'model' => $model,
 	    ) );
 	}
-	public function actionCategory($category)
+	public function actionCategory($id)
 	{
 		//VarDumper::dump($category);exit;
 		try{
-			$model = Torrents::model()->$category();
+			$model = Torrents::model()->$id();
 			$torrents = new CActiveDataProvider($model);	
-			$this->render('category', array('torrents'=>$torrents, 'category'=>$category));
+			$this->render('category', array('torrents'=>$torrents, 'category'=>$id));
 		}catch(exception $e){
-			$this->render('/tracker/error', array('code'=>404, 'message'=>'Системе не удалось найти запрашиваемое действие "'.$category.'".'));
+			$this->render('/tracker/error', array('code'=>404, 'message'=>'Системе не удалось найти запрашиваемое действие "'.$id.'".'));
 		}
 		
 	}
