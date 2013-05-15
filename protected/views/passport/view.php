@@ -13,13 +13,14 @@ $this->page = true;
 ?>
 <!--h1>Просмотр профиля</h1-->
 
-<?php //VarDumper::dump($model); ?>
-<?php $this->widget('bootstrap.widgets.TbDetailView', array(
-    'data'=>$model,
-    'attributes'=>array(
-        array('name'=>'username'),
-        array('name'=>'gendername'),
-        array('name'=>'birthday'),
-        array('name'=>'description'),
-    ),
-)); ?>
+<div class="span8">
+	<?php $this->widget('bootstrap.widgets.TbDetailView', array(
+	    'data'=>$model,
+	    'attributes'=>array(
+	        array('name'=>'username'),
+	        array('name'=>'gendername'),
+	        array('name'=>'birthday'),
+	        array('name'=>'description'),
+	    ),
+	)); ?>
+</div>

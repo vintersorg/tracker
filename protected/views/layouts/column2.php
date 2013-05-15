@@ -2,15 +2,11 @@
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="container">
 	<div class="row">
-		<?php if(!empty($this->menu)):?>
-			<div class="span9 <?php if(isset($this->page)):?>page<?php endif ?>">
-		<?php else:?>
-			<div class="span12 <?php if(isset($this->page)):?>page<?php endif ?>">
-		<?php endif ?>
-		<?php echo $content; ?>
+		<div class="span"  style="float: left">		
+			<?php echo $content; ?>
 		</div>
 		<!-- content -->
-		<div class="span3">
+		<div class="span3" style="float: right">
 			<?php
 				$this->widget('bootstrap.widgets.TbMenu', array(
 				    'type'=>'list',
@@ -20,4 +16,5 @@
 		</div><!-- sidebar -->
 	</div>
 </div>
+
 <?php $this->endContent(); ?>

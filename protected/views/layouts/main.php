@@ -164,13 +164,13 @@
 		)); ?><!-- breadcrumbs -->
 	</div>
 <?php endif?>
+
 <?php echo $content; ?>
 
-<div class="clear"></div>
 
-<div id="footer" class="navbar navbar-fixed-bottom">
-	<div class="container">
-		<p class="muted credit">Copyright &copy; <?php echo date('Y'); ?> by Vintersorg.</p>
+<div id="footer" class="">
+	<div class="container-credit">
+		<div class="credit">Copyright &copy; <?php echo date('Y'); ?> by Vintersorg.</div>
 	</div>
 </div>
 
