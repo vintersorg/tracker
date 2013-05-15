@@ -11,3 +11,22 @@ img {
 	width: 150px;
 	height: 200px;
 }
+.torrent-list{
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	width: 150px;
+}
+.torrent-list-row{
+	width: 100%;
+	word-wrap: break-word; 
+	float: left;
+	text-align: center;
+}
+
+#footer {
+	background-color: #f5f5f5;
+}
+.container .credit {
+margin: 20px 0;
+}

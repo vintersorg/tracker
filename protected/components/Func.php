@@ -143,4 +143,22 @@ class Func {
 				->adaptiveResize($width,$height)->save($filePath.$filename)->show();			
 		}		
 	}
+	/**
+	* $string - строка, которую будем обрезать
+	* $length - длина, до которой нужно обрезать
+	* $id - айди поста, для создания ссылки.
+	* $link - собственно ссылка.
+	* $caption - строка, которой заканчивать обрезанную строку
+	*/
+	public static function reduceContent($string, $length = 200, $id = '', $link='', $caption=' Читать далее...')
+    {
+        $string = strip_tags($string);
+		$string = CHtml::encode($string);
+        if ($length && strlen($string) > $length)
+        {
+            $string = mb_substr($string, 0, $length, 'utf8');
+			$string .= $caption;
+        }
+        return (empty($id)) ? $string : CHtml::link($string, array($link, 'id' => $id));
+    }
 }
