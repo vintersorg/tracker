@@ -4,6 +4,5 @@
 	    'template'=>"{items}\n{pager}",
 	    'itemView'=>'/torrent/_list',
 	    'htmlOptions' => array('style'=>'padding-top:0;'),
-	    //'url'	=> '#',
 	)); ?>
 </div>

@@ -14,6 +14,7 @@
 			'model'=>$model,
 		)); ?>			
 	</div>
+	
 	<div class="tab-pane" id="comment">
 		<?php echo $this->renderPartial('_comment', array(
 			'model'=>$model,
@@ -26,12 +27,7 @@
 			'torrent'=>$torrent,
 		)); ?>
 	</div>
-		
-	<div class="tab-pane" id="review">
-		<?php echo $this->renderPartial('_review', array(
-			'model'=>$model,
-		)); ?>
-	</div>
+	
 	<div class="tab-pane" id="screen">
 		<?php echo $this->renderPartial('_screen', array(
 			'data'=>$model,

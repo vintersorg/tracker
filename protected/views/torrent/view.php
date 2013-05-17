@@ -4,6 +4,10 @@ $this->breadcrumbs=array(
 	'Просмотр раздачи',
 );
 $this->page = true;
+$viewMenu=array(
+	array('label'=>'Редактирование', 'icon'=>'edit', 'url'=>array('edit','id'=>$model->id), 'visible'=>Yii::app()->user->id==$model->created_by,),
+	array('label'=>'Загрузки', 'icon'=>'upload', 'url'=>array('special','id'=>$model->id), 'visible'=>Yii::app()->user->id==$model->created_by,),	
+);
 ?>
 <?php Yii::app()->clientScript->registerScript('buttonGroup', "
 $(function(){
@@ -16,7 +20,15 @@ $(function(){
 });
 ", CClientScript::POS_END); ?>
 <div class="row">
-	<div class="span5"><img src="<?php echo $this->createUrl(Func::getImgSrc('poster', $model->id, 'big'));?>" class="img-rounded poster-big" ></div>
+	<div class="span12">
+		<?php $this->widget('bootstrap.widgets.TbMenu', array(
+		    'type'=>'pills',
+		    'items'=>$viewMenu,		    
+		)); ?>
+	</div>
+</div>
+<div class="row">
+	<div class="span5"><?php echo CHtml::image($this->createUrl(Func::getImgSrc('poster', $model->id, 'big')), '', array('class'=>'img-rounded poster-big')); ?></div>
 	
 	<div class="span7"><h3><?php echo $model->nameLocal." / ".$model->nameOrigin." ".$model->year; ?></h3></div>
 	<div class="span7">
@@ -32,7 +44,7 @@ $(function(){
 	</div>
 	<div class="span7">
 		<?php $ratings = 'tt1442449'; ?>
-		<img src="http://imdb.snick.ru/ratefor/03/<?php echo $ratings; ?>.png" alt="Оценка фильма на Kinopoisk.ru и IMDB.com" title="Оценка фильма на Kinopoisk.ru и IMDB.com" />
+		<?php echo CHtml::image('http://imdb.snick.ru/ratefor/03/'.$ratings.'.png', 'Оценка фильма на Kinopoisk.ru и IMDB.com', array('title'=>"Оценка фильма на Kinopoisk.ru и IMDB.com")); ?>
 	</div>
 	<!--Info-->
 </div>
