@@ -1,4 +1,4 @@
-<div class="span">
+<div class="span9">
 	<?php $this->widget('bootstrap.widgets.TbThumbnails', array(
 	    'dataProvider'=>$dataProvider,
 	    'template'=>"{items}\n{pager}",

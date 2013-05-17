@@ -1,1 +1,1 @@
-<?php echo $data->description; ?>
+<?php echo $model->description;?>

@@ -37,28 +37,13 @@ $(function(){
 	<!--Info-->
 </div>
 <div class="row">
-	<div class="span12">
-		<?php $this->widget('bootstrap.widgets.TbBox', array(
-		    'title' => 'Описание',
-		    'headerIcon' => 'icon-ok',
-		    'content' => $this->renderPartial('_description', array('data'=> $model), true),
-		)); ?>
+	<div class="span12" style="padding-top: 20px;">
+		<?php if(!$preview): ?>
+			<?php echo $this->renderPartial('_tabs', array(
+				'model'=>$model,
+				'torrent'=>$torrent,
+				'screens'=> $screens,
+			)); ?>
+		<?php endif; ?>
 	</div>
-	<!--Описание-->
 </div>
-<div class="row">
-	<div class="span12">
-		<?php $this->widget('bootstrap.widgets.TbBox', array(
-		    'title' => 'Скриншоты',
-		    'headerIcon' => 'icon-eye-open',
-		    'content' => $this->renderPartial('_screen', array('data'=> $model, 'screens'=> $screens), true),
-		)); ?>
-	</div>
-	<!--скрины-->
-</div>
-<?php if(!$preview): ?>
-	<?php echo $this->renderPartial('_tabs', array(
-		'model'=>$model,
-		'torrent'=>$torrent,
-	)); ?>
-<?php endif; ?>
