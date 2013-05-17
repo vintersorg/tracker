@@ -84,8 +84,8 @@ class FileController extends Controller
 		//TODO: где паскей взять?
 		//$dictionary['announce'] = "http://bt.spark-media.ru/announce.php?passkey=b253a3904f6b5d75b58746664427ecc97";
 		$dictionary['announce'] = "http://firebow.org/announce.php";
-		$dictionary['comment'] = "http://firebow.org".$this->createUrl('torrent/view',array('id' => $id));
-		
+		$dictionary['comment']	= "http://firebow.org".$this->createUrl('torrent/view',array('id' => $id));
+				
 	    // заставляем браузер показать окно сохранения файл
 	    
 	    header('Content-Description: File Transfer');
