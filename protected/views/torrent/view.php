@@ -12,13 +12,14 @@ $viewMenu=array(
 <?php Yii::app()->clientScript->registerScript('buttonGroup', "
 $(function(){
 	//$('a[href*='+window.location.hash+']').tab('show');
+	
     $('a[href*=#]:not([href=#])').bind('click', function (e) {
     	e.preventDefault();
 		$(this).tab('show');
-    });
+    });   
     
 });
-", CClientScript::POS_END); ?>
+", CClientScript::POS_READY); ?>
 <div class="row">
 	<div class="span12">
 		<?php $this->widget('bootstrap.widgets.TbMenu', array(
@@ -28,8 +29,15 @@ $(function(){
 	</div>
 </div>
 <div class="row">
-	<div class="span5"><?php echo CHtml::image($this->createUrl(Func::getImgSrc('poster', $model->id, 'big')), '', array('class'=>'img-rounded poster-big')); ?></div>
-	
+	<div class="span5">
+		<?php $this->widget('ext.lyiightbox.LyiightBox2', array(
+	        'image' => DIRECTORY_SEPARATOR.Func::getImgSrc('poster', $model->id, 'original'),	        
+	        'thumbnail'=> DIRECTORY_SEPARATOR.Func::getImgSrc('poster', $model->id, 'big'),
+	        'title'=> '',
+	        'group'=>'poster',
+	        'htmlOptions' =>  array('class'=>'img-rounded poster-big'),
+	    )); ?>
+	</div>
 	<div class="span7"><h3><?php echo $model->nameLocal." / ".$model->nameOrigin." ".$model->year; ?></h3></div>
 	<div class="span7">
 		<?php $this->widget('bootstrap.widgets.TbDetailView', array(
@@ -39,13 +47,14 @@ $(function(){
 			    array('name'=>'nameOrigin'),
 			    array('name'=>'year'),
 		        array('name'=>'producer'),
-		        array('name'=>'actor'),		    ),
+		        array('name'=>'actor'),		    
+			),
 		)); ?>
 	</div>
-	<div class="span7">
+	<!--div class="span7">
 		<?php $ratings = 'tt1442449'; ?>
 		<?php echo CHtml::image('http://imdb.snick.ru/ratefor/03/'.$ratings.'.png', 'Оценка фильма на Kinopoisk.ru и IMDB.com', array('title'=>"Оценка фильма на Kinopoisk.ru и IMDB.com")); ?>
-	</div>
+	</div-->
 	<!--Info-->
 </div>
 <div class="row">

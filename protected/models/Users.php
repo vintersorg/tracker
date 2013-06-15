@@ -52,19 +52,32 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('password, email, role_id, username', 'required'),
-			array('email, username','unique', 'className' => 'Users'),
+			array('password, email, role_id, username, identity, network', 'required'),
+			array('username','unique', 'className' => 'Users'),
+			array('email','uniqueIdentityAndEmail',),
 			array('role_id, gender', 'numerical', 'integerOnly'=>true),
 			array('email', 'length', 'max'=>1000),
 			array('birthday, description', 'safe'),
 			array('birthday', 'type', 'type' => 'date', 'message' => '{attribute}: это не дата!', 'dateFormat' => 'yyyy-MM-dd'),
-			array('email', 'email'),
+			array('email', 'email', 'message' => '{attribute}: это не email!'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, role_id, created_dt, username, password, email, gender, birthday, description', 'safe', 'on'=>'search'),
 		);
 	}
-
+	
+	public function uniqueIdentityAndEmail($attribute,$params=array())
+	{
+	    if(!$this->hasErrors())
+	    {
+	        $params['criteria']=array(
+	            'condition'=>'identity=:identity AND email=:email',
+	            'params'=>array(':identity'=>$this->identity, ':email'=>$this->email),
+	        );
+	        $validator=CValidator::createValidator('unique',$this,$attribute,$params);
+	        $validator->validate($this,array($attribute));
+	    }
+	} 
 	/**
 	 * @return array relational rules.
 	 */
@@ -100,6 +113,9 @@ class Users extends CActiveRecord
 			'birthday' => 'Дата рождения',
 			'description' => 'Немного о себе',
 			'gendername' => 'Пол',
+			'identity' => 'Identity',
+			'network' => 'Network',
+			'state' => 'State',
 		);
 	}
 
@@ -123,6 +139,9 @@ class Users extends CActiveRecord
 		$criteria->compare('gender',$this->gender);
 		$criteria->compare('birthday',$this->birthday,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('identity',$this->identity,true);
+		$criteria->compare('network',$this->network,true);
+		$criteria->compare('state',$this->state);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

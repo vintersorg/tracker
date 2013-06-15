@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<!--link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" /-->
-
+	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -89,62 +89,84 @@
 		    'items' => array(
 		        array(
 		            'image' => '/images/main_slider/0_mini.jpg',
+		            /*
 		            'label' => 'Статическая надпись #1',
 		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 		        array(
 		            'image' => '/images/main_slider/1_mini.jpg',
-		            'label' => 'Статическая надпись #2',
-		            'caption' => 'Статическая подпись #2',
+		           /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/2_mini.jpg',
-		            'label' => 'Статическая надпись #3',
-		            'caption' => 'Статическая подпись #3',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/3_mini.jpg',
-		            'label' => 'Статическая надпись #4',
-		            'caption' => 'Статическая подпись #4',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/4_mini.jpg',
-		            'label' => 'Статическая надпись #5',
-		            'caption' => 'Статическая подпись #5',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/5_mini.jpg',
-		            'label' => 'Статическая надпись #6',
-		            'caption' => 'Статическая подпись #6',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/6_mini.jpg',
-		            'label' => 'Статическая надпись #7',
-		            'caption' => 'Статическая подпись #7',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/7_mini.jpg',
-		            'label' => 'Статическая надпись #8',
-		            'caption' => 'Статическая подпись #8',
+		            /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/8_mini.jpg',
-		            'label' => 'Статическая надпись #9',
-		            'caption' => 'Статическая подпись #9',
+		           /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/9_mini.jpg',
-		            'label' => 'Статическая надпись #10',
-		            'caption' => 'Статическая подпись #10',
+		          /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 				array(
 		            'image' => '/images/main_slider/10_mini.jpg',
-		            'label' => 'Статическая надпись #11',
-		            'caption' => 'Статическая подпись #11',
+		           /*
+		            'label' => 'Статическая надпись #1',
+		            'caption' => 'Статическая подпись #1',
+					 */
 					),
 		    ),
 		)); ?><!--bigslider-->
-		<div class="container">
+		<!--div class="container">
 			<div class="row">
 				<div class="span12">
 					<div class="span5"><img src="/images/remont.jpg" class="img-rounded" ></div>
@@ -155,7 +177,7 @@
 						</span></div>
 				</div>
 			</div>
-		</div>
+		</div-->
 	<?php endif ?>
 	
 	<?php if(isset($this->breadcrumbs)):?>
