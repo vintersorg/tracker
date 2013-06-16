@@ -29,11 +29,11 @@ class TorrentController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view'),
+				'actions'=>array('view','category','search'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform actions
-				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special','view', 'preview','upload','category','search'),
+				'actions'=>array('create','update', 'edit', 'admin', 'delete', 'special', 'preview','upload'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
