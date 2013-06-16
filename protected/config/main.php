@@ -39,6 +39,47 @@ return array(
 				'bootstrap.gii'
 			),
 		),		
+		'comments'=>array(
+			'class'=>'ext.comments.CommentsModule',
+	        //you may override default config for all connecting models
+	        'defaultModelConfig' => array(
+	            //only registered users can post comments
+	            'registeredOnly' => true,
+	            'useCaptcha' => false,
+	            //allow comment tree
+	            'allowSubcommenting' => true,
+	            //display comments after moderation
+	            'premoderate' => false,
+	            //action for postig comment
+	            'postCommentAction' => 'comments/comment/postComment',
+	            //super user condition(display comment list in admin view and automoderate comments)
+	            'isSuperuser'=>'Yii::app()->user->checkAccess("moderate")',
+	            //order direction for comments
+	            'orderComments'=>'DESC',
+	        ),
+	        //the models for commenting
+	        'commentableModels'=>array(
+	            //model with individual settings
+	            'torrents'=>array(
+	                'registeredOnly'=>false,
+	                'useCaptcha'=>false,
+	                'allowSubcommenting'=>false,
+	                //config for create link to view model page(page with comments)
+	                'pageUrl'=>array(
+	                    'route'=>'torrent/view',
+	                    //'data'=>array('id'=>'id'),
+	                ),
+	            ),
+	            //model with default settings
+	            'ImpressionSet',
+	        ),
+	        //config for user models, which is used in application
+	        'userConfig'=>array(
+	            'class'=>'Users',
+	            'nameProperty'=>'username',
+	            'emailProperty'=>'email',
+	        ),
+	    ),
 
 	),
 

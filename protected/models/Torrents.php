@@ -92,11 +92,11 @@ class Torrents extends CActiveRecord
 			'torrenttags'	=> 'Тэги',
 			'nameLocal'		=> 'Локализованное название',
 			'nameOrigin'	=> 'Оригинальное название',
-			'year'			=> 'Год впуска',
+			'year'			=> 'Год выпуска',
 			'country'		=> 'Страна',
 			'actor'			=> 'Актеры',
-			'producer'		=> 'Режисер',
-			'category'		=> 'Категоия',
+			'producer'		=> 'Режиссер',
+			'category'		=> 'Категория',
 		);
 	}
 

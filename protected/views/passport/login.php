@@ -17,20 +17,20 @@ $this->menu=array(
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
-	'htmlOptions'=>array('class'=>'well span3'),
+	'htmlOptions'=>array('class'=>'well span6'),
 )); ?>
-	<div class="row">
-		<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
-
-		<?php echo $form->errorSummary($model); ?>
-
-		<?php echo $form->textFieldRow($model, 'username', array('class'=>'span3')); ?>
-		<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
-		<?php echo $form->checkboxRow($model, 'rememberMe'); ?>
 	
-		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Войти')); ?>
-	</div>
-	<div class="row" style="padding-top: 30px">
+	<p class="note"><span class="required">*</span> Поля обязательные для заполнения</p>
+
+	<?php echo $form->errorSummary($model); ?>
+
+	<?php echo $form->textFieldRow($model, 'username', array('class'=>'span3')); ?>
+	<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
+	<?php echo $form->checkboxRow($model, 'rememberMe'); ?>
+
+	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Войти')); ?>
+	
+	<div style="padding-top: 30px">
 		<?php  $this->widget('application.components.UloginWidget', array(
 		    'params'=>array(
 		    	//Адрес, на который ulogin будет редиректить браузер клиента.
