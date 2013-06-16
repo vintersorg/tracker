@@ -63,7 +63,7 @@ $this->page = true;
 		               'action'=>Yii::app()->createUrl('file/upload', array('id'=>$model->id, 'type'=>'torrent')),
 		               'allowedExtensions'=>array("torrent"),//array("jpg","jpeg","gif","exe","mov" and etc...
 		               'sizeLimit'=>10*1024*1024,// maximum file size in bytes
-		               'minSizeLimit'=>10*1024,// minimum file size in bytes
+		               'minSizeLimit'=>1*1024,// minimum file size in bytes
 		               //'onComplete'=>"js:function(id, fileName, responseJSON){ alert(fileName); }",
 		               'messages'=>array(
 		                                 'typeError'=>"{file} имеер недопустимое расширение. Только {extensions} разрешены.",
